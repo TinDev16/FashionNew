@@ -97,7 +97,7 @@ body {
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
-    width: 100%;
+    width: 80%;
     outline: none;
 }
 
@@ -214,44 +214,32 @@ body {
 /* Responsive cho các màn hình nhỏ */
 @media (max-width: 768px) {
     .container {
-        width: 90%;
-        padding: 10px;
+        padding: 3vw;
     }
-
-    .container button,
     .button {
-        font-size: 0.9rem;
-        padding: 8px 2rem;
+        padding: 1vw 4vw;
+        font-size: 1rem;
     }
-
-    .container input {
-        font-size: 0.9rem;
-    }
-
     .social-icons a {
-        width: 35px; /* Thay đổi kích thước icon */
-        height: 35px; /* Thay đổi kích thước icon */
+        width: 30px;
+        height: 30px;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        width: 95%;
-        padding: 5px;
+        padding: 4vw;
     }
-
-    .container button,
     .button {
-        font-size: 0.8rem;
-        padding: 8px 1.5rem;
+        padding: 0.8vw 3vw;
+        font-size: 0.9rem;
     }
-
-    .container input {
-        font-size: 0.8rem;
-    }
-
     .social-icons a {
-        width: 30px; /* Thay đổi kích thước icon */
-        height: 30px; /* Thay đổi kích thước icon */
+        width: 25px;
+        height: 25px;
     }
+}
+
+h1{
+    text-align: center;
 }
