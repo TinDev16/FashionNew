@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cart Page</title>
+        <link href="Images/logo3.png" rel="icon" type="image/x-icon">
+        <link rel="stylesheet" href="Css/CartPage.css">
+        <link rel="stylesheet" href="font-awesome-pro-v6-6.2.0/css/all.min.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="cart-header">
+                <h1 class="cart-header-title">
+                    <div class="left-content">
+                        <div class="title-container">
+                            <i class="shopping-basket-icon">
+                                <button class="button">
+                                    <div class="button-box">
+                                        <span class="button-elem">
+                                            <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span class="button-elem">
+                                            <svg viewBox="0 0 46 40">
+                                                <path
+                                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </button>
+                            </i>
+                            <span class="cart-title-text">Giỏ hàng</span>
+                            <div class="right-content">
+                                <div class="header-icons">
+                                    <span class="icons">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fa-solid fa-house"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </header>
+        <div class="cart-container">
+            <div class="cart-content">
+                <div class="cart-content-header">
+                    <table>
+                        <thead>
+                            <tr>
+                                <h2>Thông tin đơn hàng</h2>
+                                <th><input type="checkbox"></th>
+                                <th class="products">Sản phẩm</th>
+                                <th class="prices">Đơn giá</th>
+                                <th class="quantities">Số lượng</th>
+                                <th class="prices-sum">Thành tiền</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="cart-content-middle">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><img src="Images/hinh_doan3.webp" alt="Heart"></td>
+                                <td class="product-info">
+                                <span>Heart Cardigan</span><br>
+                                <select>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button">-</button>
+                                        <input type="number" value="1" min="1">
+                                        <button class="add-button">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    
+                                    <button class="deleteButton">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><img src="Images/hinh_doan1.jpg" alt="Carrot"></td>
+                                <td class="product-info">
+                                <span>Carrot Cardigan</span><br>
+                                <select>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button">-</button>
+                                        <input type="number" value="1" min="1">
+                                        <button class="add-button">+</button>                                       
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    
+                                    <button class="deleteButton">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><img src="Images/hinh_doan4.webp" alt="Purple"></td>
+                                <td class="product-info">
+                                <span>Purple Cardigan</span><br>
+                                <select>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button">-</button>
+                                        <input type="number" value="1" min="1">
+                                        <button class="add-button">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    
+                                    <button class="deleteButton">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><img src="Images/hinh_doan21.webp" alt="Black Cartoon"></td>
+                                <td class="product-info">
+                                <span>Black Cartoon Cardigan</span><br>
+                                <select>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button">-</button>
+                                        <input type="number" value="1" min="1">
+                                        <button class="add-button">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price">21.000đ</span>
+                                </td>
+                                <td>
+                                    
+                                    <button class="deleteButton">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="center-section">
+                <div class="customer-info">
+                    <form>
+                        <h2>Thông tin khách hàng</h2>
+                        <label for="name">Tên khách hàng<ng style="color: red;">*</ng></label><br>
+                        <input type="text" class="name-input" placeholder="Nhập họ và tên"><br><br>
+                        <label for="phone-number">Số điện thoại<ng style="color: red;">*</ng></label><br>
+                        <input type="text" class="phone-number-input" placeholder="Nhập số điện thoại"><br>
+                    </form>
+                </div>
+
+                <div class="delivery-info">
+                    <form>
+                        <h2>Hình thức nhận hàng</h2>
+                        <label for="delivery-method">Chọn phương thức nhận hàng<ng style="color: red;">*</ng></label><br><br>
+                        <input type="radio" id="saved-address" name="delivery-method" value="saved" checked>
+                        <label for="saved-address">Chọn địa chỉ từ tài khoản</label><br>
+
+                        <div id="saved-address-section">
+                            <label for="saved-address-select">Địa chỉ đã lưu<ng style="color: red;">*</ng></label>
+                            <select id="saved-address-select" class="select-field">
+                                <option value="address1">123 Đường ABC, Quận 1, TP. HCM</option>
+                                <option value="address2">456 Đường XYZ, Quận 3, TP. HCM</option>
+                                <!-- Add more saved addresses as needed -->
+                            </select>
+                        </div><br>
+
+                        <input type="radio" id="new-address" name="delivery-method" value="new">
+                        <label for="new-address">Nhập địa chỉ mới</label><br>
+
+                        <div id="new-address-section" style="display: inline-block;">
+                            <label class="city">Tỉnh - Thành phố<ng style="color: red;">*</ng></label>
+                            <select class="cities-select">
+                                <option>An Giang</option>
+                                <option>Bà Rịa - Vũng Tàu</option>
+                                <option>Bạc Liêu</option>
+                                <option>Bắc Giang</option>
+                                <option>Bắc Kạn</option>
+                                <option>Bắc Ninh</option>
+                                <option>Bến Tre</option>
+                                <option>Bình Dương</option>
+                                <option>Bình Định</option>
+                                <option>Bình Phước</option>
+                                <option>Bình Thuận</option>
+                                <option>Cà Mau</option>
+                                <option>Cao Bằng</option>
+                                <option>Cần Thơ</option>
+                                <option>Đà Nẵng</option>
+                                <option>Đắk Lắk</option>
+                                <option>Đắk Nông</option>
+                                <option>Điện Biên</option>
+                                <option>Đồng Nai</option>
+                                <option>Đồng Tháp</option>
+                                <option>Gia Lai</option>
+                                <option>Hà Giang</option>
+                                <option>Hà Nam</option>
+                                <option>Hà Nội</option>
+                                <option>Hà Tĩnh</option>
+                                <option>Hải Dương</option>
+                                <option>Hải Phòng</option>
+                                <option>Hậu Giang</option>
+                                <option>Hòa Bình</option>
+                                <option>Hồ Chí Minh</option>
+                                <option>Hưng Yên</option>
+                                <option>Khánh Hòa</option>
+                                <option>Kiên Giang</option>
+                                <option>Kon Tum</option>
+                                <option>Lai Châu</option>
+                                <option>Lạng Sơn</option>
+                                <option>Lào Cai</option>
+                                <option>Lâm Đồng</option>
+                                <option>Long An</option>
+                                <option>Nam Định</option>
+                                <option>Nghệ An</option>
+                                <option>Ninh Bình</option>
+                                <option>Ninh Thuận</option>
+                                <option>Phú Thọ</option>
+                                <option>Phú Yên</option>
+                                <option>Quảng Bình</option>
+                                <option>Quảng Nam</option>
+                                <option>Quảng Ngãi</option>
+                                <option>Quảng Ninh</option>
+                                <option>Quảng Trị</option>
+                                <option>Sóc Trăng</option>
+                                <option>Sơn La</option>
+                                <option>Tây Ninh</option>
+                                <option>Thái Bình</option>
+                                <option>Thái Nguyên</option>
+                                <option>Thanh Hóa</option>
+                                <option>Huế</option>
+                                <option>Tiền Giang</option>
+                                <option>Trà Vinh</option>
+                                <option>Tuyên Quang</option>
+                                <option>Vĩnh Long</option>
+                                <option>Vĩnh Phúc</option>
+                                <option>Yên Bái</option>
+                            </select>
+                        </div><br><br>
+
+                        <label for="address" class="address-label">Địa chỉ nhận hàng<ng style="color: red;">*</ng></label>
+                        <input type="text" id="address" class="address-input" placeholder="Nhập địa chỉ">
+
+                    </form>
+                </div>
+
+                <div class="payment-info">
+                    <form>
+                        <h2>Phương thức thanh toán</h2>
+                        <label class="payment-methods">Chọn một phương thức thanh toán dưới đây<ng style="color: red;">*</ng></label><br>
+                        <select class="payment-method-select">
+                            <option value="momo">Momo</option>
+                            <option value="zalopay">ZaloPay</option>
+                            <option value="vnpay">VNPay</option>
+                            <option value="card">Thanh toán bằng thẻ ngân hàng</option>
+                            <option value="after-delivery">Thanh toán sau khi nhận hàng</option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="note">
+                    <form>
+                        <h2>Ghi chú đơn hàng</h2>
+                        <textarea class="input-field" maxlength="255" placeholder="Thêm ghi chú (tùy chọn)"></textarea>
+                    </form>
+                </div>
+            
+
+                <div class="total">
+                    <h2>Chi tiết thanh toán</h2>
+                    <div class="order-item">
+                        <span class="label">Tổng tiền hàng</span>
+                        <span class="value">70.000đ</span>
+                    </div>
+                    <div class="order-item">
+                        <span class="label">Tổng tiền thanh toán</span>
+                        <span class="value">70.000đ</span>
+                    </div>
+                    <hr>
+                    <button class="checkout-btn">Thanh toán</button>
+                </div>
+            </div>
+
+            <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-top-content">
+                    <div class="footer-top-img">
+                        <img src="Images/logo3.png" alt="">
+                    </div>
+                    <div class="footer-top-subbox">
+                        <div class="footer-top-subs">
+                            <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
+                            <p class="footer-top-subs-text">Nhận thông tin mới nhất từ chúng tôi</p>
+                        </div>
+                        <form class="form-ground">
+                            <input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
+                            <button class="form-ground-btn">
+                                <span>ĐĂNG KÝ</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area">
+            <div class="container">
+                <div class="widget-row">
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Về chúng tôi</h3>
+                        <div class="widget-row-col-content">
+                            <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                        </div>
+                        <div class="widget-social">
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Liên kết</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Về chúng tôi</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Điều khoản</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Tin tức</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Sản phẩm</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Tee</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Polo</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Hoodie</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Cardigan</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Turtleneck</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Liên hệ</h3>
+                        <div class="contact">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-location-dot"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="contact-content contact-item-phone">
+                                    <span>0123 456 789</span>
+                                    <br>
+                                    <span>0987 654 321</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="contact-content conatct-item-email">
+                                    <span>3123411278@sv.sgu.edu.vn</span><br />
+                                    <span>3123411228@sv.sgu.edu.vn</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="copyright-content">
+                <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <div class="back-to-top">
+        <a href="#"><i class="fa-regular fa-arrow-up"></i></a>
+    </div>
+            </div>
+        </div>
+    </body>
+</html> 
