@@ -16,7 +16,7 @@
                 <h1 class="cart-header-title">
                     <div class="left-content">
                         <div class="title-container">
-                            <i class="header-back-button">
+                            <i class="header-back-button" onclick="goToHomePage()">
                                 <button class="button">
                                     <div class="button-box">
                                         <span class="button-elem">
@@ -37,13 +37,23 @@
                                 </button>
                             </i>
                             <span class="cart-title-text" style="color: #08397a;">Giỏ hàng</span>
+
                             <div class="right-content">
                                 <div class="header-icons">
                                     <span class="icons">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    <i class="fa-solid fa-user"></i>
-                                    <i class="fa-solid fa-house"></i>
+                                        <div class="user-menu">
+                                            <div class="user-icon">
+                                                <i class="fa-light fa-user"></i>
+                                                <span class="username">John Doe</span>
+                                            </div>
+                                            <div class="dropdown-menu">
+                                                <ul>
+                                                    <li>Tài khoản của tôi</li>
+                                                    <li>Đăng xuất</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <i class="fa-light fa-house" onclick="goToHomePage()"></i>
                                     </span>
                                 </div>
                             </div>
@@ -317,12 +327,16 @@
         <div class="total">
             <h2>Thông tin đơn hàng</h2>
             <div class="order-item">
-                <span class="label">Tổng thanh toán (<span class="total-products">0</span> sản phẩm)</span>
-                <span class="value">0đ</span>
+                <span class="label">Tổng sản phẩm</span>
+                <span class="total-products" style="color: black;">0</span> <!-- Total Products count element -->
+            </div>
+            <div class="order-item">
+                <span class="label">Tổng thanh toán</span>
+                <span class="value">0đ</span> <!-- Total Price element -->
             </div>
             <hr>
-            <button class="checkout-btn"><a href="CheckoutPage.html">Thanh toán</a></button>
-        </div>
+            <button class="checkout-btn">Thanh toán</button> <!-- Checkout button without an <a> tag -->
+        </div>        
 
         <script src="Js/CartPage.js"></script>
     </body>
