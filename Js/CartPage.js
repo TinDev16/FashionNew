@@ -1,5 +1,12 @@
 // Shopping Cart
 let cart = {};
+let totalPrice = 0;
+let totalProducts = 0;
+
+function goToHomePage() {
+    // Thay đổi URL để điều hướng về trang chủ
+    window.location.href = "index_home.html";
+}
 
 // Add products into cart
 function addToCart(productID) {
@@ -20,21 +27,6 @@ function removeFromCart(productID) {
         }
         updateCartCount();
     }
-}
-
-// Delete products from cart
-function deleteFromCart(productId) {
-    if (cart[productId]) {
-        delete cart[productId]; // Xóa sản phẩm khỏi giỏ hàng
-        updateCartCount(); // Cập nhật số lượng sản phẩm trong giỏ hàng
-
-        // Xóa sản phẩm khỏi giao diện
-        let productRow = document.querySelector(`button[data-product-id="${productId}"]`).closest('tr');
-        if (productRow) {
-            productRow.remove(); // Xóa hàng sản phẩm khỏi bảng
-        }
-    }
-    updateTotalAmount();
 }
 
 // Update products quantity
@@ -63,129 +55,107 @@ function toggleAllProducts() {
 }
 
 // Increase & Decrease & Delete & Checkout buttons
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let decreaseButtons = document.querySelectorAll('.minus-button');
     let increaseButtons = document.querySelectorAll('.add-button');
     let deleteButtons = document.querySelectorAll('.deleteButton');
-    let checkboxes = document.querySelectorAll('.product-checkbox');
     let checkoutButton = document.querySelector('.checkout-btn');
 
-    let totalPriceElement = document.querySelector('.value');
-    let totalProductsElement = document.querySelector('.total-products');
+    // Lấy giỏ hàng từ localStorage hoặc tạo mới nếu chưa tồn tại
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
 
-    let totalPrice = 0;
-    let totalProducts = 0;
+    // Hiển thị giỏ hàng trên giao diện
+    displayCart();
 
-    updateTotalAmount();
-
-    decreaseButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+    decreaseButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
             let productId = this.dataset.productId;
             decreaseProductQuantity(productId);
-            updateTotalAmount();
         });
     });
-    
-    increaseButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+
+    increaseButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
             let productId = this.dataset.productId;
             increaseProductQuantity(productId);
-            updateTotalAmount();
         });
     });
-    
-    deleteButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+
+    deleteButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
             let productId = this.dataset.productId;
             deleteFromCart(productId);
-            updateTotalAmount();
-        });
-    });
-    
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            updateTotalAmount();
         });
     });
 
-    checkoutButton.addEventListener('click', function() {
-        // Chuyển sang trang thanh toán
-        window.location.href = `CheckoutPage.html?total=${totalPrice}`;
+    checkoutButton.addEventListener('click', function () {
+        window.location.href = `CheckoutPage.html`;
     });
 
-    function updateTotalAmount() {
-        totalPrice = 0;
-        totalProducts = 0;
-        checkboxes.forEach(function(checkbox) {
-            if (checkbox.checked) {
-                let productId = checkbox.dataset.productId;
-                let priceElement = document.querySelector(`span[data-product-id="${productId}"]`);
-                if (priceElement) {
-                    let priceText = priceElement.textContent.replace(/[^0-9]/g, '');
-                    let price = parseInt(priceText);
-                    totalPrice += price;
-                    totalProducts++;
-                }
+    function decreaseProductQuantity(productId) {
+        let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+        let quantity = parseInt(quantityInput.value);
+
+        if (quantity > 1) {
+            quantity--;
+            quantityInput.value = quantity;
+            cart[productId].quantity = quantity;
+            updateCart();
+            updateProductTotalPrice(productId);
+        } else {
+            deleteFromCart(productId);
+        }
+    }
+
+    function increaseProductQuantity(productId) {
+        let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+        let quantity = parseInt(quantityInput.value);
+        quantity++;
+        quantityInput.value = quantity;
+        cart[productId].quantity = quantity;
+        updateCart();
+        updateProductTotalPrice(productId);
+    }
+
+    function updateProductTotalPrice(productId) {
+        let productRow = document.querySelector(`input[data-product-id="${productId}"]`).closest('tr');
+        let quantityInput = productRow.querySelector('.product-quantity');
+        let quantity = parseInt(quantityInput.value);
+
+        let unitPriceText = productRow.querySelector('.price').textContent.replace(/[^0-9]/g, '');
+        let unitPrice = parseInt(unitPriceText);
+
+        let totalPriceElement = productRow.querySelectorAll('.price')[1];
+        totalPriceElement.textContent = `${(unitPrice * quantity).toLocaleString()}đ`;
+    }
+
+    function deleteFromCart(productId) {
+        // Xóa sản phẩm khỏi giỏ hàng trong localStorage và cập nhật giao diện
+        delete cart[productId];
+        updateCart();
+
+        let productRow = document.querySelector(`input[data-product-id="${productId}"]`).closest('tr');
+        productRow.remove();
+    }
+
+    // Hàm cập nhật giỏ hàng trong localStorage
+    function updateCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    // Hàm hiển thị giỏ hàng khi tải lại trang
+    function displayCart() {
+        Object.keys(cart).forEach(productId => {
+            let product = cart[productId];
+            let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+            if (quantityInput) {
+                quantityInput.value = product.quantity;
+                updateProductTotalPrice(productId);
             }
         });
-    
-        if (totalPriceElement) {
-            totalPriceElement.textContent = `${totalPrice.toLocaleString()}đ`;
-        }
-    
-        if (totalProductsElement) {
-            totalProductsElement.textContent = totalProducts;
-        }
     }
-
 });
 
-// Decrease products quantity
-function decreaseProductQuantity(productId) {
-    let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
-    let quantity = parseInt(quantityInput.value);
-
-    if (quantity > 1) {
-        quantity--;
-        quantityInput.value = quantity;
-        updateTotalPrice(productId, 21000, quantity); // Cập nhật giá tiền
-        updateTotalAmount();
-    } else {
-        deleteFromCart(productId);
-    }
-}
-
-// Decrease products quantity
-function decreaseProductQuantity(productId) {
-    let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
-    let quantity = parseInt(quantityInput.value);
-
-    if (quantity > 1) {
-        quantity--;
-        quantityInput.value = quantity;
-        updateTotalPrice(productId, 21000, quantity); // Cập nhật giá tiền
-        updateTotalAmount();
-    } else {
-        deleteFromCart(productId);
-    }
-}
-
-// Increase products quantity
-function increaseProductQuantity(productId) {
-    let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
-    let quantity = parseInt(quantityInput.value);
-    quantity++;
-    quantityInput.value = quantity;
-    updateTotalPrice(productId, 21000, quantity); // Cập nhật giá tiền
-    updateTotalAmount();
-}
-
-// Update total price
-function updateTotalPrice(productId, price, quantity) {
-    let priceElement = document.querySelector(`span[data-product-id="${productId}"]`);
-    let totalPrice = price * quantity;
-    priceElement.textContent = `${totalPrice.toLocaleString()}đ`;
-}
 
 // Select-all checkbox
 document.getElementById('select-all').addEventListener('change', toggleAllProducts);
