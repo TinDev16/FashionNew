@@ -310,7 +310,16 @@ header {
 
 .menu-button {
   margin-right: 10px; /* Khoảng cách giữa nút menu và logo */
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent; /* Nền trong suốt */
+  color: #08397a; /* Màu chữ */
+  border: none; /* Không có viền */
+  border-radius: 5px; /* Bo góc */
 }
+
+
 
 .header-logo {
   margin-right: 10px; /* Khoảng cách giữa logo và các phần tử khác */
@@ -2402,11 +2411,7 @@ input[type="number"] {
 .header-middle-right-item.close {
   display: none;
 }
-.menu-button {
-  font-size: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
+
 
 /* CSS cho header */
 .header {
@@ -2427,15 +2432,6 @@ input[type="number"] {
   margin-right: 15px;
 }
 
-.menu-button {
-  font-size: 16px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #08397a;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
 
 /* CSS cho thanh menu */
 .sidebar-menu {
