@@ -48,8 +48,8 @@
                                             </div>
                                             <div class="dropdown-menu">
                                                 <ul>
-                                                    <li>Tài khoản của tôi</li>
-                                                    <li>Đăng xuất</li>
+                                                    <li onclick="goToHomePage()">Tài khoản của tôi</li>
+                                                    <li onclick="goToLoginPage()">Đăng xuất</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -77,10 +77,11 @@
                 </thead>
             </table>
         </div>
-        
+
         <div class="cart-container">
             <div class="cart-content">
                 <div class="cart-content-middle">
+
                     <table>
                         <tbody>
                             <tr>
@@ -110,7 +111,7 @@
                                     <span class="price" data-product-id="product1">21,000đ</span>
                                 </td>
                                 <td>
-                                    <button class="deleteButton" data-product-id="product1">
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -136,6 +137,18 @@
     
                                         <span class="tooltip">Delete</span>
                                     </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <p class="warning">*Nếu đã xóa thì không KHÔI PHỤC được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPage()">Không</button>
+                                                <button class="yes" onclick="goToCartPage()">Chắc chắn</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -170,7 +183,7 @@
                                     <span class="price" data-product-id="product2">21,000đ</span>
                                 </td>
                                 <td>
-                                    <button class="deleteButton" data-product-id="product2">
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -196,6 +209,18 @@
     
                                         <span class="tooltip">Delete</span>
                                     </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <p class="warning">*Nếu đã xóa thì không KHÔI PHỤC được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPage()">Không</button>
+                                                <button class="yes" onclick="goToCartPage()">Chắc chắn</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -230,7 +255,7 @@
                                     <span class="price" data-product-id="product3">21,000đ</span>
                                 </td>
                                 <td>
-                                    <button class="deleteButton" data-product-id="product3">
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -256,6 +281,18 @@
     
                                         <span class="tooltip">Delete</span>
                                     </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <p class="warning">*Nếu đã xóa thì không KHÔI PHỤC được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPage()">Không</button>
+                                                <button class="yes" onclick="goToCartPage()">Chắc chắn</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -290,7 +327,7 @@
                                     <span class="price" data-product-id="product4">21,000đ</span>
                                 </td>
                                 <td>
-                                    <button class="deleteButton" data-product-id="product4">
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -316,6 +353,18 @@
     
                                         <span class="tooltip">Delete</span>
                                     </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <p class="warning">*Nếu đã xóa thì không KHÔI PHỤC được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPage()">Không</button>
+                                                <button class="yes" onclick="goToCartPage()">Chắc chắn</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

@@ -8,6 +8,14 @@ function goToHomePage() {
     window.location.href = "index_home.html";
 }
 
+function goToLoginPage() {
+    window.location.href = "Login.html";
+}
+
+function goToCartPage() {
+    window.location.href = "CartPage.html";
+}
+
 // Add products into cart
 function addToCart(productID) {
     if (cart[productID]) {
@@ -58,14 +66,17 @@ function toggleAllProducts() {
 document.addEventListener('DOMContentLoaded', function () {
     let decreaseButtons = document.querySelectorAll('.minus-button');
     let increaseButtons = document.querySelectorAll('.add-button');
-    let deleteButtons = document.querySelectorAll('.deleteButton');
+    let checkboxes = document.querySelectorAll('input[type="checkbox"][name="product-checkbox"]');
     let checkoutButton = document.querySelector('.checkout-btn');
 
-    // Lấy giỏ hàng từ localStorage hoặc tạo mới nếu chưa tồn tại
-    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+    let totalPriceElement = document.querySelector('.value');
+    let totalProductsElement = document.querySelector('.total-products');
 
-    // Hiển thị giỏ hàng trên giao diện
-    displayCart();
+    let totalPrice = 0;
+    let totalProducts = 0;
+
+    // Initial calculation
+    updateTotalAmount();
 
     decreaseButtons.forEach(function (button) {
         button.addEventListener('click', function () {
@@ -81,17 +92,43 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    deleteButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            let productId = this.dataset.productId;
-            deleteFromCart(productId);
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            updateTotalAmount();
         });
     });
 
     checkoutButton.addEventListener('click', function () {
-        window.location.href = `CheckoutPage.html`;
+        window.location.href = `CheckoutPage.html?total=${totalPrice}`;
     });
 
+    function updateTotalAmount() {
+        totalPrice = 0;
+        totalProducts = 0;
+        
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                let productRow = checkbox.closest('tr');
+                let quantityInput = productRow.querySelector('.product-quantity');
+                let quantity = parseInt(quantityInput.value);
+                
+                let priceText = productRow.querySelector('.price').textContent.replace(/[^0-9]/g, '');
+                let unitPrice = parseInt(priceText);
+
+                totalPrice += unitPrice * quantity;
+                totalProducts += quantity;
+            }
+        });
+
+        if (totalPriceElement) {
+            totalPriceElement.textContent = `${totalPrice.toLocaleString()}đ`;
+        }
+
+        if (totalProductsElement) {
+            totalProductsElement.textContent = totalProducts;
+        }
+    }
+    
     function decreaseProductQuantity(productId) {
         let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
         let quantity = parseInt(quantityInput.value);
@@ -99,11 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (quantity > 1) {
             quantity--;
             quantityInput.value = quantity;
-            cart[productId].quantity = quantity;
-            updateCart();
-            updateProductTotalPrice(productId);
-        } else {
-            deleteFromCart(productId);
+            updateTotalAmount();
         }
     }
 
@@ -112,30 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let quantity = parseInt(quantityInput.value);
         quantity++;
         quantityInput.value = quantity;
-        cart[productId].quantity = quantity;
-        updateCart();
-        updateProductTotalPrice(productId);
-    }
-
-    function updateProductTotalPrice(productId) {
-        let productRow = document.querySelector(`input[data-product-id="${productId}"]`).closest('tr');
-        let quantityInput = productRow.querySelector('.product-quantity');
-        let quantity = parseInt(quantityInput.value);
-
-        let unitPriceText = productRow.querySelector('.price').textContent.replace(/[^0-9]/g, '');
-        let unitPrice = parseInt(unitPriceText);
-
-        let totalPriceElement = productRow.querySelectorAll('.price')[1];
-        totalPriceElement.textContent = `${(unitPrice * quantity).toLocaleString()}đ`;
-    }
-
-    function deleteFromCart(productId) {
-        // Xóa sản phẩm khỏi giỏ hàng trong localStorage và cập nhật giao diện
-        delete cart[productId];
-        updateCart();
-
-        let productRow = document.querySelector(`input[data-product-id="${productId}"]`).closest('tr');
-        productRow.remove();
+        updateTotalAmount();
     }
 
     // Hàm cập nhật giỏ hàng trong localStorage
@@ -154,6 +164,26 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    let deleteButtons = document.querySelectorAll('.deleteButton');
+    let deletePopover = document.getElementById('delete-confirmation');
+    let overlay = document.querySelector('.overlay');
+
+    // Show popover and overlay when clicking delete button
+    deleteButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            deletePopover.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+    });
+
+    // Close the popover and overlay if clicking outside the popover (on the overlay)
+    overlay.addEventListener('click', function () {
+        deletePopover.style.display = 'none';
+        overlay.style.display = 'none';
+    });
 });
 
 
