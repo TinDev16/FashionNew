@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let decreaseButtons = document.querySelectorAll('.minus-button');
     let increaseButtons = document.querySelectorAll('.add-button');
     let checkboxes = document.querySelectorAll('input[type="checkbox"][name="product-checkbox"]');
+    let selectAllCheckbox = document.querySelector('input[type="checkbox"][id="select-all"]'); // Checkbox "Sản phẩm"
     let checkoutButton = document.querySelector('.checkout-btn');
 
     let totalPriceElement = document.querySelector('.value');
@@ -97,6 +98,14 @@ document.addEventListener('DOMContentLoaded', function () {
             updateTotalAmount();
         });
     });
+
+    // Event listener cho checkbox "Sản phẩm"
+    if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function () {
+            toggleSelectAllProducts(this.checked);
+            updateTotalAmount();
+        });
+    }
 
     checkoutButton.addEventListener('click', function () {
         window.location.href = `CheckoutPage.html?total=${totalPrice}`;
@@ -148,6 +157,13 @@ document.addEventListener('DOMContentLoaded', function () {
         updateTotalAmount();
     }
 
+    // Hàm chọn hoặc bỏ chọn tất cả sản phẩm
+    function toggleSelectAllProducts(isChecked) {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = isChecked;
+        });
+    }
+
     // Hàm cập nhật giỏ hàng trong localStorage
     function updateCart() {
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -160,11 +176,11 @@ document.addEventListener('DOMContentLoaded', function () {
             let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
             if (quantityInput) {
                 quantityInput.value = product.quantity;
-                updateProductTotalPrice(productId);
             }
         });
     }
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     let deleteButtons = document.querySelectorAll('.deleteButton');
