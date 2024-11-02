@@ -255,3 +255,59 @@
         font-size: 20px;
     }
 }
+
+
+/* Phần sản phẩm */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding-top: 50px; /* Giảm khoảng trống phía trên */
+  }
+  
+  /* Định dạng cho từng sản phẩm */
+  .product {
+    width: 23%;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .product img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product h3 {
+    margin: 10px 0;
+    font-size: 1em;
+  }
+  
+  .product p {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  /* Thêm hiệu ứng khi hover vào sản phẩm */
+  .product:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive cho màn hình nhỏ hơn */
+  @media (max-width: 1024px) {
+    .product {
+      width: 48%; /* Hiển thị 2 sản phẩm mỗi hàng trên màn hình nhỏ */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product {
+      width: 50%; /* Hiển thị 1 sản phẩm mỗi hàng trên màn hình rất nhỏ */
+    }
+  }
+  

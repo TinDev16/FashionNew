@@ -199,3 +199,128 @@
         max-width: 350px;
     }
 }
+
+
+/* Phần sản phẩm */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding-top: 50px; /* Giảm khoảng trống phía trên */
+  }
+  
+  /* Định dạng cho từng sản phẩm */
+  .product {
+    width: 23%;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .product img {
+    width: 55%;
+    height: auto;
+  }
+  
+  
+  .product h3 {
+    margin: 10px 0;
+    font-size: 1em;
+  }
+  
+  .product p {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  /* Thêm hiệu ứng khi hover vào sản phẩm */
+  .product:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive cho màn hình nhỏ hơn */
+  @media (max-width: 1024px) {
+    .product {
+      width: 48%; /* Hiển thị 2 sản phẩm mỗi hàng trên màn hình nhỏ */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product {
+      width: 100%; /* Hiển thị 1 sản phẩm mỗi hàng trên màn hình rất nhỏ */
+    }
+  }
+
+
+
+#pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+    width: 300px;   
+    height: 200px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pagination-controls {
+    margin-top: 20px;
+}
+
+button.pagination {
+    text-transform: uppercase;
+    align-items: center;
+    text-align: center;
+    padding: 8px 12px;
+    margin: 0 3px;
+    border: none;
+    border-radius: 4px;
+    background-color: #08397a;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #80a1fb;
+}
+ 
+
+
+.add-to-cart a {
+    display: inline-block;
+    background-color: #08397a; /* Màu cam đậm */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none !important;
+    outline: none;
+}
+
+.add-to-cart a:focus {
+    outline: none; /* Đảm bảo không có outline khi focus */
+}
+
+.add-to-cart a:hover {
+    border: none;
+    background-color: #021938; /* Màu cam đậm hơn khi hover */
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+.cart-icon {
+    border: none;
+    margin-right: 1px;
+    
+}
