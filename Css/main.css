@@ -94,8 +94,7 @@ html {
 }
 
 body {
-  background-color: #c9d6ff;
-  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  background-color: #fff;
   position: relative;
 }
 
@@ -222,8 +221,7 @@ input[type="checkbox"]:checked + label:before {
 
 /* Header Menu */
 header {
-  background-color: #c9d6ff;
-  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  background-color: #fff;
   position: sticky;
   top: 0;
   z-index: 15;
@@ -1784,8 +1782,7 @@ input[type="number"] {
 /* Footer */
 /* Css footer */
 .footer {
-  background-color: #c9d6ff;
-  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  background-color: #fff;
   margin-top: 30px;
   border-top: 4px solid #08397a;
 }
@@ -2529,3 +2526,4 @@ input[type="number"] {
     width: 100%; /* Hiển thị 1 sản phẩm mỗi hàng trên màn hình rất nhỏ */
   }
 }
+
