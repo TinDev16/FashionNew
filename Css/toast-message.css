@@ -178,7 +178,6 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.2s;
-
 }
 
 .btn--success {
@@ -294,7 +293,9 @@ button:hover {
     background-color: #80a1fb;
 }
  
-
+.add-to-cart {
+    border-width: 0;
+}
 
 .add-to-cart a {
     display: inline-block;
@@ -305,22 +306,13 @@ button:hover {
     border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none !important;
-    outline: none;
-}
-
-.add-to-cart a:focus {
-    outline: none; /* Đảm bảo không có outline khi focus */
 }
 
 .add-to-cart a:hover {
-    border: none;
     background-color: #021938; /* Màu cam đậm hơn khi hover */
     transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
 
 .cart-icon {
-    border: none;
     margin-right: 1px;
-    
 }

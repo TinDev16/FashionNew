@@ -5,7 +5,7 @@ let totalProducts = 0;
 
 function goToHomePage() {
     // Thay đổi URL để điều hướng về trang chủ
-    window.location.href = "index_home.html";
+    window.location.href = "index.html";
 }
 
 function goToLoginPage() {
