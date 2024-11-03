@@ -68,7 +68,7 @@ img {
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
-    color: #12263a;
+    color: #08397a;
     margin: 1rem 0;
     margin-top: 50%;
 }
@@ -80,7 +80,7 @@ img {
     bottom: 0;
     height: 4px;
     width: 80px;
-    background: #12263a;
+    background: #08397a;
 }
 
 .product-link {
@@ -130,7 +130,7 @@ img {
 
 .product-detail h2 {
     text-transform: capitalize;
-    color: #12263a;
+    color: #08397a;
     padding-bottom: 0.6rem;
 }
 
@@ -185,7 +185,7 @@ img {
 }
 
 .purchase-info .btn:first-of-type {
-    background: #512da8;
+    background: #08397a;
 }
 
 .purchase-info .btn:last-of-type {
