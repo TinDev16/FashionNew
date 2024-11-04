@@ -10,6 +10,58 @@
     </head>
 
     <body>
+        <header>
+            <div class="cart-header">
+                <h1 class="cart-header-title">
+                    <div class="left-content">
+                        <div class="title-container">
+                            <i class="header-back-button" onclick="goToHomePage()">
+                                <button class="button">
+                                    <div class="button-box">
+                                        <span class="button-elem">
+                                            <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                        <span class="button-elem">
+                                            <svg viewBox="0 0 46 40">
+                                                <path
+                                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </button>
+                            </i>
+                            <span class="cart-title-text" style="color: #08397a;">Thanh toán</span>
+
+                            <div class="right-content">
+                                <div class="header-icons">
+                                    <span class="icons">
+                                        <div class="user-menu">
+                                            <div class="user-icon">
+                                                <i class="fa-light fa-user"></i>
+                                                <span class="username">Lê Tự Tin</span>
+                                            </div>
+                                            <div class="dropdown-menu">
+                                                <ul>
+                                                    <li onclick="goToHomePage()">Tài khoản của tôi</li>
+                                                    <li onclick="goToLoginPage()">Đăng xuất</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <i class="fa-light fa-house" onclick="goToHomePage()"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </header>
+
         <div class="container">
             <div class="customer-info">
                 <form>
@@ -39,8 +91,15 @@
 
                     <input type="radio" id="new-address" name="delivery-method" value="new">
                     <label class="new-address">Nhập địa chỉ mới</label><br><br>
-
+                    
                     <div id="new-address-section">
+                        <div>
+                            <label class="country">Quốc gia<ng style="color: red;">*</ng></label>
+                            <select class="countries-select">
+                                <option>Việt Nam</option>
+                            </select>
+                        </div><br>
+
                         <label class="city">Tỉnh - Thành phố<ng style="color: red;">*</ng></label>
                         <select class="cities-select">
                             <option>An Giang</option>
@@ -109,7 +168,35 @@
                         </select>
                     </div><br>
 
-                    <label for="address" class="address-label">Địa chỉ nhận hàng<ng style="color: red;">*</ng></label>
+                    <div>
+                        <label class="district">Quận - Huyện<ng style="color: red;">*</ng></label>
+                        <select class="districts-select">
+                            <option>Thành phố Thủ Đức</option>
+                            <option>Quận 1</option>
+                            <option>Quận 3</option>
+                            <option>Quận 4</option>
+                            <option>Quận 5</option>
+                            <option>Quận 6</option>
+                            <option>Quận 7</option>
+                            <option>Quận 8</option>
+                            <option>Quận 10</option>
+                            <option>Quận 11</option>
+                            <option>Quận 12</option>
+                            <option>Quận Tân Bình</option>
+                            <option>Quận Bình Tân</option>
+                            <option>Quận Bình Thạnh</option>
+                            <option>Quận Tân Phú</option>
+                            <option>Quận Gò Vấp</option>
+                            <option>Quận Phú Nhuận</option>
+                            <option>Huyện Bình Chánh</option>
+                            <option>Huyện Hóc Môn</option>
+                            <option>Huyện Cần Giờ</option>
+                            <option>Huyện Củ Chi</option>
+                            <option>Huyện Nhà Bè</option>
+                        </select>
+                    </div><br>
+
+                    <label for="address" class="address-label">Địa chỉ cụ thể<ng style="color: red;">*</ng></label>
                     <input type="text" id="address" class="address-input" placeholder="Nhập địa chỉ">
 
                 </form>
