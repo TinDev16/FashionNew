@@ -2692,3 +2692,35 @@ input[type="number"] {
 .pagination:hover {
   background-color: #e9e9e9; /* Màu nền khi hover */
 }
+/* Container for search forms */
+.search-container {
+  display: flex;
+  justify-content: center; /* Center the forms horizontally */
+  align-items: center; /* Center the forms vertically */
+  gap: 20px; /* Space between the forms */
+  margin: 20px auto; /* Center the container itself */
+}
+
+/* Basic Search Form */
+#basic-search-form {
+  display: flex;
+  gap: 10px; /* Space between input and button */
+}
+
+/* Advanced Search Form */
+#advanced-search-form {
+  display: flex;
+  gap: 10px; /* Space between inputs and button */
+}
+
+/* Styling for inputs and buttons */
+#basic-search-input,
+#advanced-search-input,
+#category-filter,
+#min-price,
+#max-price,
+button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

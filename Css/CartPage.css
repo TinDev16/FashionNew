@@ -190,7 +190,7 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 9999; /* Tăng z-index rất cao để hiển thị trên tất cả các phần tử khác */
-    right: 120px; /* Điều chỉnh vị trí phù hợp */
+    right: 80px; /* Điều chỉnh vị trí phù hợp */
     top: 55px; /* Điều chỉnh vị trí phù hợp */
     border-radius: 6px;
 }
