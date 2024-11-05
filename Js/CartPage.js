@@ -1,6 +1,5 @@
 // Shopping Cart
 let cart = {};
-let totalPrice = 0;
 let totalProducts = 0;
 
 function goToHomePage() {
