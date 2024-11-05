@@ -98,3 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+function goToHomePage() {
+    // Thay đổi URL để điều hướng về trang chủ
+    window.location.href = "index.html";
+}
+
+function goToLoginPage() {
+    window.location.href = "Login.html";
+}
+
+function goToCartPage() {
+    window.location.href = "CartPage.html";
+}

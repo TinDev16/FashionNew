@@ -302,3 +302,7 @@ function getpriceProduct(id) {
     })
     return sp.price;
 }
+
+function goToCartPage() {
+    window.location.href = "CartPage.html";
+}
