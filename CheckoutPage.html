@@ -15,7 +15,7 @@
                 <h1 class="cart-header-title">
                     <div class="left-content">
                         <div class="title-container">
-                            <i class="header-back-button" onclick="goToHomePage()">
+                            <i class="header-back-button" onclick="goToCartPage()">
                                 <button class="button">
                                     <div class="button-box">
                                         <span class="button-elem">
@@ -83,8 +83,8 @@
                     <div id="saved-address-section">
                         <label class="saved-address">Địa chỉ đã lưu<ng style="color: red;">*</ng></label>
                         <select id="saved-address-select" class="select-field">
-                            <option value="address1">123 Đường ABC, Quận 1, TP. HCM</option>
-                            <option value="address2">456 Đường XYZ, Quận 3, TP. HCM</option>
+                            <option value="address1">123 Đường ABC, Quận 1, TP. HCM, Việt Nam</option>
+                            <option value="address2">456 Đường XYZ, Quận 3, TP. HCM, Việt Nam</option>
                             <!-- Add more saved addresses as needed -->
                         </select>
                     </div><br>
@@ -95,109 +95,20 @@
                     <div id="new-address-section">
                         <div>
                             <label class="country">Quốc gia<ng style="color: red;">*</ng></label>
-                            <select class="countries-select">
-                                <option>Việt Nam</option>
-                            </select>
+                            <input type="text" class="countries-input" placeholder="Quốc gia">
                         </div><br>
 
                         <label class="city">Tỉnh - Thành phố<ng style="color: red;">*</ng></label>
-                        <select class="cities-select">
-                            <option>An Giang</option>
-                            <option>Bà Rịa - Vũng Tàu</option>
-                            <option>Bạc Liêu</option>
-                            <option>Bắc Giang</option>
-                            <option>Bắc Kạn</option>
-                            <option>Bắc Ninh</option>
-                            <option>Bến Tre</option>
-                            <option>Bình Dương</option>
-                            <option>Bình Định</option>
-                            <option>Bình Phước</option>
-                            <option>Bình Thuận</option>
-                            <option>Cà Mau</option>
-                            <option>Cao Bằng</option>
-                            <option>Cần Thơ</option>
-                            <option>Đà Nẵng</option>
-                            <option>Đắk Lắk</option>
-                            <option>Đắk Nông</option>
-                            <option>Điện Biên</option>
-                            <option>Đồng Nai</option>
-                            <option>Đồng Tháp</option>
-                            <option>Gia Lai</option>
-                            <option>Hà Giang</option>
-                            <option>Hà Nam</option>
-                            <option>Hà Nội</option>
-                            <option>Hà Tĩnh</option>
-                            <option>Hải Dương</option>
-                            <option>Hải Phòng</option>
-                            <option>Hậu Giang</option>
-                            <option>Hòa Bình</option>
-                            <option>Hồ Chí Minh</option>
-                            <option>Hưng Yên</option>
-                            <option>Khánh Hòa</option>
-                            <option>Kiên Giang</option>
-                            <option>Kon Tum</option>
-                            <option>Lai Châu</option>
-                            <option>Lạng Sơn</option>
-                            <option>Lào Cai</option>
-                            <option>Lâm Đồng</option>
-                            <option>Long An</option>
-                            <option>Nam Định</option>
-                            <option>Nghệ An</option>
-                            <option>Ninh Bình</option>
-                            <option>Ninh Thuận</option>
-                            <option>Phú Thọ</option>
-                            <option>Phú Yên</option>
-                            <option>Quảng Bình</option>
-                            <option>Quảng Nam</option>
-                            <option>Quảng Ngãi</option>
-                            <option>Quảng Ninh</option>
-                            <option>Quảng Trị</option>
-                            <option>Sóc Trăng</option>
-                            <option>Sơn La</option>
-                            <option>Tây Ninh</option>
-                            <option>Thái Bình</option>
-                            <option>Thái Nguyên</option>
-                            <option>Thanh Hóa</option>
-                            <option>Huế</option>
-                            <option>Tiền Giang</option>
-                            <option>Trà Vinh</option>
-                            <option>Tuyên Quang</option>
-                            <option>Vĩnh Long</option>
-                            <option>Vĩnh Phúc</option>
-                            <option>Yên Bái</option>
-                        </select>
+                        <input type="text" class="cities-input" placeholder="Tỉnh/Thành phố">
                     </div><br>
 
                     <div>
                         <label class="district">Quận - Huyện<ng style="color: red;">*</ng></label>
-                        <select class="districts-select">
-                            <option>Thành phố Thủ Đức</option>
-                            <option>Quận 1</option>
-                            <option>Quận 3</option>
-                            <option>Quận 4</option>
-                            <option>Quận 5</option>
-                            <option>Quận 6</option>
-                            <option>Quận 7</option>
-                            <option>Quận 8</option>
-                            <option>Quận 10</option>
-                            <option>Quận 11</option>
-                            <option>Quận 12</option>
-                            <option>Quận Tân Bình</option>
-                            <option>Quận Bình Tân</option>
-                            <option>Quận Bình Thạnh</option>
-                            <option>Quận Tân Phú</option>
-                            <option>Quận Gò Vấp</option>
-                            <option>Quận Phú Nhuận</option>
-                            <option>Huyện Bình Chánh</option>
-                            <option>Huyện Hóc Môn</option>
-                            <option>Huyện Cần Giờ</option>
-                            <option>Huyện Củ Chi</option>
-                            <option>Huyện Nhà Bè</option>
-                        </select>
+                        <input type="text" class="districts-input" placeholder="Quận/Huyện">
                     </div><br>
 
                     <label for="address" class="address-label">Địa chỉ cụ thể<ng style="color: red;">*</ng></label>
-                    <input type="text" id="address" class="address-input" placeholder="Nhập địa chỉ">
+                    <input type="text" id="address" class="address-input" placeholder="Địa chỉ">
 
                 </form>
             </div>
@@ -239,6 +150,6 @@
             </div>
         </div>
         
-        <script src="Js/checkout.js"></script>
+        <script src="Js/CheckoutPage.js"></script>
     </body>
 </html>
