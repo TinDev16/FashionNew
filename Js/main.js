@@ -382,7 +382,6 @@ loginbtn.addEventListener("click", () => {
   body.style.overflow = "hidden";
 });
 
-
 // Kiểm tra xem có tài khoản đăng nhập không ?
 function kiemtradangnhap() {
   let currentUser = localStorage.getItem("currentuser");
@@ -597,7 +596,6 @@ function getProductInfo(id) {
   });
 }
 
-
 // Get Order Details
 function getOrderDetails(madon) {
   let orderDetails = localStorage.getItem("orderDetails")
@@ -622,7 +620,6 @@ function formatDate(date) {
   if (mm < 10) mm = "0" + mm;
   return dd + "/" + mm + "/" + yyyy;
 }
-
 
 // Create id order
 function createId(arr) {
@@ -707,61 +704,117 @@ function renderProducts(showProduct) {
 }
 
 function openSearchAdvanced() {
-  document.getElementById('advanced-search').style.display = 'block';
-  document.getElementById('advanced-search-overlay').style.display = 'block';
+  document.getElementById("advanced-search").style.display = "block";
+  document.getElementById("advanced-search-overlay").style.display = "block";
 }
 
 function closeSearchAdvanced() {
-  document.getElementById('advanced-search').style.display = 'none';
-  document.getElementById('advanced-search-overlay').style.display = 'none';
+  document.getElementById("advanced-search").style.display = "none";
+  document.getElementById("advanced-search-overlay").style.display = "none";
 }
 
 function handleSearchSubmit(event) {
   event.preventDefault(); // Ngăn form không gửi request mặc định
 
   // Lấy giá trị người dùng nhập trong ô tìm kiếm
-  const searchQuery = document.getElementById('search-input').value;
+  const searchQuery = document.getElementById("search-input").value;
 
   // Kiểm tra nếu có nội dung tìm kiếm
   if (searchQuery.trim() !== "") {
-      // Chuyển hướng đến trang product_search.html kèm theo tham số truy vấn
-      window.location.href = `product_search.html?query=${encodeURIComponent(searchQuery)}`;
+    // Chuyển hướng đến trang product_search.html kèm theo tham số truy vấn
+    window.location.href = `product_search.html?query=${encodeURIComponent(
+      searchQuery
+    )}`;
   }
 }
 
 function handleAdvancedSearch() {
   // Lấy giá trị của các ô nhập
-  const category = document.getElementById('advanced-search-category-select').value;
-  const minPrice = document.getElementById('min-price').value;
-  const maxPrice = document.getElementById('max-price').value;
+  const category = document.getElementById(
+    "advanced-search-category-select"
+  ).value;
+  const minPrice = document.getElementById("min-price").value;
+  const maxPrice = document.getElementById("max-price").value;
 
   // Tạo URL kèm theo các tham số
-  const url = `product_search.html?category=${encodeURIComponent(category)}&minPrice=${encodeURIComponent(minPrice)}&maxPrice=${encodeURIComponent(maxPrice)}`;
+  const url = `product_search.html?category=${encodeURIComponent(
+    category
+  )}&minPrice=${encodeURIComponent(minPrice)}&maxPrice=${encodeURIComponent(
+    maxPrice
+  )}`;
 
   // Chuyển hướng sang trang product_search.html với các tham số
   window.location.href = url;
 }
 
 function toggleMenu() {
-  const sidebarMenu = document.getElementById('sidebarMenu');
-  
+  const sidebarMenu = document.getElementById("sidebarMenu");
+
   // Kiểm tra vị trí hiện tại của sidebarMenu
-  if (sidebarMenu.style.left === '0px') {
-      // Nếu đang hiển thị, ẩn đi bằng cách di chuyển nó ra ngoài màn hình
-      sidebarMenu.style.left = '-300px';
+  if (sidebarMenu.style.left === "0px") {
+    // Nếu đang hiển thị, ẩn đi bằng cách di chuyển nó ra ngoài màn hình
+    sidebarMenu.style.left = "-300px";
   } else {
-      // Nếu đang ẩn, hiển thị bằng cách di chuyển nó vào trong màn hình
-      sidebarMenu.style.left = '0px';
+    // Nếu đang ẩn, hiển thị bằng cách di chuyển nó vào trong màn hình
+    sidebarMenu.style.left = "0px";
   }
 }
 
 function toggleMenu() {
-  const sidebarMenu = document.getElementById('sidebarMenu');
-  
+  const sidebarMenu = document.getElementById("sidebarMenu");
+
   // Kiểm tra vị trí hiện tại của sidebarMenu
-  if (sidebarMenu.style.left === '0px') {
-      sidebarMenu.style.left = '-300px';
+  if (sidebarMenu.style.left === "0px") {
+    sidebarMenu.style.left = "-300px";
   } else {
-      sidebarMenu.style.left = '0px';
+    sidebarMenu.style.left = "0px";
   }
 }
+
+document
+  .getElementById("basic-search-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const query = document
+      .getElementById("basic-search-input")
+      .value.toLowerCase();
+    const products = document.querySelectorAll(".product");
+    products.forEach((product) => {
+      const productName = product.querySelector("h3").textContent.toLowerCase();
+      if (productName.includes(query)) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+  });
+
+document
+  .getElementById("advanced-search-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const query = document
+      .getElementById("advanced-search-input")
+      .value.toLowerCase();
+    const category = document.getElementById("category-filter").value;
+    const minPrice =
+      parseFloat(document.getElementById("min-price").value) || 0;
+    const maxPrice =
+      parseFloat(document.getElementById("max-price").value) || Infinity;
+    const products = document.querySelectorAll(".product");
+    products.forEach((product) => {
+      const productName = product.querySelector("h3").textContent.toLowerCase();
+      const productCategory = product.dataset.category;
+      const productPrice = parseFloat(product.dataset.price);
+      if (
+        productName.includes(query) &&
+        (category === "" || productCategory === category) &&
+        productPrice >= minPrice &&
+        productPrice <= maxPrice
+      ) {
+        product.style.display = "block";
+      } else {
+        product.style.display = "none";
+      }
+    });
+  });
