@@ -126,125 +126,125 @@ function animationCart() {
   }, 1000);
 }
 
-// Them SP vao gio hang
-function addCart(index) {
-  let currentuser = localStorage.getItem("currentuser")
-    ? JSON.parse(localStorage.getItem("currentuser"))
-    : [];
-  let soluong = document.querySelector(".input-qty").value;
-  let popupDetailNote = document.querySelector("#popup-detail-note").value;
-  let note = popupDetailNote == "" ? "Không có ghi chú" : popupDetailNote;
-  let productcart = {
-    id: index,
-    soluong: parseInt(soluong),
-    note: note,
-  };
-  let vitri = currentuser.cart.findIndex((item) => item.id == productcart.id);
-  if (vitri == -1) {
-    currentuser.cart.push(productcart);
-  } else {
-    currentuser.cart[vitri].soluong =
-      parseInt(currentuser.cart[vitri].soluong) + parseInt(productcart.soluong);
-  }
-  localStorage.setItem("currentuser", JSON.stringify(currentuser));
-  updateAmount();
-  closeModal();
-  // toast({ title: 'Success', message: 'Thêm thành công sản phẩm vào giỏ hàng', type: 'success', duration: 3000 });
-}
+// // Them SP vao gio hang
+// function addCart(index) {
+//   let currentuser = localStorage.getItem("currentuser")
+//     ? JSON.parse(localStorage.getItem("currentuser"))
+//     : [];
+//   let soluong = document.querySelector(".input-qty").value;
+//   let popupDetailNote = document.querySelector("#popup-detail-note").value;
+//   let note = popupDetailNote == "" ? "Không có ghi chú" : popupDetailNote;
+//   let productcart = {
+//     id: index,
+//     soluong: parseInt(soluong),
+//     note: note,
+//   };
+//   let vitri = currentuser.cart.findIndex((item) => item.id == productcart.id);
+//   if (vitri == -1) {
+//     currentuser.cart.push(productcart);
+//   } else {
+//     currentuser.cart[vitri].soluong =
+//       parseInt(currentuser.cart[vitri].soluong) + parseInt(productcart.soluong);
+//   }
+//   localStorage.setItem("currentuser", JSON.stringify(currentuser));
+//   updateAmount();
+//   closeModal();
+//   // toast({ title: 'Success', message: 'Thêm thành công sản phẩm vào giỏ hàng', type: 'success', duration: 3000 });
+// // }
 
-//Show gio hang
-function showCart() {
-  if (localStorage.getItem("currentuser") != null) {
-    let currentuser = JSON.parse(localStorage.getItem("currentuser"));
-    if (currentuser.cart.length != 0) {
-      document.querySelector(".gio-hang-trong").style.display = "none";
-      document.querySelector("button.thanh-toan").classList.remove("disabled");
-      let productcarthtml = "";
-      currentuser.cart.forEach((item) => {
-        let product = getProduct(item);
-        productcarthtml += `<li class="cart-item" data-id="${product.id}">
-                <div class="cart-item-info">
-                    <p class="cart-item-title">
-                        ${product.title}
-                    </p>
-                    <span class="cart-item-price price" data-price="${
-                      product.price
-                    }">
-                    ${vnd(parseInt(product.price))}
-                    </span>
-                </div>
-                <p class="product-note"><i class="fa-light fa-pencil"></i><span>${
-                  product.note
-                }</span></p>
-                <div class="cart-item-control">
-                    <button class="cart-item-delete" onclick="deleteCartItem(${
-                      product.id
-                    },this)">Xóa</button>
-                    <div class="buttons_added">
-                        <input class="minus is-form" type="button" value="-" onclick="decreasingNumber(this)">
-                        <input class="input-qty" max="100" min="1" name="" type="number" value="${
-                          product.soluong
-                        }">
-                        <input class="plus is-form" type="button" value="+" onclick="increasingNumber(this)">
-                    </div>
-                </div>
-            </li>`;
-      });
-      document.querySelector(".cart-list").innerHTML = productcarthtml;
-      updateCartTotal();
-      saveAmountCart();
-    } else {
-      document.querySelector(".gio-hang-trong").style.display = "flex";
-    }
-  }
-  let modalCart = document.querySelector(".modal-cart");
-  let containerCart = document.querySelector(".cart-container");
-  let themmon = document.querySelector(".them-mon");
-  modalCart.onclick = function () {
-    closeCart();
-  };
-  themmon.onclick = function () {
-    closeCart();
-  };
-  containerCart.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-}
+// //Show gio hang
+// function showCart() {
+//   if (localStorage.getItem("currentuser") != null) {
+//     let currentuser = JSON.parse(localStorage.getItem("currentuser"));
+//     if (currentuser.cart.length != 0) {
+//       document.querySelector(".gio-hang-trong").style.display = "none";
+//       document.querySelector("button.thanh-toan").classList.remove("disabled");
+//       let productcarthtml = "";
+//       currentuser.cart.forEach((item) => {
+//         let product = getProduct(item);
+//         productcarthtml += `<li class="cart-item" data-id="${product.id}">
+//                 <div class="cart-item-info">
+//                     <p class="cart-item-title">
+//                         ${product.title}
+//                     </p>
+//                     <span class="cart-item-price price" data-price="${
+//                       product.price
+//                     }">
+//                     ${vnd(parseInt(product.price))}
+//                     </span>
+//                 </div>
+//                 <p class="product-note"><i class="fa-light fa-pencil"></i><span>${
+//                   product.note
+//                 }</span></p>
+//                 <div class="cart-item-control">
+//                     <button class="cart-item-delete" onclick="deleteCartItem(${
+//                       product.id
+//                     },this)">Xóa</button>
+//                     <div class="buttons_added">
+//                         <input class="minus is-form" type="button" value="-" onclick="decreasingNumber(this)">
+//                         <input class="input-qty" max="100" min="1" name="" type="number" value="${
+//                           product.soluong
+//                         }">
+//                         <input class="plus is-form" type="button" value="+" onclick="increasingNumber(this)">
+//                     </div>
+//                 </div>
+//             </li>`;
+//       });
+//       document.querySelector(".cart-list").innerHTML = productcarthtml;
+//       updateCartTotal();
+//       saveAmountCart();
+//     } else {
+//       document.querySelector(".gio-hang-trong").style.display = "flex";
+//     }
+//   }
+//   let modalCart = document.querySelector(".modal-cart");
+//   let containerCart = document.querySelector(".cart-container");
+//   let themmon = document.querySelector(".them-mon");
+//   modalCart.onclick = function () {
+//     closeCart();
+//   };
+//   themmon.onclick = function () {
+//     closeCart();
+//   };
+//   containerCart.addEventListener("click", (e) => {
+//     e.stopPropagation();
+//   });
+// }
 
-// Delete cart item
-function deleteCartItem(id, el) {
-  let cartParent = el.parentNode.parentNode;
-  cartParent.remove();
-  let currentUser = JSON.parse(localStorage.getItem("currentuser"));
-  let vitri = currentUser.cart.findIndex((item) => (item.id = id));
-  currentUser.cart.splice(vitri, 1);
+// // Delete cart item
+// function deleteCartItem(id, el) {
+//   let cartParent = el.parentNode.parentNode;
+//   cartParent.remove();
+//   let currentUser = JSON.parse(localStorage.getItem("currentuser"));
+//   let vitri = currentUser.cart.findIndex((item) => (item.id = id));
+//   currentUser.cart.splice(vitri, 1);
 
-  // Nếu trống thì hiển thị giỏ hàng trống
-  if (currentUser.cart.length == 0) {
-    document.querySelector(".gio-hang-trong").style.display = "flex";
-    document.querySelector("button.thanh-toan").classList.add("disabled");
-  }
-  localStorage.setItem("currentuser", JSON.stringify(currentUser));
-  updateCartTotal();
-}
+//   // Nếu trống thì hiển thị giỏ hàng trống
+//   if (currentUser.cart.length == 0) {
+//     document.querySelector(".gio-hang-trong").style.display = "flex";
+//     document.querySelector("button.thanh-toan").classList.add("disabled");
+//   }
+//   localStorage.setItem("currentuser", JSON.stringify(currentUser));
+//   updateCartTotal();
+// }
 
-//Update cart total
-function updateCartTotal() {
-  document.querySelector(".text-price").innerText = vnd(getCartTotal());
-}
+// //Update cart total
+// function updateCartTotal() {
+//   document.querySelector(".text-price").innerText = vnd(getCartTotal());
+// }
 
-// Lay tong tien don hang
-function getCartTotal() {
-  let currentUser = JSON.parse(localStorage.getItem("currentuser"));
-  let tongtien = 0;
-  if (currentUser != null) {
-    currentUser.cart.forEach((item) => {
-      let product = getProduct(item);
-      tongtien += parseInt(product.soluong) * parseInt(product.price);
-    });
-  }
-  return tongtien;
-}
+// // Lay tong tien don hang
+// function getCartTotal() {
+//   let currentUser = JSON.parse(localStorage.getItem("currentuser"));
+//   let tongtien = 0;
+//   if (currentUser != null) {
+//     currentUser.cart.forEach((item) => {
+//       let product = getProduct(item);
+//       tongtien += parseInt(product.soluong) * parseInt(product.price);
+//     });
+//   }
+//   return tongtien;
+// }
 
 // Get Product
 function getProduct(item) {
@@ -714,37 +714,11 @@ function closeSearchAdvanced() {
 }
 
 function handleSearchSubmit(event) {
-  event.preventDefault(); // Ngăn form không gửi request mặc định
-
-  // Lấy giá trị người dùng nhập trong ô tìm kiếm
-  const searchQuery = document.getElementById("search-input").value;
-
-  // Kiểm tra nếu có nội dung tìm kiếm
-  if (searchQuery.trim() !== "") {
-    // Chuyển hướng đến trang product_search.html kèm theo tham số truy vấn
-    window.location.href = `product_search.html?query=${encodeURIComponent(
-      searchQuery
-    )}`;
-  }
+  window.location.href = "product_search.html";
 }
 
 function handleAdvancedSearch() {
-  // Lấy giá trị của các ô nhập
-  const category = document.getElementById(
-    "advanced-search-category-select"
-  ).value;
-  const minPrice = document.getElementById("min-price").value;
-  const maxPrice = document.getElementById("max-price").value;
-
-  // Tạo URL kèm theo các tham số
-  const url = `product_search.html?category=${encodeURIComponent(
-    category
-  )}&minPrice=${encodeURIComponent(minPrice)}&maxPrice=${encodeURIComponent(
-    maxPrice
-  )}`;
-
-  // Chuyển hướng sang trang product_search.html với các tham số
-  window.location.href = url;
+  window.location.href = "product_search.html";
 }
 
 function toggleMenu() {
