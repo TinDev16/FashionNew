@@ -66,6 +66,8 @@
             <h2 class="home-title">THÊM SẢN PHẨM</h2>
         </div>
 
+        
+
         <!-- Form sửa sản phẩm hiển thị sẵn -->
         <div id="editProductForm" class="edit-product-form">
             <form id="productForm" action="#" method="POST">
@@ -92,7 +94,15 @@
                     <label for="productPrice">Giá:</label>
                     <input type="number" id="productPrice" name="productPrice" value="" required>
                     
-                    <button type="submit">Thêm sản phẩm</button>
+                    <button type="submit" onclick="showUpdateMessage()">Thêm sản phẩm</button>
+                    <script>
+                        // Hàm hiển thị thông báo khi cập nhật sản phẩm
+                        function showUpdateMessage() {
+                            // Hiển thị thông báo cập nhật
+                            alert("Sản phẩm đã được thêm!"); 
+                
+                        }
+                    </script>
                     <button type="button" onclick="hideEditForm()" class="cancel-btn">Hủy</button>
                 </div>
             </form>
