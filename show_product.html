@@ -131,13 +131,19 @@
                 </div>
                 <div class="purchase-info">
                     <input type="number" min="0" value="1" id="quantity">
-                    <button type="button" class="btn add-to-cart">
+                    <button type="button" class="btn add-to-cart" onclick="showUpdateMessage()">
                         Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i>
                     </button>
                     <button type="button" class="btn view-cart" onclick="window.location.href='CartPage.html';">Xem giỏ hàng</button>
                 </div>
-                <!-- Thêm thông báo dưới đây -->
-                <div id="notification" style="display:none; color: #512da8; margin-top: 10px;"></div>
+                <script>
+                    // Hàm hiển thị thông báo khi cập nhật sản phẩm
+                    function showUpdateMessage() {
+                        // Hiển thị thông báo cập nhật
+                        alert("Sản phẩm đã được thêm vào giỏ hàng!"); 
+            
+                    }
+                </script>
             </div>
         </div>
     </div>
