@@ -1,0 +1,273 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href='#' rel='icon' type='image/x-icon' />
+    <link rel="stylesheet" href="sua.css">
+    <link rel="stylesheet" href="home-responsive-1.css">
+    <style>
+        .update-button {
+            background-color: #007bff; /* Màu xanh dương */
+            color: white; /* Màu chữ trắng */
+            border: none; /* Không viền */
+            border-radius: 15px; /* Bo tròn */
+            padding: 10px 20px; /* Khoảng cách bên trong */
+            cursor: pointer; /* Con trỏ chuột hình tay */
+            font-size: 16px; /* Kích thước chữ */
+            transition: background-color 0.3s; /* Hiệu ứng chuyển động */
+        }
+
+        .update-button:hover {
+            background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-middle-left">
+                    <!-- Nút mở menu -->
+                    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+            
+                    <!-- Thanh menu ẩn -->
+                    <div id="sidebarMenu" class="sidebar-menu">
+                        <button class="close-button" onclick="toggleMenu()">×</button>
+                        <ul>
+                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="index.html">Sản phẩm</a></li>
+                            <li><a href="#">Dịch vụ</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+            
+                    <div class="header-logo">
+                        <a href="#">
+                            <img src="./Images/logo.png" alt="" class="header-logo-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-middle-center">
+                    <form action="" class="form-search">
+                        <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." oninput="searchProducts()">
+                        <button class="filter-btn"><i class="fa-light fa-filter-list"></i><span>Lọc</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="main-wrapper">
+    <div class="container" id="trangchu">
+
+        <div class="home-title-block" id="home-title">
+            <h2 class="home-title">Sửa SẢN PHẨM</h2>
+        </div>
+
+        <!-- Form sửa sản phẩm hiển thị sẵn -->
+        <div id="editProductForm" class="edit-product-form">
+            <form id="productForm" action="#" method="POST">
+ <div class="form-left">
+    <label for="productImage">Hình ảnh:</label>
+    <div class="image-container">
+        <div style="position: relative;">
+            <span class="delete-icon">x</span>
+            <img id="previewImage1" src="./Vegeta_supreme.jpg" alt="Hình ảnh sản phẩm 1" class="product-image-preview">
+        </div>
+        <div style="position: relative;">
+            <span class="delete-icon">x</span>
+            <img id="previewImage2" src="./Vegeta_supreme.jpg" alt="Hình ảnh sản phẩm 2" class="product-image-preview">
+        </div>
+        <div style="position: relative;">
+            <span class="delete-icon">x</span>
+            <img id="previewImage3" src="./Vegeta_supreme.jpg" alt="Hình ảnh sản phẩm 3" class="product-image-preview">
+        </div>
+        <div style="position: relative;">
+            <span class="delete-icon">x</span>
+            <img id="previewImage4" src="./Vegeta_supreme.jpg" alt="Hình ảnh sản phẩm 4" class="product-image-preview">
+        </div>
+    </div>
+    <button type="button" class="upload-btn" onclick="document.getElementById('productImage').click()">Thêm ảnh</button>
+    <input type="file" id="productImage" name="productImage" accept="image/*" onchange="previewImage(event)" style="display: none;">
+</div>
+
+                <div class="form-right">
+                    <!-- Phần thông tin sản phẩm bên phải -->
+                    <label for="productName">Tên sản phẩm:</label>
+                    <input type="text" id="productName" name="productName" value="Tên sản phẩm mặc định" required>
+
+                    <label for="productDescription">Mô tả:</label>
+                    <textarea id="productDescription" name="productDescription" required>Mô tả mặc định cho sản phẩm này...</textarea>
+
+                    <label for="productPrice">Giá:</label>
+                    <input type="number" id="productPrice" name="productPrice" value="100000" required>
+                    
+                    <!-- Nút cập nhật sản phẩm -->
+    <button class="update-button" onclick="showUpdateMessage()">Cập nhật sản phẩm</button>
+
+    <script>
+        // Hàm hiển thị thông báo khi cập nhật sản phẩm
+        function showUpdateMessage() {
+            // Hiển thị thông báo cập nhật
+            alert("Sản phẩm đã được cập nhật thành công!"); 
+
+        }
+    </script>
+                    
+                    <button type="button" onclick="location.href='admin.html';" class="cancel-btn">Hủy</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="widget-area">
+                    <div class="container">
+                        <div class="widget-row">
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Về chúng tôi</h3>
+                                <div class="widget-row-col-content">
+                                    <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                                </div>
+                                <div class="widget-social">
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Liên kết</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Về chúng tôi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Điều khoản</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Liên hệ</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Tin tức</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Sản Phẩm</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Thun</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Polo</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Sơ Mi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Quần Short</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Mũ</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Liên hệ</h3>
+                                <div class="contact">
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-location-dot"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-phone"></i>
+                                        </div>
+                                        <div class="contact-content contact-item-phone">
+                                            <span>0123 456 789</span>
+                                            <br>
+                                            <span>0987 654 321</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-content conatct-item-email">
+                                            <span>abc@domain.com</span><br />
+                                            <span>infoabc@domain.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+</div>
+    </body>
+</html>
