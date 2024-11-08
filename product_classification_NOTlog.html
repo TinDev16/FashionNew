@@ -18,10 +18,10 @@
             <div class="container">
               <div class="header-middle-left">
                 <!-- Nút mở menu -->
-    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
-    
-    <!-- Thanh menu ẩn -->
-    <div id="sidebarMenu" class="sidebar-menu">
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+<!-- Thanh menu ẩn -->
+<div id="sidebarMenu" class="sidebar-menu">
     <button class="close-button" onclick="toggleMenu()">×</button>
     <ul>
         <li><a href="index.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
@@ -30,29 +30,29 @@
         <li class="dropdown">
             <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
             <div class="dropdown-content">
-                <a href="product_classification.html">Áo Thun</a>
-                <a href="product_classification.html">Áo Polo</a>
-                <a href="product_classification.html">Áo Sơ Mi</a>
-                <a href="product_classification.html">Quần Short</a>
-                <a href="product_classification.html">Mũ</a>
+                <a href="product_classification_NOTlog.html">Áo Thun</a>
+                <a href="product_classification_NOTlog.html">Áo Polo</a>
+                <a href="product_classification_NOTlog.html">Áo Sơ Mi</a>
+                <a href="product_classification_NOTlog.html">Quần Short</a>
+                <a href="product_classification_NOTlog.html">Mũ</a>
             </div>
         </li>
-    
+
         <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
         <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
     </ul>
-    </div>
-    
+</div>
+
       
                 <div class="header-logo">
                   <a href="index.html">
                       <img src="./Images/logo.png" alt="" class="header-logo-img">
                   </a>
               </div>
-    
+
               </div>
               <div class="header-middle-center">
-                <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                <form action="product_search_NOTlog.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                     <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn..." id="search-input">
                     <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
@@ -75,33 +75,24 @@
                     </div>
                   </li>
                   <li class="header-middle-right-item dropdown open">
-                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                    <i class="fa-light fa-user"></i>
                     <div class="auth-container">
-                        <span class="text-dndk">Tài khoản</span>
-                        <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                      <span class="text-dndk">Đăng nhập / Đăng ký</span>
+                      <span class="text-tk">Tài khoản <i class="fa-sharp fa-solid fa-caret-down"></i></span>
                     </div>
                     <ul class="header-middle-right-menu">
-                        
-                        <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                        <li><a id="purchase-history" href="#"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
-                        <li><a id="logout" href="Login.html?signup"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
+                      <li><a id="login" href="Login.html?signin"><i class="fa-light fa-right-to-bracket"></i> Đăng nhập</a></li>
+                      <li><a id="signup" href="Login.html?signup"><i class="fa-light fa-user-plus"></i>Đăng Kí</a></li>
                     </ul>
-                </li>
-                
-                  <li class="header-middle-right-item open" onclick="window.location.href='CartPage.html'">
-                    <div class="cart-icon-menu">
-                        <i class="fa-light fa-basket-shopping"></i>
-                        <span class="count-product-cart">4</span>
-                    </div>
-                    <span>Giỏ hàng</span>
-                </li>                
+                  </li>
+                               
                 </ul>
               </div>
             </div>
           </div>
         
     </header>
-    
+   
     <div class="advanced-search" id="advanced-search">
       <div class="container">
           <div class="advanced-search-category">
@@ -136,13 +127,11 @@
               </button>
           </div>
       </div>
-    </div>
-    
-    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
-    
+  </div>
 
-
-                <h2 class="home-title">Kết quả tìm kiếm</h2>
+  <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+  
+                <h2 class="home-title">Áo Thun</h2>
           </div>
             <section class="product-content">
                <section class="products">
@@ -222,18 +211,72 @@
                       <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
                     </button>
                   </div>
-                 
-                  
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/aothun5.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>Áo Thun Nam Họa Tiết In Araneae </h3>
+                    <p>200.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/aothun6.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>Áo Thun Nam In Nổi Knowledge - Experience - Adventure </h3>
+                    <p>200.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/aothun7.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>Áo Thun Nam Họa Tiết Phối Viền Orgnls Take A Move
+                    </h3>
+                    <p>200.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/Skull Mask Tê.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>Skull Mask Tee</h3>
+                    <p>100.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/white rabbit.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>White Rabbit
+                    </h3>
+                    <p>100.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/Rainbow Tee.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>Rainbow Tee</h3>
+                    <p>300.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
+                  <div class="product" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/Rabbit Club.webp" alt="Purple Cardigan" class="small-image"/>
+                    <h3>Rabbit Club</h3>
+                    <p>200.000₫</p>
+                    <button class="add-to-cart">
+                      <a href="show_product_NOTlog.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                    </button>
+                  </div>
                 </section>
               </section>
 
-              <!-- <h1> Không tìm thấy sản phẩm</h1> -->
-
               <div class="pagination-controls">
-                <button class="pagination" onclick="window.location.href='product_search.html';">1</button>
-                <button class="pagination" onclick="window.location.href='product_search.html';">2</button>
-                <button class="pagination" onclick="window.location.href='product_search.html';">3</button>
-                <button class="pagination" onclick="window.location.href='product_search.html';">Next >></button>
+                <button class="pagination" onclick="window.location.href='product_classification_NOTlog';">1</button>
+                <button class="pagination" onclick="window.location.href='product_classification_NOTlog';">2</button>
+                <button class="pagination" onclick="window.location.href='product_classification_NOTlog';">3</button>
+                <button class="pagination" onclick="window.location.href='product_classification_NOTlog';">Next >></button>
             </div>
 
             <div class="home-products" id="home-products">

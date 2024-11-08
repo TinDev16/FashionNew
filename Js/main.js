@@ -714,11 +714,11 @@ function closeSearchAdvanced() {
 }
 
 function handleSearchSubmit(event) {
-  window.location.href = "product_search.html";
+  window.location.href = "product_search_NOTlog.html";
 }
 
 function handleAdvancedSearch() {
-  window.location.href = "product_search.html";
+  window.location.href = "product_search_NOTlog.html";
 }
 
 function toggleMenu() {
