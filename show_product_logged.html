@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href="Images/logo.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="./Css/main.css">
+    <link rel="stylesheet" href="./Css/show_product.css">
+    <link rel="stylesheet" href="./Css/home-responsive.css">
+    <link rel="stylesheet" href="./Css/toast-message.css">
+    <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+              <div class="header-middle-left">
+                <!-- Nút mở menu -->
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+<!-- Thanh menu ẩn -->
+<div id="sidebarMenu" class="sidebar-menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <ul>
+        <li><a href="index.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
+        
+        <!-- Menu con cho "Sản phẩm" -->
+        <li class="dropdown">
+            <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
+            <div class="dropdown-content">
+                <a href="product_classification.html">Áo Thun</a>
+                <a href="product_classification.html">Áo Polo</a>
+                <a href="product_classification.html">Áo Sơ Mi</a>
+                <a href="product_classification.html">Quần Short</a>
+                <a href="product_classification.html">Mũ</a>
+            </div>
+        </li>
+
+        <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
+        <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
+    </ul>
+</div>
+
+      
+                <div class="header-logo">
+                  <a href="index.html">
+                      <img src="./Images/logo.png" alt="" class="header-logo-img">
+                  </a>
+              </div>
+
+              </div>
+              <div class="header-middle-center">
+                <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                    <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn..." id="search-input">
+                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    </button>
+                </form>
+            </div>
+            
+            
+              <div class="header-middle-right">
+                <ul class="header-middle-right-list">
+                  <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-magnifying-glass"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-circle-xmark"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item dropdown open">
+                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                    <div class="auth-container">
+                        <span class="text-dndk">Tài khoản</span>
+                        <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                    </div>
+                    <ul class="header-middle-right-menu">
+                        
+                        <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
+                        <li><a id="purchase-history" href="#"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
+                        <li><a id="logout" href="Login.html?signup"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
+                    </ul>
+                </li>
+                
+                  <li class="header-middle-right-item open" onclick="window.location.href='CartPage.html'">
+                    <div class="cart-icon-menu">
+                        <i class="fa-light fa-basket-shopping"></i>
+                        <span class="count-product-cart">4</span>
+                    </div>
+                    <span>Giỏ hàng</span>
+                </li>                
+                </ul>
+              </div>
+            </div>
+          </div>
+        
+    </header>
+   
+    <div class="advanced-search" id="advanced-search">
+      <div class="container">
+          <div class="advanced-search-category">
+              <span>Phân loại</span>
+              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                  <option>Áo thun</option>
+                  <option>Polo</option>
+                  <option>Sơ mi</option>
+                  <option>Quần short</option>
+                  <option>Mũ</option>
+              </select>
+          </div>
+          <div class="advanced-search-price">
+              <span>Giá từ</span>
+              <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+              <span>đến</span>
+              <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+              <button id="advanced-search-price-btn" onclick="handleAdvancedSearch()"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+          </div>
+          <div class="advanced-search-control">
+              <button id="sort-ascending" onclick="searchProducts(1)">
+                  <i class="fa-regular fa-arrow-up-short-wide"></i>
+              </button>
+              <button id="sort-descending" onclick="searchProducts(2)">
+                  <i class="fa-regular fa-arrow-down-wide-short"></i>
+              </button>
+              <button id="reset-search" onclick="searchProducts(0)">
+                  <i class="fa-light fa-arrow-rotate-right"></i>
+              </button>
+              <button onclick="closeSearchAdvanced()">
+                  <i class="fa-light fa-xmark"></i>
+              </button>
+          </div>
+      </div>
+  </div>
+
+  <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+
+<div class="home-title-block" id="home-title">
+    <h2 class="home-title">Chi tiết</h2>
+</div>
+
+                <div class="card-wrapper">
+        <div class="card">
+            <!-- card left -->
+            <div class="product-imgs">
+                <div class="img-display">
+                    <div class="img-showcase">
+                        <img src="Images/aothun1.webp" >
+                        <img src="Images/aothun2.webp" >
+                        <img src="Images/aothun3.webp" >
+                        <img src="Images/aothun4.jpg" >
+                    </div>
+                </div>
+                <div class="img-select">
+                    <div class="img-item">
+                        <a href="#" data-id="1">
+                            <img src="Images/aothun2.webp" >
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="2">
+                            <img src="Images/aothun3.webp">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="3">
+                            <img src="Images/aothun4.jpg" >
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="4">
+                            <img src="Images/aothun5.webp" >
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- card right -->
+            <div class="product-content">
+                <h2 class="product-title">Áo Thun Nam Trơn Strength Contour Form Regular</h2>
+                <a href="index.html" class="product-link">Đến cửa hàng</a>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.7 (21)</span>
+                </div>
+                <div class="product-price_show">
+                    <p class="last-price">Giá cũ: <span>250.000₫</span></p>
+                    <p class="new-price">Giá mới: <span>200.000₫</span></p>
+                </div>
+                <div class="product-detail">
+                    <h2>Mô tả</h2>
+                    <li>Chất liệu: Thun Cotton</li>
+                    <li>Form áo: Regular</li>
+                    <li>Đặc điểm:</li>
+                    <p>► CẢM GIÁC MỀM MẠI VÀ DỄ CHỊU TỪ CHẤT LIỆU COTTON </p> 
+                    <p>► FORM ÁO VỪA VẶN VÀ THOẢI MÁI</p>
+                    <p>► HỌA TIẾT CHÚ GẤU TEDDY ĐƯỢC THÊU XÙ CUỐN HÚT</p>
+                    <ul>
+                        <li>Màu: <span>Be</span></li>
+                        <li>Có sẵn: <span>Còn hàng</span></li>
+                        <li>Danh mục: <span>Áo</span></li>
+                        <li>Khu vực giao hàng: <span>Trên toàn thế giới</span></li>
+                        <li>Phí giao hàng: <span>Miễn phí</span></li>
+                    </ul>
+                </div>
+                <div class="purchase-info">
+                    <input type="number" min="0" value="1" id="quantity">
+                    <button type="button" class="btn add-to-cart" onclick="showUpdateMessage()">
+                        Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="btn view-cart" onclick="window.location.href='CartPage.html';">Xem giỏ hàng</button>
+                </div>
+                <script>
+                    // Hàm hiển thị thông báo khi cập nhật sản phẩm
+                    function showUpdateMessage() {
+                        // Hiển thị thông báo cập nhật
+                        alert("Sản phẩm đã được thêm vào giỏ hàng!"); 
+            
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="./Js/main.js"></script> 
+    <script src="./Js/show_product.js"></script>
+    <script src="./Js/toast-message.js"></script>
+</body>
+</html>

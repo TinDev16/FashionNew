@@ -299,7 +299,7 @@ button:hover {
 
 .add-to-cart a {
     display: inline-block;
-    background-color: #08397a; /* Màu cam đậm */
+    background-color: #08397a; 
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -309,7 +309,7 @@ button:hover {
 }
 
 .add-to-cart a:hover {
-    background-color: #021938; /* Màu cam đậm hơn khi hover */
+    background-color: #021938; 
     transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
 
