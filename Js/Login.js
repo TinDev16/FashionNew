@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
 
 function redirectToIndex(mode) {
   if (mode === 'signin') {
-    window.location.href = "./index.html";
+    window.location.href = "./index_logged.html";
   } else if (mode === 'signup') {
     window.location.href = "Login.html?signin";
   }

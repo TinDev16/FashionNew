@@ -713,13 +713,6 @@ function closeSearchAdvanced() {
   document.getElementById("advanced-search-overlay").style.display = "none";
 }
 
-function handleSearchSubmit(event) {
-  window.location.href = "product_search_NOTlog.html";
-}
-
-function handleAdvancedSearch() {
-  window.location.href = "product_search_NOTlog.html";
-}
 
 function toggleMenu() {
   const sidebarMenu = document.getElementById("sidebarMenu");
