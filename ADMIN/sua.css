@@ -663,7 +663,6 @@ header {
 /* Main Menu */
 .main-wrapper {
   overflow: hidden;
-  padding-top: 60px;
 }
 
 .home-title-block {
@@ -2762,18 +2761,25 @@ input[type="number"] {
     justify-content: center;
 }
 
+/* Thay đổi chiều rộng ảnh để tự động thay đổi theo màn hình */
 .product-image-preview {
-    width: 100px;
+    width: 100%; /* Ảnh sẽ chiếm toàn bộ chiều rộng của .image-item */
+    max-width: 300px; /* Đặt kích thước tối đa cho hình ảnh */
     height: auto;
     border-radius: 10px;
-    position: relative;
+}
+
+/* Đặt kích thước ảnh theo tỷ lệ của khung cha */
+.image-item {
+    width: 101px; /* Kích thước cố định ban đầu */
+    flex: 1 1 auto; /* Cho phép tự động thay đổi kích thước */
 }
 
 /* Dấu "x" hiển thị trên mỗi hình ảnh */
 .image-container .delete-icon {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: 5px;
+    right: 5px;
     width: 20px;
     height: 20px;
     background-color: #ff4d4f;
@@ -2784,7 +2790,29 @@ input[type="number"] {
     font-weight: bold;
     cursor: pointer;
     font-size: 14px;
+    z-index: 1; /* Đảm bảo nút "x" luôn nằm trên hình ảnh */
 }
+
+
+/* Đảm bảo ảnh giảm kích thước khi màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    .product-image-preview {
+        max-width: 70px;
+    }
+    .image-item {
+        width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-image-preview {
+        max-width: 50px;
+    }
+    .image-item {
+        width: 50px;
+    }
+}
+
 
 /* Nút "Thêm ảnh" màu tím */
 .edit-product-form .upload-btn {

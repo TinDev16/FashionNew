@@ -2796,7 +2796,7 @@ input[type="number"] {
 }
 
 .delete-button:hover {
-    background-color: #B71C1C; /* Màu nền khi hover cho nút Xóa - một tông đậm hơn */
+    background-color: #931e1e; /* Màu nền khi hover cho nút Xóa - một tông đậm hơn */
     transform: scale(1.05); /* Phóng to một chút khi hover */
 }
 
