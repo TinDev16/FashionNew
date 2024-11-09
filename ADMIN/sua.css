@@ -2763,7 +2763,7 @@ input[type="number"] {
 }
 
 .product-image-preview {
-    width: 80px;
+    width: 100px;
     height: auto;
     border-radius: 10px;
     position: relative;
