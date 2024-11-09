@@ -713,7 +713,6 @@ function closeSearchAdvanced() {
   document.getElementById("advanced-search-overlay").style.display = "none";
 }
 
-
 function toggleMenu() {
   const sidebarMenu = document.getElementById("sidebarMenu");
 

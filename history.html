@@ -54,7 +54,7 @@
               <div class="header-middle-center">
                 <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn..." id="search-input">
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
                     <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
                         <i class="fa-light fa-filter-list"></i><span>Lọc</span>
                     </button>
@@ -78,12 +78,16 @@
                     <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
                     <div class="auth-container">
                         <span class="text-dndk">Tài khoản</span>
-                        <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                        <span class="text-tk">Thanh <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
                     </div>
                     <ul class="header-middle-right-menu">
                         
                         <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                        <li><a id="purchase-history" href="#"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
+                        <li>
+                            <a id="purchase-history" href="#" onclick="openPurchaseHistoryModal()">
+                                <i class="fa-solid fa-history"></i> Lịch sử mua hàng
+                            </a>
+                        </li> <!-- Biểu tượng lịch sử mua hàng -->
                         <li><a id="logout" href="Login.html?signin"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
                     </ul>
                 </li>
@@ -101,185 +105,29 @@
           </div>
         
     </header>
-  
-    
-    <div class="advanced-search" id="advanced-search">
-      <div class="container">
-          <div class="advanced-search-category">
-              <span>Phân loại</span>
-              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
-                  <option>Áo thun</option>
-                  <option>Polo</option>
-                  <option>Sơ mi</option>
-                  <option>Quần short</option>
-                  <option>Mũ</option>
-              </select>
-          </div>
-          <div class="advanced-search-price">
-              <span>Giá từ</span>
-              <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
-              <span>đến</span>
-              <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
-              <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
-          </div>
-          <div class="advanced-search-control">
-              <button id="sort-ascending" onclick="searchProducts(1)">
-                  <i class="fa-regular fa-arrow-up-short-wide"></i>
-              </button>
-              <button id="sort-descending" onclick="searchProducts(2)">
-                  <i class="fa-regular fa-arrow-down-wide-short"></i>
-              </button>
-              <button id="reset-search" onclick="searchProducts(0)">
-                  <i class="fa-light fa-arrow-rotate-right"></i>
-              </button>
-              <button onclick="closeSearchAdvanced()">
-                  <i class="fa-light fa-xmark"></i>
-              </button>
-          </div>
-      </div>
-    </div>
-    
-    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
-    
-
-
-                <h2 class="home-title">Kết quả tìm kiếm</h2>
-          </div>
-            <section class="product-content">
-               <section class="products">
-                <div class="card_cart">
-                    <div class="badge">HOT</div>
-                    <div class="tumb" onclick="window.location.href='show_product.html';">
-                        <img src="Images/aothun1.webp" alt="Women leather bag">
-                    </div>
-                    <div class="details">
-                        <span class="category">Men, Shirt</span>
-                        <h4>
-                          <a href="show_product.html">Áo Thun Nam Trơn Strength Contour Form Regular</a>
-                        </h4>
-                        <div class="bottom-details">
-                            <div class="price">
-                                <small>250.000đ</small>200.000đ
-                            </div>
-                            <div class="links">
-                               <a ><i class="fa-solid fa-heart"></i></a>
-                                <a onclick="alert('Đã thêm sản phẩm vào giỏ hàng')"><i class="fa-solid fa-cart-shopping"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-  
-                <div class="card_cart">
-                  <div class="badge">HOT</div>
-                  <div class="tumb" onclick="window.location.href='show_product.html';">
-                      <img src="Images/aothun2.webp" alt="Women leather bag">
-                  </div>
-                  <div class="details">
-                      <span class="category">Men, Shirt</span>
-                      <h4>
-                        <a href="show_product.html">Áo Thun Nam Họa Tiết In Thêu Đắp Team Dog Max Form Regular</a>
-                      </h4>
-                      <div class="bottom-details">
-                          <div class="price">
-                              <small>250.000đ</small>200.000đ
-                          </div>
-                          <div class="links">
-                             <a ><i class="fa-solid fa-heart"></i></a>
-                              <a onclick="alert('Đã thêm sản phẩm vào giỏ hàng')"><i class="fa-solid fa-cart-shopping"></i></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-                    
-                      <div class="card_cart">
-                        <div class="badge">HOT</div>
-                        <div class="tumb" onclick="window.location.href='show_product.html';">
-                            <img src="Images/aothun3.webp" alt="Women leather bag">
-                        </div>
-                        <div class="details">
-                            <span class="category">Men, Shirt</span>
-                            <h4>
-                              <a href="show_product.html">Áo Thun Nam Phim Điện Ảnh Cám Hoạ Tiết Thêu The Oriole Form Oversize
-                              </a>
-                            </h4>
-                            <div class="bottom-details">
-                                <div class="price">
-                                    <small>250.000đ</small>200.000đ
-                                </div>
-                                <div class="links">
-                                   <a ><i class="fa-solid fa-heart"></i></a>
-                                    <a onclick="alert('Đã thêm sản phẩm vào giỏ hàng')"><i class="fa-solid fa-cart-shopping"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-  
-                            <div class="card_cart">
-                              <div class="badge">HOT</div>
-                              <div class="tumb" onclick="window.location.href='show_product.html';">
-                                  <img src="Images/aothun4.jpg" alt="Women leather bag">
-                              </div>
-                              <div class="details">
-                                  <span class="category">Men, Shirt</span>
-                                  <h4>
-                                    <a href="show_product.html">Áo Thun Nam Họa Tiết Thêu Idyllic Scenery Form Regular</a>
-                                  </h4>
-                                  <div class="bottom-details">
-                                      <div class="price">
-                                          <small>250.000đ</small>200.000đ
-                                      </div>
-                                      <div class="links">
-                                         <a ><i class="fa-solid fa-heart"></i></a>
-                                          <a onclick="alert('Đã thêm sản phẩm vào giỏ hàng')"><i class="fa-solid fa-cart-shopping"></i></a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-  
-                          <div class="card_cart">
-                            <div class="badge">HOT</div>
-                            <div class="tumb" onclick="window.location.href='show_product.html';">
-                                <img src="Images/aothun5.webp" alt="Women leather bag">
-                            </div>
-                            <div class="details">
-                                <span class="category">Men, Shirt</span>
-                                <h4>
-                                  <a href="show_product.html">Áo Thun Nam Họa Tiết In Araneae Form Regular</a>
-                                </h4>
-                                <div class="bottom-details">
-                                    <div class="price">
-                                        <small>250.000đ</small>200.000đ
-                                    </div>
-                                    <div class="links">
-                                       <a ><i class="fa-solid fa-heart"></i></a>
-                                        <a onclick="alert('Đã thêm sản phẩm vào giỏ hàng')"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-  
-                  
-                </section>
-              </section>
-
-              <!-- <h1> Không tìm thấy sản phẩm</h1> -->
-
-              <div class="pagination-controls">
-                <button class="pagination" onclick="window.location.href='product_search.html';">1</button>
-                <button class="pagination" onclick="window.location.href='product_search.html';">2</button>
-                <button class="pagination" onclick="window.location.href='product_search.html';">3</button>
-                <button class="pagination" onclick="window.location.href='product_search.html';">Next >></button>
-            </div>
-
-            <div class="home-products" id="home-products">
-            </div>
-            
-            <div class="page-nav">
-                <ul class="page-nav-list">
-                </ul>
-            </div>
-            
-        </div>
+   
+    <body>
+        <h1>Lịch Sử Mua Hàng</h1>
+        <table>
+            <tr>
+                <th>Mã Đơn Hàng</th>
+                <th>Ngày Mua</th>
+                <th>Sản Phẩm</th>
+                <th>Số Lượng</th>
+                <th>Giá</th>
+                <th>Trạng Thái</th>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>01/11/2024</td>
+                <td>Áo Thun</td>
+                <td>2</td>
+                <td>500,000 VND</td>
+                <td>Đã Giao</td>
+            </tr>
+            <!-- Thêm các đơn hàng khác tương tự -->
+        </table>
+    </body>
    
         
     <footer class="footer" id="footer">
