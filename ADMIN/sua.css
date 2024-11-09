@@ -2865,3 +2865,18 @@ input[type="number"] {
 .image-container .delete-icon:hover {
     background-color: rgba(0, 0, 0, 1); /* Màu trắng khi hover */
 }
+/* Hiệu ứng hover cho nút "Cập nhật sản phẩm" */
+.edit-product-form button[type="submit"]:hover {
+    background-color: #0a4d9c; /* Màu nền đậm hơn khi hover */
+}
+
+/* Hiệu ứng hover cho nút "Hủy" */
+.cancel-btn:hover {
+    background-color: #ff2a2a; /* Màu nền đậm hơn cho nút hủy khi hover */
+    color: #fff; /* Đảm bảo chữ vẫn trắng */
+}
+
+/* Hiệu ứng hover cho nút "Thêm ảnh" */
+.edit-product-form .upload-btn:hover {
+    background-color: #7a3e99; /* Màu nền đậm hơn cho nút thêm ảnh khi hover */
+}

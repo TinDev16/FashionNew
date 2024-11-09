@@ -34,7 +34,6 @@
                                 <a href="#">Áo Sơ Mi</a>
                                 <a href="#">Quần Short</a>
                                 <a href="#">Mũ</a>
-                               <a href="them.html" class="add-product-link">Thêm sản phẩm</a>
                             </div>
                         </li>
 <li><a href="#footer"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
@@ -120,6 +119,48 @@
                 <h2 class="home-title">ADMIN</h2>
             </div>
             
+<div class="button-container">
+    <button class="add-product-button" onclick="window.location.href='them.html';">Thêm Sản Phẩm</button>
+</div>
+
+<style>
+    .button-container {
+        text-align: right; /* Căn chỉnh nội dung bên phải */
+        margin: 10px 0; /* Khoảng cách trên và dưới cho container */
+    }
+
+    .add-product-button {
+        background-color: #7B68EE; /* Màu xanh lá cây */
+        color: white; /* Màu chữ trắng */
+        border: none; /* Không viền */
+        border-radius: 5px; /* Bo tròn */
+        padding: 10px 20px; /* Khoảng cách bên trong */
+        cursor: pointer; /* Con trỏ chuột hình tay */
+        font-size: 16px; /* Kích thước chữ */
+        margin: 0; /* Không có margin cho button */
+        margin-right: 10px; /* Điều chỉnh khoảng cách bên phải để xích vào thêm */
+    }
+
+    .add-product-button:hover {
+        background-color: #9370DB; /* Màu xanh lá cây đậm hơn khi hover */
+    }
+
+    .product-content {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .products {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .product {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 10px; /* Thêm padding nếu cần */
+        border: 1px solid #ccc; /* Nếu bạn muốn viền cho sản phẩm */
+    }
+</style>
             <section class="product-content">
                <section class="products">
                   <div class="product" >
@@ -457,25 +498,6 @@
         </div>
    
         <footer class="footer" id="footer">
-            <div class="container">
-                <div class="footer-top">
-                    <div class="footer-top-content">
-                        <div class="footer-top-subbox">
-                            <div class="footer-top-subs">
-                                <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
-                                <p class="footer-top-subs-text">Nhận thông tin mới nhất từ chúng tôi</p>
-                            </div>
-                            <form class="form-ground">
-                                <input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
-                                <button class="form-ground-btn" >
-                                    <span >ĐĂNG KÝ</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
     
             <div class="widget-area">
                 <div class="container">

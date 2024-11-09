@@ -33,7 +33,6 @@
                                 <a href="#">Áo Sơ Mi</a>
                                 <a href="#">Quần Short</a>
                                 <a href="#">Mũ</a>
-                               <a href="them.html" class="add-product-link">Thêm sản phẩm</a>
                             </div>
                         </li>
                                 <li><a href="#footer"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
@@ -100,10 +99,18 @@
                         function showUpdateMessage() {
                             // Hiển thị thông báo cập nhật
                             alert("Sản phẩm đã được thêm!"); 
+
+                            window.location.href = "admin.html";
                 
                         }
                     </script>
-                    <button type="button" onclick="hideEditForm()" class="cancel-btn">Hủy</button>
+                    <button type="button" onclick="cancelEdit()" class="cancel-btn">Hủy</button>
+
+<script>
+function cancelEdit() {
+    window.location.href = "admin.html";
+}
+</script>
                 </div>
             </form>
         </div>

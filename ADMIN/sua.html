@@ -11,22 +11,6 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
-    <style>
-        .update-button {
-            background-color: #007bff; /* Màu xanh dương */
-            color: white; /* Màu chữ trắng */
-            border: none; /* Không viền */
-            border-radius: 15px; /* Bo tròn */
-            padding: 10px 20px; /* Khoảng cách bên trong */
-            cursor: pointer; /* Con trỏ chuột hình tay */
-            font-size: 16px; /* Kích thước chữ */
-            transition: background-color 0.3s; /* Hiệu ứng chuyển động */
-        }
-
-        .update-button:hover {
-            background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -49,7 +33,6 @@
                                 <a href="#">Áo Sơ Mi</a>
                                 <a href="#">Quần Short</a>
                                 <a href="#">Mũ</a>
-                               <a href="them.html" class="add-product-link">Thêm sản phẩm</a>
                             </div>
                         </li>
                                 <li><a href="#footer"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
@@ -109,29 +92,35 @@
     <input type="file" id="productImage" name="productImage" accept="image/*" onchange="previewImage(event)" style="display: none;">
 </div>
 
-                <div class="form-right">
+<<div class="form-right">
                     <!-- Phần thông tin sản phẩm bên phải -->
                     <label for="productName">Tên sản phẩm:</label>
-                    <input type="text" id="productName" name="productName" value="Tên sản phẩm mặc định" required>
+                    <input type="text" id="productName" name="productName" value="" required>
 
                     <label for="productDescription">Mô tả:</label>
-                    <textarea id="productDescription" name="productDescription" required>Mô tả mặc định cho sản phẩm này...</textarea>
+                    <textarea id="productDescription" name="productDescription" required></textarea>
 
                     <label for="productPrice">Giá:</label>
-                    <input type="number" id="productPrice" name="productPrice" value="100000" required>
+                    <input type="number" id="productPrice" name="productPrice" value="" required>
                     
-                    <!-- Nút cập nhật sản phẩm -->
-    <button class="update-button" onclick="showUpdateMessage()">Cập nhật sản phẩm</button>
+                    <button type="submit" onclick="showUpdateMessage()">Cập Nhật sản phẩm</button>
+                    <script>
+                        // Hàm hiển thị thông báo khi cập nhật sản phẩm
+                        function showUpdateMessage() {
+                            // Hiển thị thông báo cập nhật
+                            alert("Sản phẩm đã được cập nhật!"); 
 
-    <script>
-        // Hàm hiển thị thông báo khi cập nhật sản phẩm
-        function showUpdateMessage() {
-            // Hiển thị thông báo cập nhật
-            alert("Sản phẩm đã được cập nhật thành công!"); 
-        }
-    </script>
-                    
-                    <button type="button" onclick="location.href='admin.html';" class="cancel-btn">Hủy</button>
+                            window.location.href = "admin.html";
+                
+                        }
+                    </script>
+                    <button type="button" onclick="cancelEdit()" class="cancel-btn">Hủy</button>
+
+<script>
+function cancelEdit() {
+    window.location.href = "admin.html";
+}
+</script>
                 </div>
             </form>
         </div>
