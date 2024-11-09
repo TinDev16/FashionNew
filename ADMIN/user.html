@@ -1,0 +1,376 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href='#' rel='icon' type='image/x-icon' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="home-responsive.css">
+    <link rel="stylesheet" href="toast-message.css">
+    <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .main-wrapper {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .confirmation-dialog {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hộp thoại không hiển thị ban đầu */
+            border-radius: 8px;
+        }
+
+        .dialog-content {
+            text-align: center;
+        }
+
+        .dialog-content button {
+            margin: 5px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dialog-content .confirm-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .dialog-content .cancel-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-middle-left">
+                    <!-- Nút mở menu -->
+                    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+            
+                    <!-- Thanh menu ẩn -->
+                    <div id="sidebarMenu" class="sidebar-menu">
+                        <button class="close-button" onclick="toggleMenu()">×</button>
+                        <ul>
+                            <!-- Menu con cho "Sản phẩm" -->
+                        <li class="dropdown">
+                            <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
+                            <div class="dropdown-content">
+                                <a href="#">Áo Thun</a>
+                                <a href="#">Áo Polo</a>
+                                <a href="#">Áo Sơ Mi</a>
+                                <a href="#">Quần Short</a>
+                                <a href="#">Mũ</a>
+                            </div>
+                        </li>
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-chart-line"></i> Thống kê</a></li>
+                        </ul>
+                    </div>
+            
+                    <div class="header-logo">
+                        <a href="#">
+                            <img src="./Images/logo.png" alt="" class="header-logo-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-middle-center">
+                    <form action="" class="form-search">
+                        <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." oninput="searchProducts()">
+                        <button class="filter-btn"><i class="fa-light fa-filter-list"></i><span>Lọc</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+<main class="main-wrapper">
+    <div class="container" id="trangchu">
+
+        <div class="home-title-block" id="home-title">
+            <h2 class="home-title">NGƯỜI DÙNG</h2>
+        </div>
+
+        <table class="table-user">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TÊN</th>
+                    <th>ĐĂNG NHẬP</th>
+                    <th>EMAIL</th>
+                    <th>ĐỊA CHỈ</th>
+                    <th>KHÓA</th>
+                    <th>SỬA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A1B2C3</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>nguyenvana</td>
+                    <td>vana@gmail.com</td>
+                    <td>123 Nguyễn Thái Học, Phường 1</td>            
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td>D4E5F6</td>
+                    <td>Trần Thị B</td>
+                    <td>tranthib</td>
+                    <td>thib@gmail.com</td>
+                    <td>456 Lê Văn Sỹ, Quận 3</td>
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td>G7H8I9</td>
+                    <td>Phạm Minh C</td>
+                    <td>phamminhc</td>
+                    <td>minhc@gmail.com</td>
+                    <td>789 Đường 1 Tháng 5, Phường Bình Thạnh</td>
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td>J0K1L2</td>
+                    <td>Nguyễn Thị D</td>
+                    <td>nguyenthid</td>
+                    <td>thid@gmail.com</td>
+                    <td>101 Trần Não, Quận 2</td>
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td>M3N4O5</td>
+                    <td>Lê Quốc E</td>
+                    <td>lequoce</td>
+                    <td>quoce@gmail.com</td>
+                    <td>202 Lê Văn Khương, Quận 12</td>
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td>P6Q7R8</td>
+                    <td>Trần Văn F</td>
+                    <td>tranvanf</td>
+                    <td>vanf@gmail.com</td>
+                    <td>303 Nguyễn Trãi, Quận 5</td>
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td>S9T0U1</td>
+                    <td>Ngô Tấn G</td>
+                    <td>gotang</td>
+                    <td>tang@gmail.com</td>
+                    <td>404 Hoàng Văn Thụ, Phường 2</td>
+                    <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
+                    <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn-add" onclick="location.href='themnguoidung.html'">Thêm người dùng</button></td>
+                    <td colspan="6"></td>
+                </tr>
+            </tbody>
+        </table>
+
+<!-- Hộp thoại xác nhận -->
+        <div id="confirmation-dialog" class="confirmation-dialog">
+            <div class="dialog-content">
+                <p>Bạn muốn khóa người dùng này?</p>
+                <button class="confirm-btn" onclick="confirmDelete()">Có</button>
+                <button class="cancel-btn" onclick="cancelDelete()">Không</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function showConfirmation() {
+        // Hiển thị hộp thoại xác nhận
+        document.getElementById('confirmation-dialog').style.display = 'block';
+    }
+
+    function confirmDelete() {
+        alert("Người dùng đã được khóa!");
+        // Logic để khóa người dùng ở đây.
+        document.getElementById('confirmation-dialog').style.display = 'none';
+    }
+
+    function cancelDelete() {
+        document.getElementById('confirmation-dialog').style.display = 'none';
+    }
+</script>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="widget-area">
+                    <div class="container">
+                        <div class="widget-row">
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Về chúng tôi</h3>
+                                <div class="widget-row-col-content">
+                                    <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                                </div>
+                                <div class="widget-social">
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Liên kết</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Về chúng tôi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Điều khoản</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Liên hệ</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Tin tức</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Sản Phẩm</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Thun</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Polo</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Sơ Mi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Quần Short</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Mũ</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Liên hệ</h3>
+                                <div class="contact">
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-location-dot"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-phone"></i>
+                                        </div>
+                                        <div class="contact-content contact-item-phone">
+                                            <span>0123 456 789</span>
+                                            <br>
+                                            <span>0987 654 321</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-content conatct-item-email">
+                                            <span>abc@domain.com</span><br />
+                                            <span>infoabc@domain.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="./user.js"></script> 
+<script src="./toast-message.js"></script>
+    </body>
+</html>
