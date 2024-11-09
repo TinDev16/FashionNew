@@ -1,0 +1,346 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href='#' rel='icon' type='image/x-icon' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="thongkenguoidung.css">
+    <link rel="stylesheet" href="home-responsive-1.css">
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-middle-left">
+                    <!-- Nút mở menu -->
+                    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+            
+                    <!-- Thanh menu ẩn -->
+                    <div id="sidebarMenu" class="sidebar-menu">
+                        <button class="close-button" onclick="toggleMenu()">×</button>
+                        <ul>
+                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="index.html">Sản phẩm</a></li>
+                            <li><a href="#">Dịch vụ</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
+            
+                    <div class="header-logo">
+                        <a href="#">
+                            <img src="./Images/logo.png" alt="" class="header-logo-img">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-middle-center">
+                    <form action="" class="form-search">
+                        <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." oninput="searchProducts()">
+                        <button class="filter-btn"><i class="fa-light fa-filter-list"></i><span>Lọc</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="main-wrapper">
+    <div class="container" id="trangchu">
+
+        <div class="home-title-block" id="home-title">
+            <h2 class="home-title">THỐNG KÊ NGƯỜI DÙNG</h2>
+        </div>
+
+        <!-- Bảng quản lý người dùng -->
+        <table class="table-user">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TÊN</th>
+                    <th>ĐĂNG NHẬP</th>
+                    <th>EMAIL</th>
+                    <th>ĐỊA CHỈ</th>
+                    <th>TỔNG CHI TIÊU</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A1B2C3</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>nguyenvana</td>
+                    <td>vana@gmail.com</td>
+                    <td>123 Nguyễn Thái Học, Phường 1</td>
+                    <td>3,000,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>B2C3D4</td>
+                    <td>Trần Thị B</td>
+                    <td>tranthib</td>
+                    <td>tranthib@gmail.com</td>
+                    <td>456 Lê Đình Lý, Quận 2</td>
+                    <td>2,500,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>C3D4E5</td>
+                    <td>Phạm Minh C</td>
+                    <td>phamminhc</td>
+                    <td>minhc@gmail.com</td>
+                    <td>789 Bến Nghé, Quận 1</td>
+                    <td>4,000,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>D4E5F6</td>
+                    <td>Nguyễn Thế D</td>
+                    <td>nguyentheD</td>
+                    <td>theD@gmail.com</td>
+                    <td>135 Hoàng Hoa Thám, Phường 10</td>
+                    <td>7,200,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>E5F6G7</td>
+                    <td>Lê Quốc E</td>
+                    <td>lequoce</td>
+                    <td>quoce@gmail.com</td>
+                    <td>202 Lê Văn Khương, Quận 12</td>
+                    <td>5,500,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>F6G7H8</td>
+                    <td>Đỗ Minh F</td>
+                    <td>dominhf</td>
+                    <td>minhf@gmail.com</td>
+                    <td>48 Trần Hưng Đạo, Phường 2</td>
+                    <td>1,800,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: center; font-weight: bold; color: purple; cursor: pointer;" onclick="alert('Show all customers')">Show All</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Nút "Lọc" -->
+        <button class="btn-loc" onclick="toggleVIPTable()">KHÁCH VIP</button>
+
+        <!-- Bảng Khách VIP -->
+        <div class="vip-customers-block" id="vip-customers" style="display: none;">
+            <h2 class="home-title">KHÁCH HÀNG VIP</h2>
+            <table class="table-vip-users">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>TÊN</th>
+                        <th>TỔNG DOANH THU</th>
+                        <th>XEM HÓA ĐƠN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A1B2C3</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>3,000,000 VNĐ</td>
+                        <td><button onclick="xemHoaDon('A1B2C3')">Xem Hóa Đơn</button></td>
+                    </tr>
+                    <tr>
+                        <td>B2C3D4</td>
+                        <td>Trần Thị B</td>
+                        <td>2,500,000 VNĐ</td>
+                        <td><button onclick="xemHoaDon('B2C3D4')">Xem Hóa Đơn</button></td>
+                    </tr>
+                    <tr>
+                        <td>C3D4E5</td>
+                        <td>Phạm Minh C</td>
+                        <td>4,000,000 VNĐ</td>
+                        <td><button onclick="xemHoaDon('C3D4E5')">Xem Hóa Đơn</button></td>
+                    </tr>
+                    <tr>
+                        <td>D4E5F6</td>
+                        <td>Nguyễn Thế D</td>
+                        <td>7,200,000 VNĐ</td>
+                        <td><button onclick="xemHoaDon('D4E5F6')">Xem Hóa Đơn</button></td>
+                    </tr>
+                    <tr>
+                        <td>M3N4O5</td>
+                        <td>Lê Quốc E</td>
+                        <td>5,500,000 VNĐ</td>
+                        <td><button onclick="xemHoaDon('M3N4O5')">Xem Hóa Đơn</button></td>
+                    </tr>
+                    <tr>
+                        <td>F6G7H8</td>
+                        <td>Đỗ Minh F</td>
+                        <td>1,800,000 VNĐ</td>
+                        <td><button onclick="xemHoaDon('F6G7H8')">Xem Hóa Đơn</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Kết thúc bảng khách hàng VIP -->
+
+    </div>
+</main>
+
+<script>
+function xemHoaDon(id) {
+    alert("Xem hóa đơn cho khách hàng có ID: " + id);
+}
+
+function toggleVIPTable() {
+    var vipTable = document.getElementById("vip-customers");
+    var locButton = document.getElementById("locButton");
+    if (vipTable.style.display === "none") {
+        vipTable.style.display = "block"; // Hiện bảng khách hàng VIP
+        locButton.style.display = "none"; // Ẩn nút "Lộc"
+    } else {
+        vipTable.style.display = "none"; // Ẩn bảng khách hàng VIP
+        locButton.style.display = "block"; // Hiện lại nút "Lộc" nếu cần
+    }
+}
+</script>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="widget-area">
+                    <div class="container">
+                        <div class="widget-row">
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Về chúng tôi</h3>
+                                <div class="widget-row-col-content">
+                                    <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                                </div>
+                                <div class="widget-social">
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Liên kết</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Về chúng tôi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Điều khoản</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Liên hệ</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Tin tức</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Sản Phẩm</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Thun</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Polo</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Sơ Mi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Quần Short</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Mũ</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Liên hệ</h3>
+                                <div class="contact">
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-location-dot"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-phone"></i>
+                                        </div>
+                                        <div class="contact-content contact-item-phone">
+                                            <span>0123 456 789</span>
+                                            <br>
+                                            <span>0987 654 321</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-content conatct-item-email">
+                                            <span>abc@domain.com</span><br />
+                                            <span>infoabc@domain.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    </body>
+</html>
