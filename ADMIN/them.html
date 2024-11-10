@@ -154,8 +154,7 @@
     <label for="productImage">Hình ảnh:</label>
     <div class="image-container">
         <div style="position: relative;">
-            <span class="delete-icon">x</span>
-            <img id="previewImage1" src="./them.jpg" alt="Hình ảnh sản phẩm 1" class="product-image-preview">
+            <img id="previewImage1" src="#" alt="Hình ảnh sản phẩm" class="product-image-preview">
         </div>
     </div>
     <button type="button" class="upload-btn" onclick="document.getElementById('productImage').click()">Thêm ảnh</button>
@@ -170,9 +169,13 @@
                     <label for="productDescription">Mô tả:</label>
                     <textarea id="productDescription" name="productDescription" required></textarea>
 
-                    <label for="productPrice">Giá:</label>
+                    <label for="productPrice">Giá cũ:</label>
                     <input type="number" id="productPrice" name="productPrice" value="" required>
                     
+                    <label for="productPrice">Giá mới:</label>
+                    <input type="number" id="productPrice" name="productPrice" value="" required>
+
+
                     <button type="submit" onclick="showUpdateMessage()">Thêm sản phẩm</button>
                     <script>
                         // Hàm hiển thị thông báo khi cập nhật sản phẩm
