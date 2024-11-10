@@ -11,6 +11,42 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+	<style>
+table {
+    width: 100%; /* Chiều rộng 100% */
+    border-collapse: collapse; /* Gộp các đường viền lại với nhau */
+    margin-top: 20px; /* Khoảng cách trên bảng */
+    border-radius: 15px; /* Bo tròn các góc */
+    overflow: hidden; /* Đảm bảo các góc bo tròn không bị overflow */
+}
+        th, td {
+            border: 2px solid #000; /* Đường viền mỗi ô */
+            padding: 10px; /* Khoảng cách bên trong ô */
+            text-align: center; /* Căn giữa văn bản trong ô */
+        }
+        th {
+            background-color: #66BB6A; /* Màu xanh lá cây tươi cho tiêu đề bảng */
+            color: black; /* Màu chữ trắng cho tiêu đề */
+        }
+.signatures {
+            display: flex;
+            justify-content: space-between; /* Cách đều hai bên */
+            margin-top: 50px; /* Khoảng cách trên */
+        }
+        .signature {
+            text-align: center; /* Canh giữa chữ ký */
+            margin-right: 125px; /* Khoảng cách bên phải cho bên Bán */
+            margin-left: 125px; /* Khoảng cách bên trái cho bên Mua */
+        }
+        .signature p {
+            margin: 5px 0; /* Giảm khoảng cách giữa các đoạn văn bản */
+        }
+        .signature .sign-space {
+            margin-top: 100px; /* Khoảng trống để ký */
+            height: 100px; /* Chiều cao cho phần ký */
+            border-top: 1px solid #000; /* Đường gạch ngang để ký */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -144,100 +180,141 @@
 <main class="main-wrapper">
     <div class="container" id="trangchu">
         <div class="home-title-block" id="home-title">
-            <h2 class="home-title">HÓA ĐƠN</h2>
+            <h2 class="home-title">BẢNG KÊ CHI TIẾT HÀNG BÁN</h2>
         </div>
         <!-- Main Content -->
         <main>
-            <!-- Recent Orders Table -->
-            <div class="recent-orders">
-                <h2>CÁC GIAO DỊCH LIÊN QUAN ĐẾN MẶT HÀNG ÁO THUN NAM TRƠN</h2>
+            <!-- Detailed Invoice Section -->
+            <div class="invoice-details">
+                <p style="text-align: center; font-size: 16px; color: #333; margin: 5px 0;"; >Số 01 - Kim theo hóa đơn với 0000001, ký hiệu AA/14P lập ngày 18/05/2018</p>
+                <p style="text-align: center; font-size: 16px; color: #333; margin: 5px 0;";>Ngày lập bảng kê: 18/05/2018</p>
+                <p>Đơn vị bán hàng: CÔNG TY TNHH FASHION NEW</p>
+                <p>Mã số thuế: 0100995189</p>
+                <p>Địa chỉ: 45 đường X, quận 7, thành phố Hồ Chí Minh</p>
+                <p>Họ tên người mua hàng: Nguyễn Văn A</p>
+                <p>Mã số thuế: 0100995188</p>
+                <p>Địa chỉ: 50 ngõ 23 đường X, quận 7, thành phố Hồ Chí Minh</p>
+
                 <table>
                     <thead>
                         <tr>
-                            <th>MÃ HÓA ĐƠN</th>
-                            <th>ID KHÁCH HÀNG</th>
-                            <th>TÊN KHÁCH HÀNG</th>
-                            <th>NGÀY LẬP HÓA ĐƠN</th>
-                            <th>TỔNG TIỀN</th>
-                            <th>CHI TIẾT HÓA ĐƠN</th>
+                            <th>STT</th>
+                            <th>Hàng hóa</th>
+                            <th>Đơn vị</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+							<th>Ghi chú</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>KX34H2F1</td> <!-- Mã hóa đơn -->
-                            <td>KH01X9C4</td> <!-- ID khách hàng -->
-                            <td>Nguyễn Văn A</td>
-                            <td>2023-10-01</td>
-                            <td>1.600.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>1</td>
+                            <td>Áo Thun Nam Trơn</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
                         <tr>
-                            <td>ZP12M8L9</td> <!-- Mã hóa đơn -->
-                            <td>KH05W2D8</td> <!-- ID khách hàng -->
-                            <td>Trần Thị B</td>
-                            <td>2023-10-02</td>
-                            <td>700.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>2</td>
+                            <td>Áo Thun Nam Họa Tiết In Thêu Đắp</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
                         <tr>
-                            <td>GH56N9R3</td> <!-- Mã hóa đơn -->
-                            <td>KH03F6R1</td> <!-- ID khách hàng -->
-                            <td>Nguyễn Văn C</td>
-                            <td>2023-10-03</td>
-                            <td>1.300.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>3</td>
+                            <td>Áo Thun Nam Phim Điện Ảnh Cám Hoạ</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
                         <tr>
-                            <td>JK78H3Q2</td> <!-- Mã hóa đơn -->
-                            <td>KH09M5S0</td> <!-- ID khách hàng -->
-                            <td>Phạm Văn D</td>
-                            <td>2023-10-04</td>
-                            <td>280.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>4</td>
+                            <td>Nón Lưỡi Trai Snapback</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
                         <tr>
-                            <td>TR45Y6D1</td> <!-- Mã hóa đơn -->
-                            <td>KH12D4V7</td> <!-- ID khách hàng -->
-                            <td>Nguyễn Thị E</td>
-                            <td>2023-10-05</td>
-                            <td>600.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>5</td>
+                            <td>Áo Polo Nam Phối Sọc Họa Tiết Thêu</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
                         <tr>
-                            <td>XC23V7B9</td> <!-- Mã hóa đơn -->
-                            <td>KH15G8Z8</td> <!-- ID khách hàng -->
-                            <td>Trần Văn F</td>
-                            <td>2023-10-06</td>
-                            <td>440.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>6</td>
+                            <td>Áo Thun Nam Họa Tiết In Araneae</td>
+                            <td>Cáii</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
                         <tr>
-                            <td>LM27P8C5</td> <!-- Mã hóa đơn -->
-                            <td>KH18N3X1</td> <!-- ID khách hàng -->
-                            <td>Ngô Thị G</td>
-                            <td>2023-10-07</td>
-                            <td>1.050.000 VNĐ</td>
-                            <td>
-    <button onclick="window.location.href='chitiethoadon.html'">Xem Hóa Đơn</button>
-</td>
+                            <td>7</td>
+                            <td>Áo Thun Nam In Nổi</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
                         </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Áo Thun Nam Họa Tiết Phối Viền</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right" colspan="5">Cộng tiền hàng</th>
+                            <td style="background-color: #66BB6A;"><strong>1.600.000</strong></td>
+							<td style="background-color: #66BB6A;"></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left" colspan="2">Thuế xuất thuế GTGT</th>
+                            <td style="background-color: #66BB6A;"><strong>10%</strong></td>
+                            <th style="text-align: right" colspan="2">Tiền thuế</th>
+                            <td style="background-color: #66BB6A;">160.000</td>
+							<td style="background-color: #66BB6A;" ></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right" colspan="5">Tổng thanh toán</th>
+                            <td style="background-color: #66BB6A;"><strong>1.760.000</strong></td>
+							<td style="background-color: #66BB6A;"></td>
+                        </tr>						
                     </tbody>
                 </table>
-                <a href="#">Show All</a>
+
+<div class="invoice-summary">
+    <p><strong>Số tiền hàng chữ: Chín triệu, chín trăm nghìn đồng chẵn</strong></p>
+</div>
+<div class="signatures">
+    <div class="signature">
+        <p><strong>ĐẠI DIỆN BÊN BÁN</strong></p>
+        <p>(Ký, ghi rõ họ tên)</p>
+    </div>
+    <div class="signature">
+        <p><strong>ĐẠI DIỆN BÊN MUA</strong></p>
+        <p>(Ký, ghi rõ họ tên)</p>
+    </div>
+</div>
             </div>
-            <!-- End of Recent Orders -->
+            <!-- End of Detailed Invoice Section -->
         </main>
     </div>
 </main>

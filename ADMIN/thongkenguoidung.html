@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,46 +6,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion New</title>
-    <link href='#' rel='icon' type='image/x-icon' />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="thongkenguoidung.css">
-    <link rel="stylesheet" href="home-responsive-1.css">
+    <link href="Images/logo.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="thongke.css">
+    <link rel="stylesheet" href="home-responsive.css">
+    <link rel="stylesheet" href="toast-message.css">
+    <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
 </head>
 <body>
     <header>
         <div class="header-middle">
             <div class="container">
-                <div class="header-middle-left">
-                    <!-- Nút mở menu -->
-                    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
-            
-                    <!-- Thanh menu ẩn -->
-                    <div id="sidebarMenu" class="sidebar-menu">
-                        <button class="close-button" onclick="toggleMenu()">×</button>
-                        <ul>
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="index.html">Sản phẩm</a></li>
-                            <li><a href="#">Dịch vụ</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                        </ul>
-                    </div>
-            
-                    <div class="header-logo">
-                        <a href="#">
-                            <img src="./Images/logo.png" alt="" class="header-logo-img">
-                        </a>
-                    </div>
-                </div>
-                <div class="header-middle-center">
-                    <form action="" class="form-search">
-                        <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." oninput="searchProducts()">
-                        <button class="filter-btn"><i class="fa-light fa-filter-list"></i><span>Lọc</span></button>
-                    </form>
-                </div>
+              <div class="header-middle-left">
+                <!-- Nút mở menu -->
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    
+    <!-- Thanh menu ẩn -->
+    <div id="sidebarMenu" class="sidebar-menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <ul>
+        
+        <!-- Menu con cho "Sản phẩm" -->
+<li class="dropdown">
+    <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Sản phẩm</a>
+    <div class="dropdown-content">
+        <a href="index.html">Áo Thun</a>
+        <a href="index.html">Áo Polo</a>
+        <a href="index.html">Áo Sơ Mi</a>
+        <a href="index.html">Quần Short</a>
+        <a href="index.html">Mũ</a>
+    </div>
+</li>
+        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
+        <li><a href="#footer"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
+        <li class="dropdown">
+    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
+    <div class="dropdown-content">
+	    <a href="thongke.html">thống kê đơn hàng</a>
+        <a href="thongkenguoidung.html">Thống kê người dùng</a>
+    </div>
+</li>    </ul>
+    </div>
+    
+      
+                <div class="header-logo">
+                  <a href="#">
+                      <img src="./Images/logo.png" alt="" class="header-logo-img">
+                  </a>
+              </div>
+    
+              </div>
+              <div class="header-middle-center">
+                <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                    <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    </button>
+                </form>
             </div>
-        </div>
+            
+            
+              <div class="header-middle-right">
+                <ul class="header-middle-right-list">
+                  <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-magnifying-glass"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-circle-xmark"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item dropdown open">
+                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                    <div class="auth-container">
+                        <span class="text-dndk">Tài khoản</span>
+                        <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                    </div>
+                    <ul class="header-middle-right-menu">
+                        
+                        <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+                    </ul>
+                </li>
+                
+                            
+                </ul>
+              </div>
+            </div>
+          </div>
+        
     </header>
+  
+    
+    <div class="advanced-search" id="advanced-search">
+      <div class="container">
+          <div class="advanced-search-category">
+              <span>Phân loại</span>
+              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                  <option>Áo thun</option>
+                  <option>Polo</option>
+                  <option>Sơ mi</option>
+                  <option>Quần short</option>
+                  <option>Mũ</option>
+              </select>
+          </div>
+          <div class="advanced-search-price">
+              <span>Giá từ</span>
+              <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+              <span>đến</span>
+              <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+              <button id="advanced-search-price-btn" onclick="window.location.href='#'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+          </div>
+          <div class="advanced-search-control">
+              <button id="sort-ascending" onclick="searchProducts(1)">
+                  <i class="fa-regular fa-arrow-up-short-wide"></i>
+              </button>
+              <button id="sort-descending" onclick="searchProducts(2)">
+                  <i class="fa-regular fa-arrow-down-wide-short"></i>
+              </button>
+              <button id="reset-search" onclick="searchProducts(0)">
+                  <i class="fa-light fa-arrow-rotate-right"></i>
+              </button>
+              <button onclick="closeSearchAdvanced()">
+                  <i class="fa-light fa-xmark"></i>
+              </button>
+          </div>
+      </div>
+    </div>
+    
+    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
 
 <main class="main-wrapper">
     <div class="container" id="trangchu">
@@ -73,7 +163,7 @@
                     <td>nguyenvana</td>
                     <td>vana@gmail.com</td>
                     <td>123 Nguyễn Thái Học, Phường 1</td>
-                    <td>3,000,000 VNĐ</td>
+                    <td>5,970,000 VNĐ</td>
                 </tr>
                 <tr>
                     <td>B2C3D4</td>
@@ -133,45 +223,57 @@
                         <th>ID</th>
                         <th>TÊN</th>
                         <th>TỔNG DOANH THU</th>
-                        <th>XEM HÓA ĐƠN</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>A1B2C3</td>
                         <td>Nguyễn Văn A</td>
-                        <td>3,000,000 VNĐ</td>
-                        <td><button onclick="xemHoaDon('A1B2C3')">Xem Hóa Đơn</button></td>
+                        <td>5,970,000 VNĐ</td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
                     </tr>
                     <tr>
                         <td>B2C3D4</td>
                         <td>Trần Thị B</td>
                         <td>2,500,000 VNĐ</td>
-                        <td><button onclick="xemHoaDon('B2C3D4')">Xem Hóa Đơn</button></td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
                     </tr>
                     <tr>
                         <td>C3D4E5</td>
                         <td>Phạm Minh C</td>
                         <td>4,000,000 VNĐ</td>
-                        <td><button onclick="xemHoaDon('C3D4E5')">Xem Hóa Đơn</button></td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
                     </tr>
                     <tr>
                         <td>D4E5F6</td>
                         <td>Nguyễn Thế D</td>
                         <td>7,200,000 VNĐ</td>
-                        <td><button onclick="xemHoaDon('D4E5F6')">Xem Hóa Đơn</button></td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
                     </tr>
                     <tr>
                         <td>M3N4O5</td>
                         <td>Lê Quốc E</td>
                         <td>5,500,000 VNĐ</td>
-                        <td><button onclick="xemHoaDon('M3N4O5')">Xem Hóa Đơn</button></td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
                     </tr>
                     <tr>
                         <td>F6G7H8</td>
                         <td>Đỗ Minh F</td>
                         <td>1,800,000 VNĐ</td>
-                        <td><button onclick="xemHoaDon('F6G7H8')">Xem Hóa Đơn</button></td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
                     </tr>
                 </tbody>
             </table>
@@ -342,5 +444,9 @@ function toggleVIPTable() {
         </div>
     </div>
 </main>
+
+    <div id="toast"></div>
+    <script src="main.js"></script> 
+    <script src="toast-message.js"></script>
     </body>
 </html>
