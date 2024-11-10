@@ -2766,37 +2766,78 @@ small {
 .links a:hover {
   color: #08397a;
 }
-.history-container {
-  width: 60%;
-  margin: 20px auto;
-  padding: 20px;
+.purchase-history {
+  font-family: Arial, sans-serif;
+  margin: 20px auto; /* Thay đổi margin để căn giữa */
+  max-width: 600px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   background-color: #fff;
 }
-h1 {
-  text-align: center;
+
+.order-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.order-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.order-details {
+  flex-grow: 1;
+}
+
+.order-details h3 {
+  margin: 0;
+  font-size: 16px;
   color: #333;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+
+.order-details p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
 }
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
+
+.order-price {
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
 }
-th {
-  background-color: #f8f8f8;
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.status-button,
+.details-button {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.details-button {
+  background-color: #eee;
   color: #333;
 }
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-tr:hover {
-  background-color: #e9e9e9;
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  text-align: right;
 }
