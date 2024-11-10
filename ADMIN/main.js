@@ -818,31 +818,3 @@ document
       }
     });
   });
-function confirmDelete() {
-    // Hiển thị hộp thoại xác nhận
-    const confirmed = confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?");
-    
-    // Nếu người dùng nhấn "OK", tiến hành xóa
-    if (confirmed) {
-        // Thực hiện hành động xóa sản phẩm ở đây
-        console.log("Sản phẩm đã được xóa");
-    } else {
-        // Hủy bỏ hành động xóa
-        console.log("Hủy xóa sản phẩm");
-    }
-}
-// Hàm mở hộp thoại
-function openConfirmDialog() {
-    document.getElementById("confirmDialog").style.display = "flex";
-}
-
-// Hàm đóng hộp thoại
-function closeDialog() {
-    document.getElementById("confirmDialog").style.display = "none";
-}
-
-// Hàm xác nhận xóa
-function confirmDelete() {
-    // Thực hiện thao tác xóa sản phẩm
-    closeDialog(); // Đóng hộp thoại sau khi xóa
-}
