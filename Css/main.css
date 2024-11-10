@@ -2770,7 +2770,7 @@ small {
 .purchase-history {
   font-family: Arial, sans-serif;
   margin: 20px auto; /* Thay đổi margin để căn giữa */
-  max-width: 600px;
+  max-width: 800px; /* Tăng kích thước tối đa của bảng */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
@@ -2781,14 +2781,14 @@ small {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
-  padding: 10px 0;
+  padding: 20px 0; /* Tăng khoảng cách giữa các phần tử */
 }
 
 .order-item img {
-  width: 80px;
-  height: 80px;
+  width: 100px; /* Tăng kích thước hình ảnh */
+  height: 100px; /* Tăng kích thước hình ảnh */
   border-radius: 8px;
-  margin-right: 10px;
+  margin-right: 20px; /* Tăng khoảng cách giữa hình ảnh và chi tiết đơn hàng */
 }
 
 .order-details {
@@ -2797,18 +2797,18 @@ small {
 
 .order-details h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px; /* Tăng kích thước chữ */
   color: #333;
 }
 
 .order-details p {
-  margin: 4px 0;
-  font-size: 14px;
+  margin: 6px 0; /* Tăng khoảng cách giữa các đoạn văn */
+  font-size: 16px; /* Tăng kích thước chữ */
   color: #666;
 }
 
 .order-price {
-  font-size: 16px;
+  font-size: 18px; /* Tăng kích thước chữ */
   color: red;
   font-weight: bold;
 }
@@ -2817,7 +2817,7 @@ small {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 20px 0; /* Tăng khoảng cách giữa các phần tử */
 }
 
 .status-button,
@@ -2826,18 +2826,19 @@ small {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 10px 20px; /* Tăng kích thước nút */
+  font-size: 16px; /* Tăng kích thước chữ */
   cursor: pointer;
 }
 
 .details-button {
   background-color: #eee;
   color: #333;
+  margin-right: 310px; /* Giảm khoảng cách giữa các nút */
 }
 
 .total-price {
-  font-size: 18px;
+  font-size: 20px; /* Tăng kích thước chữ */
   font-weight: bold;
   color: red;
   text-align: right;
