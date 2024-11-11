@@ -11,6 +11,82 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+ <style>
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;  
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.6);  /* Màu nền với độ trong suốt */
+    justify-content: center; /* Căn giữa theo trục ngang */
+    align-items: center;  /* Căn giữa theo trục dọc */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 350px; 
+    text-align: center; 
+    border-radius: 5px; 
+    position: relative; /* Để điều chỉnh vị trí của .close */
+	left: 50%; /* Đặt phía bên trái ở 50% */
+    top: 50%; /* Đặt phía trên ở 50% */
+    transform: translate(-50%, -50%); /* Dịch chuyển về phía trái và lên phía trên một nửa chiều rộng và chiều cao của phần tử */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Đặt lại vị trí để có thể điều chỉnh */
+    top: 5px; /* Điều chỉnh khoảng cách từ trên */
+    right: 15px; /* Điều chỉnh khoảng cách từ bên phải */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: #0056b3; 
+}
+.btn-xóa {
+    padding: 10px 20px;
+    margin-right: 20px; /* Tạo khoảng cách phía bên phải cho nút Xóa */
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-huy {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Màu nền khác cho nút Hủy */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    </style>
 </head>
 <body>
     <header>
@@ -212,18 +288,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                       </div>
                   </div>
               </div>
@@ -247,18 +311,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                     </div>
                 </div>
             </div>
@@ -283,18 +335,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                           </div>
                       </div>
                   </div>
@@ -317,19 +357,6 @@
     <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
-
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                                 </div>
                             </div>
                         </div>
@@ -353,18 +380,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                               </div>
                           </div>
                       </div>
@@ -389,18 +404,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                         </div>
                     </div>
                 </div>
@@ -424,18 +427,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                       </div>
                   </div>
               </div>
@@ -459,18 +450,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                     </div>
                 </div>
             </div>
@@ -494,18 +473,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                   </div>
               </div>
             </div>
@@ -529,18 +496,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                   </div>
               </div>
             </div>
@@ -565,18 +520,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                             </div>
                         </div>
                       </div>
@@ -600,18 +543,6 @@
     <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
 </div>
 
-<script>
-    function confirmDelete() {
-        const userConfirmed = confirm('Bạn có chắc muốn xóa sản phẩm?');
-        if (userConfirmed) {
-            // Xử lý xóa sản phẩm ở đây
-            alert('Sản phẩm đã được xóa!'); // Ví dụ thông báo
-        } else {
-            // Không làm gì cả nếu người dùng không xác nhận
-            alert('Đã hủy thao tác!'); // Ví dụ thông báo
-        }
-    }
-</script>
                       </div>
                   </div>
                 </div>
@@ -619,6 +550,17 @@
                  
                 </section>
               </section>
+			  
+			  <div id="confirmDeleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Bạn có chắc muốn xóa sản phẩm?</p>
+            <button class="btn-xóa" id="confirmBtn">Xóa</button>
+            <button class="btn-huy" onclick="closeModal()">Hủy</button>
+        </div>
+    </div>
+
+
 
               <div class="pagination-controls">
                 <button class="pagination" onclick="window.location.href='index.html';">1</button>
@@ -782,7 +724,7 @@
         </div>
      
     <div id="toast"></div>
-    <script src="./Js/main.js"></script> 
-    <script src="./Js/toast-message.js"></script>
+    <script src="main.js"></script> 
+    <script src="toast-message.js"></script>
 </body>
 </html>

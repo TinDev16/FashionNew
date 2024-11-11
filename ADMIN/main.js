@@ -818,3 +818,26 @@ document
       }
     });
   });
+          function confirmDelete() {
+            const modal = document.getElementById('confirmDeleteModal');
+            modal.style.display = "block"; 
+
+            document.getElementById('confirmBtn').onclick = function() {
+                // Xử lý xóa sản phẩm ở đây
+                alert('Sản phẩm đã được xóa!'); 
+                closeModal(); // Đóng hộp thoại sau khi xác nhận
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('confirmDeleteModal');
+            modal.style.display = "none"; 
+        }
+
+        // Đóng modal khi người dùng nhấp ra ngoài
+        window.onclick = function(event) {
+            const modal = document.getElementById('confirmDeleteModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
