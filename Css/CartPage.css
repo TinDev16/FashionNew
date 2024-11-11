@@ -98,7 +98,7 @@ input::-webkit-inner-spin-button {
   max-width: 1200px;
   margin: auto;
   padding-top: 0;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 /* Header Menu */
@@ -655,7 +655,45 @@ header {
     z-index: 999;
 }
 
+.home-title {
+    font-weight: 600;
+    text-align: center;
+    font-size: 21px;
+    position: relative;
+    text-transform: uppercase;
+    margin-top: 30px;
+    color: #000;
+}
+  
+.home-title::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #08397a;
+    width: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -5px;
+}
+
 /* Cart content */
+.cart-content-header {
+    width: 250%;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.cart-content-header:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
 .cart-content {
     width: 250%;
     max-width: 800px;
@@ -668,23 +706,6 @@ header {
 }
 
 .cart-content:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.cart-content-header {
-    width: 250%;
-    max-width: 800px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.cart-content-header:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -938,6 +959,18 @@ header {
     z-index: 999;
 }
 
+.popover-close-button {
+    color: #000; /* Màu chữ của nút X */
+    font-size: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    right: -85px;
+    top: -5px;
+    font-weight: lighter;
+}
+
 [popover] {
     display: none;
     position: fixed;
@@ -970,7 +1003,7 @@ header {
 
 [popover] .warning {
     color: red;
-    font-weight: bold;
+    font-size: small;
 }
 
 [popover] .yes-no-buttons {
@@ -990,9 +1023,14 @@ header {
     flex: 1;
 }
 
-[popover] .yes-no-buttons button:hover {
+[popover] .no:hover {
     background-color: #ddd;
-} 
+}
+
+[popover] .yes:hover {
+    color: white;
+    background-color: #000;
+}
 
 /* Total */
 .total {

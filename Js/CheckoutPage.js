@@ -1,14 +1,22 @@
 function goToHomePage() {
-    // Thay đổi URL để điều hướng về trang chủ
-    window.location.href = "index.html";
+  // Thay đổi URL để điều hướng về trang chủ
+  window.location.href = "index.html";
 }
 
 function goToLoginPage() {
-    window.location.href = "Login.html";
+  window.location.href = "Login.html";
 }
 
 function goToCartPage() {
-    window.location.href = "CartPage.html";
+  window.location.href = "CartPage.html";
+}
+
+function goToMomoPage() {
+  window.location.href = "https://www.momo.vn/";
+}
+
+function goToZaloPayPage() {
+  window.location.href = "https://zalopay.vn/"
 }
 
 function toggleMenu() {

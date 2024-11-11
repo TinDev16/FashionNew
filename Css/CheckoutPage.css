@@ -655,6 +655,27 @@ header {
     z-index: 999;
 }
 
+.home-title {
+    font-weight: 600;
+    text-align: center;
+    font-size: 21px;
+    position: relative;
+    text-transform: uppercase;
+    margin-top: 30px;
+    color: #000;
+}
+  
+.home-title::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #08397a;
+    width: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -5px;
+}
+
 /* Customer Info */
 .customer-info {
     width: 100%;
@@ -665,7 +686,7 @@ header {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 15px;
 }
 
@@ -730,6 +751,10 @@ header {
 .delivery-info h2 {
     margin-bottom: 10px;
     color: #08397a;
+}
+
+.delivery-method {
+    color: #000;
 }
 
 input[type="radio"] {
@@ -819,30 +844,35 @@ input[type="radio"] {
     display: block;
 }
 
-.payment-method-select {
-    width: 100%;
-    padding: 14px 18px;
-    font-size: 1.1em;
-    color: #333;
+.payment-options {
+    display: flex;
+    justify-content: space-between; /* Tạo khoảng cách đều giữa các nút */
+    flex-wrap: wrap; /* Đảm bảo các nút không bị tràn ra ngoài */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+.payment-button {
+    flex: 1 1 calc(25% - 10px);
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 6px;
-    appearance: none;
-    background-color: #f9f9f9;
-    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #08397a;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s; /* Chỉ chuyển màu */
 }
 
-.payment-method-select:hover {
-    border-color: #007BFF;
+.payment-button:hover {
+    background-color: #08397a; /* Đổi màu nền khi hover */
+    color: white; /* Đổi màu chữ khi hover */
+    border: 1px solid #08397a; /* Đảm bảo border không thay đổi */
 }
 
-.payment-method-select:focus {
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-    outline: none;
+.payment-button img {
+    width: 12px;
+    height: 12px;
 }
 
 /* Note */

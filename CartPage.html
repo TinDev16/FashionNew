@@ -15,92 +15,92 @@
         <header>
             <div class="header-middle">
                 <div class="container">
-                  <div class="header-middle-left">
-                    <!-- Nút mở menu -->
-        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+                    <!--Phần bên trái của header-->
+                    <div class="header-middle-left">
+                        <!-- Nút mở menu -->
+                        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
         
-        <!-- Thanh menu ẩn -->
-        <div id="sidebarMenu" class="sidebar-menu">
-        <button class="close-button" onclick="toggleMenu()">×</button>
-        <ul>
-            <li><a href="index_logged.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
+                        <!-- Thanh menu ẩn -->
+                        <div id="sidebarMenu" class="sidebar-menu">
+                            <button class="close-button" onclick="toggleMenu()">×</button>
+                            <ul>
+                                <li><a href="index_logged.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
             
-            <!-- Menu con cho "Sản phẩm" -->
-            <li class="dropdown">
-                <a href="index_logged.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
-                <div class="dropdown-content">
-                    <a href="product_classification.html">Áo Thun</a>
-                    <a href="product_classification.html">Áo Polo</a>
-                    <a href="product_classification.html">Áo Sơ Mi</a>
-                    <a href="product_classification.html">Quần Short</a>
-                    <a href="product_classification.html">Mũ</a>
-                </div>
-            </li>
+                                <!-- Menu con cho "Sản phẩm" -->
+                                <li class="dropdown">
+                                    <a href="index_logged.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
+                                    <div class="dropdown-content">
+                                        <a href="product_classification.html">Áo Thun</a>
+                                        <a href="product_classification.html">Áo Polo</a>
+                                        <a href="product_classification.html">Áo Sơ Mi</a>
+                                        <a href="product_classification.html">Quần Short</a>
+                                        <a href="product_classification.html">Mũ</a>
+                                    </div>
+                                </li>
         
-            <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
-            <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
-        </ul>
-        </div>
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
+                            </ul>
+                        </div>
         
-          
-                    <div class="header-logo">
-                      <a href="index_logged.html">
-                          <img src="Images/logo.png" alt="" class="header-logo-img">
-                      </a>
-                  </div>
-        
-                  </div>
-                  <div class="header-middle-center">
-                    <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
-                        <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
-                        <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                        <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                            <i class="fa-light fa-filter-list"></i><span>Lọc</span>
-                        </button>
-                    </form>
-                </div>
-                
-                
-                  <div class="header-middle-right">
-                    <ul class="header-middle-right-list">
-                      <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
-                        <div class="cart-icon-menu">
-                          <i class="fa-light fa-magnifying-glass"></i>
+                        <div class="header-logo">
+                            <a href="index_logged.html">
+                                <img src="Images/logo.png" alt="" class="header-logo-img">
+                            </a>
                         </div>
-                      </li>
-                      <li class="header-middle-right-item close" onclick="closeSearchMb()">
-                        <div class="cart-icon-menu">
-                          <i class="fa-light fa-circle-xmark"></i>
-                        </div>
-                      </li>
-                      <li class="header-middle-right-item dropdown open">
-                        <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
-                        <div class="auth-container">
-                            <span class="text-dndk">Tài khoản</span>
-                            <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
-                        </div>
-                        <ul class="header-middle-right-menu">
-                            
-                            <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                            <li><a id="purchase-history" href="#"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
-                            <li><a id="logout" href="Login.html?signin"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
-                        </ul>
-                    </li>
+                    </div>
+
+                    <!--Phần ở giữa của header-->
+                    <div class="header-middle-center">
+                        <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                            <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                            <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                                <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                            </button>
+                        </form>
+                    </div>
                     
-                      <li class="header-middle-right-item open" onclick="goToCartPage()">
-                        <div class="cart-icon-menu">
-                            <i class="fa-light fa-basket-shopping"></i>
-                            <span class="count-product-cart">4</span>
-                        </div>
-                        <span>Giỏ hàng</span>
-                    </li>                
-                    </ul>
-                  </div>
+                    <!--Phần bên phải của header-->
+                    <div class="header-middle-right">
+                        <ul class="header-middle-right-list">
+                            <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-light fa-magnifying-glass"></i>
+                                </div>
+                            </li>
+                            <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-light fa-circle-xmark"></i>
+                                </div>
+                            </li>
+                            <li class="header-middle-right-item dropdown open">
+                                <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                                <div class="auth-container">
+                                    <span class="text-dndk">Tài khoản</span>
+                                    <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                                </div>
+                                <ul class="header-middle-right-menu">
+                                    <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
+                                    <li><a id="purchase-history" href="#"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
+                                    <li><a id="logout" href="Login.html?signin"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
+                                </ul>
+                            </li>
+                            <li class="header-middle-right-item open" onclick="goToCartPage()">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-light fa-basket-shopping"></i>
+                                    <span class="count-product-cart">4</span>
+                                </div>
+                                <span>Giỏ hàng</span>
+                            </li>                
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            
+            </div>
         </header>
 
+        <!--Phần tìm kiếm năng cao-->
         <div class="advanced-search" id="advanced-search">
             <div class="container">
                 <div class="advanced-search-category">
@@ -139,6 +139,8 @@
             </div>
         </div>
         <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+
+        <h2 class="home-title">Giỏ hàng</h2>
 
         <div class="cart-content-header">
             <table>
@@ -216,7 +218,7 @@
                                     </button>
                                     <div class="overlay">
                                         <div id="delete-confirmation" popover> 
-                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button" onclick="goToCartPage()">&times;</span></h2>
                                             <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
 
                                             <div class="yes-no-buttons">
@@ -288,7 +290,7 @@
                                     </button>
                                     <div class="overlay">
                                         <div id="delete-confirmation" popover>
-                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button" onclick="goToCartPage()">&times;</span></h2>
                                             <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
 
                                             <div class="yes-no-buttons">
@@ -360,7 +362,7 @@
                                     </button>
                                     <div class="overlay">
                                         <div id="delete-confirmation" popover>
-                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button" onclick="goToCartPage()">&times;</span></h2>
                                             <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
 
                                             <div class="yes-no-buttons">
@@ -432,7 +434,7 @@
                                     </button>
                                     <div class="overlay">
                                         <div id="delete-confirmation" popover>
-                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?</h2>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button" onclick="goToCartPage()">&times;</span></h2>
                                             <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
 
                                             <div class="yes-no-buttons">
