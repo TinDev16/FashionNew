@@ -7,10 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion New</title>
     <link href="Images/logo.png" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="sua.css">
+    <link rel="stylesheet" href="suanguoidung.css">
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+		<style>
+        .hidden {
+            display: none;
+        }
+
+        #notification {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+		
+    </style>
 </head>
 <body>
     <header>
@@ -142,84 +156,47 @@
     <div class="container" id="trangchu">
 
         <div class="home-title-block" id="home-title">
-            <h2 class="home-title">Sửa SẢN PHẨM</h2>
+            <h2 class="home-title">THÔNG TIN ADMIN</h2>
         </div>
 
-        <!-- Form sửa sản phẩm hiển thị sẵn -->
-        <div id="editProductForm" class="edit-product-form">
-            <form id="productForm" action="#" method="POST">
-  <div class="form-left">
-    <label for="productImage">Hình ảnh:</label>
-    <div class="image-container">
-        <div class="image-item" style="position: relative;">
-            <span class="delete-icon" onclick="alert('Hình ảnh đã được xóa!');">x</span>
-            <img id="previewImage1" src="Images/aothun1.webp" alt="Hình ảnh sản phẩm 1" class="product-image-preview">
-        </div>
-        <div class="image-item" style="position: relative;">
-            <span class="delete-icon" onclick="alert('Hình ảnh đã được xóa!');">x</span>
-            <img id="previewImage2" src="Images/aothun4.jpg" alt="Hình ảnh sản phẩm 2" class="product-image-preview">
-        </div>
+<form class="user-form">
+    <div class="form-group">
+        <label for="userId">ID:</label>
+        <input type="text" id="userId" name="userId" value="AdminPRO123" required>
     </div>
-    <button type="button" class="upload-btn" onclick="document.getElementById('productImage').click()">Thêm ảnh</button>
-    <input type="file" id="productImage" name="productImage" accept="image/*" onchange="previewImage(event)" style="display: none;">
-</div>
+    <div class="form-group">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" value="ADMIN" required>
+    </div>
 
-<div class="form-right">
-                    <!-- Phần thông tin sản phẩm bên phải -->
-                    <label for="productName">Tên sản phẩm:</label>
-                    <input type="text" id="productName" name="productName" value="Áo Thun Nam Trơn Strength Contour Form Regular" required>
 
-<label for="productDescription">Mô tả:</label>
-<textarea id="productDescription" name="productDescription" rows="4" cols="50" required>
-    Chất liệu: Thun Cotton
-    Form áo: Regular
-    Đặc điểm:
-    ► CẢM GIÁC MỀM MẠI VÀ DỄ CHỊU TỪ CHẤT LIỆU COTTON
-    
-    ► FORM ÁO VỪA VẶN VÀ THOẢI MÁI
-    
-    ► HỌA TIẾT CHÚ GẤU TEDDY ĐƯỢC THÊU XÙ CUỐN HÚT
-</textarea>
+    <div class="form-group">
+        <label for="email">Số điện thoại</label>
+        <input type="email" id="email" name="email" value="0999999999" required>
+    </div>
+    <div class="form-group">
+        <label for="address">Địa chỉ:</label>
+        <input type="text" id="address" name="address" value="anonymous" required>
+    </div>
+            <div class="form-group">
+                <button type="submit" onclick="showUpdateMessage()">Cập nhật thông tin</button>
+            </div>
+			
+			        <script>
+                        // Hàm hiển thị thông báo khi cập nhật sản phẩm
+                        function showUpdateMessage() {
+                            // Hiển thị thông báo cập nhật
+                            alert("Đã cập nhật thông tin "); 
+
+                            window.location.href = "index.html";
+							
+                
+                        }
+                    </script>
 					
-					<label for="productPrice">Giá cũ:</label>
-                    <input type="text" id="productPrice" name="productPrice" value="250.000đ" required>
-
-                    <label for="productPrice">Giá mới:</label>
-                    <input type="text" id="productPrice" name="productPrice" value="200.000đ" required>
-    
-    <!-- Nút Cập Nhật sản phẩm -->
-	
-<button type="submit" onclick="showUpdateMessage()">Cập Nhật sản phẩm</button>
-<script>
-    // Hàm hiển thị thông báo khi cập nhật sản phẩm
-    function showUpdateMessage() {
-        // Ngăn form gửi lại dữ liệu ngay lập tức
-        event.preventDefault();
-
-        // Hiển thị thông báo cập nhật
-        alert("Sản phẩm đã được cập nhật!");
-
-        // Chuyển hướng đến trang index.html"; sau 1 giây
-        setTimeout(function() {
-            window.location.href = "index.html";
-        }, 1000);
-    }
-</script>
-                    <button type="button" onclick="cancelEdit()" class="cancel-btn">Hủy</button>
-
-<script>
-function cancelEdit() {
-    window.location.href = "index.html";
-}
-</script>
-                </div>
-                </div>
-            </form>
-        </div>
-
+        </form>
     </div>
 </main>
-
         <footer class="footer">
             <div class="container">
                 <div class="widget-area">
@@ -361,8 +338,8 @@ function cancelEdit() {
                 </div>
             </div>
         </div>
-</div>
-
+    </div>
+</main>
 <script src="./main.js"></script> 
 <script src="./toast-message.js"></script>
     </body>
