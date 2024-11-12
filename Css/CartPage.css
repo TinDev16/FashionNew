@@ -238,10 +238,12 @@ header {
 }
   
 .text-dndk {
+    color: #000;
     font-size: 12px;
 }
   
 .text-tk {
+    color: #000;
     font-size: 15px;
 }
   
