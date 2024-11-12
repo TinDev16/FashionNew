@@ -2843,3 +2843,114 @@ small {
   color: red;
   text-align: right;
 }
+.order-details1 {
+  font-family: Arial, sans-serif;
+  max-width: 1200px; /* Tăng chiều rộng tối đa */
+  padding: 40px; /* Tăng khoảng cách bên trong */
+  font-size: 18px; /* Tăng kích thước chữ */
+  background-color: #f9f9f9; /* Màu nền */
+  margin: 0 auto; /* Căn giữa */
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ */
+}
+
+/* Header của trang đơn hàng */
+.order-header1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Thêm đường viền dưới */
+}
+
+.order-info-header1 {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.order-info-header1 p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.order-status-completed1 {
+  color: green;
+  font-weight: bold;
+}
+
+/* Phần khác của nội dung */
+.order-status1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.status-step1 {
+  text-align: center;
+}
+
+.status-step1 p {
+  margin: 5px 0;
+}
+
+.button-container1 {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #ff5a5f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.shipping-info1,
+.order-info1 {
+  margin-top: 20px;
+}
+
+.order-item1 {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0; /* Tăng khoảng cách giữa các phần tử */
+}
+
+.order-item1 img {
+  width: 100px; /* Tăng kích thước hình ảnh */
+  height: 100px; /* Tăng kích thước hình ảnh */
+  border-radius: 8px;
+  margin-right: 20px; /* Tăng khoảng cách giữa hình ảnh và chi tiết đơn hàng */
+}
+
+.price1 {
+  color: red;
+}
+
+.order-details1 table {
+  width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng */
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.order-details1 th,
+.order-details1 td {
+  border: 1px solid #ddd;
+  padding: 15px; /* Tăng khoảng cách giữa các ô */
+}
+
+.order-details1 th {
+  background-color: #f2f2f2;
+}
+
+.summary1 {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 1.1em;
+}
