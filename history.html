@@ -13,233 +13,235 @@
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
 </head>
 <body>
-    <header>
-        <div class="header-middle">
-            <div class="container">
-              <div class="header-middle-left">
-                <!-- Nút mở menu -->
-    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
-    
-    <!-- Thanh menu ẩn -->
-    <div id="sidebarMenu" class="sidebar-menu">
-    <button class="close-button" onclick="toggleMenu()">×</button>
-    <ul>
-        <li><a href="index_logged.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
-        
-        <!-- Menu con cho "Sản phẩm" -->
-        <li class="dropdown">
-            <a href="index_logged.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
-            <div class="dropdown-content">
-                <a href="product_classification.html">Áo Thun</a>
-                <a href="product_classification.html">Áo Polo</a>
-                <a href="product_classification.html">Áo Sơ Mi</a>
-                <a href="product_classification.html">Quần Short</a>
-                <a href="product_classification.html">Mũ</a>
-            </div>
-        </li>
-    
-        <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
-        <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
-    </ul>
-    </div>
-    
-      
-                <div class="header-logo">
-                  <a href="index_logged.html">
-                      <img src="./Images/logo.png" alt="" class="header-logo-img">
-                  </a>
-              </div>
-    
-              </div>
-              <div class="header-middle-center">
-                <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
-                    <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
-                    </button>
-                </form>
-            </div>
-            
-            
-              <div class="header-middle-right">
-                <ul class="header-middle-right-list">
-                  <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
-                    <div class="cart-icon-menu">
-                      <i class="fa-light fa-magnifying-glass"></i>
-                    </div>
-                  </li>
-                  <li class="header-middle-right-item close" onclick="closeSearchMb()">
-                    <div class="cart-icon-menu">
-                      <i class="fa-light fa-circle-xmark"></i>
-                    </div>
-                  </li>
-                  <li class="header-middle-right-item dropdown open">
-                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
-                    <div class="auth-container">
-                        <span class="text-dndk">Tài khoản</span>
-                        <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
-                    </div>
-                    <ul class="header-middle-right-menu">
-                        
-                        <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                        <li>
-                            <a id="purchase-history" href="#" onclick="openPurchaseHistoryModal()">
-                                <i class="fa-solid fa-history"></i> Lịch sử mua hàng
-                            </a>
-                        </li> <!-- Biểu tượng lịch sử mua hàng -->
-                        <li><a id="logout" href="Login.html?signin"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
-                    </ul>
-                </li>
-                
-                  <li class="header-middle-right-item open" onclick="window.location.href='CartPage.html'">
-                    <div class="cart-icon-menu">
-                        <i class="fa-light fa-basket-shopping"></i>
-                        <span class="count-product-cart">4</span>
-                    </div>
-                    <span>Giỏ hàng</span>
-                </li>                
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="advanced-search" id="advanced-search">
-            <div class="container">
-                <div class="advanced-search-category">
-                    <span>Phân loại</span>
-                    <select name="" id="advanced-search-category-select" onchange="searchProducts()">
-                        <option>Áo thun</option>
-                        <option>Polo</option>
-                        <option>Sơ mi</option>
-                        <option>Quần short</option>
-                        <option>Mũ</option>
-                    </select>
-                </div>
-                <div class="advanced-search-price">
-                    <span>Giá từ</span>
-                    <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
-                    <span>đến</span>
-                    <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
-                    <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'">
-                        <i class="fa-light fa-magnifying-glass-dollar"></i>
-                    </button>
-                </div>
-                <div class="advanced-search-control">
-                    <button id="sort-ascending" onclick="searchProducts(1)">
-                        <i class="fa-regular fa-arrow-up-short-wide"></i>
-                    </button>
-                    <button id="sort-descending" onclick="searchProducts(2)">
-                        <i class="fa-regular fa-arrow-down-wide-short"></i>
-                    </button>
-                    <button id="reset-search" onclick="searchProducts(0)">
-                        <i class="fa-light fa-arrow-rotate-right"></i>
-                    </button>
-                    <button onclick="closeSearchAdvanced()">
-                        <i class="fa-light fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
-      
-    </header>
-    <div class="home-title-block" id="home-title">
-        <h2 class="home-title">Lịch sử mua hàng</h2>
-    </div>
-    <div class="purchase-history">
-        
-        <div class="order-item">
-            <img src="Images/Suxipo.jpg" alt="Suxipo">
-            <div class="order-details">
-                <h3>Suxipo</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">180.000đ</p>
-        </div>
-        <div class="order-item">
-            <img src="Images/Choco Rabbit.webp" alt="Choco Rabbit">
-            <div class="order-details">
-                <h3>Choco Rabbit</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">180.000đ</p>
-        </div>
-        <div class="order-item">
-            <img src="Images/Teddy Tee.webp" alt="Teddy Tee">
-            <div class="order-details">
-                <h3>Teddy Tee</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">200.000đ</p>
-        </div>
-        <div class="order-summary">
-            <button class="status-button">Đã xử lý</button>
-            <a href="history_chitiet.html">
-                <button class="details-button">Xem chi tiết</button>
-            </a>
-            <p class="total-price">Tổng tiền: <span>560.000đ</span></p>
-        </div>
-    </div>
-    <div class="purchase-history">
-        
-        <div class="order-item">
-            <img src="Images/aothun1.webp" alt="Suxipo">
-            <div class="order-details">
-                <h3>Áo Thun Nam Trơn Strength Contour Form Regular</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">200.000đ</p>
-        </div>
-        <div class="order-item">
-            <img src="Images/somi1.jpg" alt="Choco Rabbit">
-            <div class="order-details">
-                <h3>Áo Sơ Mi Cuban Vải Xốp Nam Tay Ngắn Modern Vibe Form Relaxed</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">200.000đ</p>
-        </div>
-        <div class="order-item">
-            <img src="Images/short4.webp" alt="Teddy Tee">
-            <div class="order-details">
-                <h3>Quần Short Nỉ Chân Cua Nam Orgnls Highlight Border Form Regular</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">200.000đ</p>
-        </div>
-        <div class="order-item">
-            <img src="Images/polo1.webp" alt="Teddy Tee">
-            <div class="order-details">
-                <h3>Áo Polo Nam Phối Sọc Họa Tiết Thêu Form Regular</h3>
-                <p>Không có ghi chú</p>
-                <p>x1</p>
-            </div>
-            <p class="order-price">200.000đ</p>
-        </div>
-        <div class="order-summary">
-            <button class="status-button">Đã xử lý</button>
-            <a href="history_chitiet.html">
-                <button class="details-button">Xem chi tiết</button>
-            </a>
-            <p class="total-price">Tổng tiền: <span>600.000đ</span></p>
-        </div>
-    </div>
-    
-   
-        
-    <footer class="footer" id="footer">
+  <header>
+    <div class="header-middle">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-top-content">
+          <div class="header-middle-left">
+            <!-- Nút mở menu -->
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+<!-- Thanh menu ẩn -->
+<div id="sidebarMenu" class="sidebar-menu">
+<button class="close-button" onclick="toggleMenu()">×</button>
+<ul>
+    <li><a href="index_logged.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
+    
+    <!-- Menu con cho "Sản phẩm" -->
+    <li class="dropdown">
+        <a href="index_logged.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
+        <div class="dropdown-content">
+            <a href="product_classification.html">Áo Thun</a>
+            <a href="product_classification.html">Áo Polo</a>
+            <a href="product_classification.html">Áo Sơ Mi</a>
+            <a href="product_classification.html">Quần Short</a>
+            <a href="product_classification.html">Mũ</a>
+        </div>
+    </li>
+
+    <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
+    <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
+</ul>
+</div>
+
+  
+            <div class="header-logo">
+              <a href="index_logged.html">
+                  <img src="./Images/logo.png" alt="" class="header-logo-img">
+              </a>
+          </div>
+
+          </div>
+          <div class="header-middle-center">
+            <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn..." id="search-input">
+                <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                    <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                </button>
+            </form>
+        </div>
+        
+        
+          <div class="header-middle-right">
+            <ul class="header-middle-right-list">
+              <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                <div class="cart-icon-menu">
+                  <i class="fa-light fa-magnifying-glass"></i>
+                </div>
+              </li>
+              <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                <div class="cart-icon-menu">
+                  <i class="fa-light fa-circle-xmark"></i>
+                </div>
+              </li>
+              <li class="header-middle-right-item dropdown open">
+                <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                <div class="auth-container">
+                    <span class="text-dndk">Tài khoản</span>
+                    <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                </div>
+                <ul class="header-middle-right-menu">
                     
+                    <li><a id="account-info" href="#"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
+                    <li><a id="purchase-history" href="history.html"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
+                    <li><a id="logout" href="Login.html?signin"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
+                </ul>
+            </li>
+            
+              <li class="header-middle-right-item open" onclick="window.location.href='CartPage.html'">
+                <div class="cart-icon-menu">
+                    <i class="fa-light fa-basket-shopping"></i>
+                    <span class="count-product-cart">4</span>
+                </div>
+                <span>Giỏ hàng</span>
+            </li>                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+</header>
+
+
+<div class="advanced-search" id="advanced-search">
+    <div class="container">
+        <div class="advanced-search-category">
+            <span>Phân loại</span>
+            <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                <option>Áo thun</option>
+                <option>Polo</option>
+                <option>Sơ mi</option>
+                <option>Quần short</option>
+                <option>Mũ</option>
+            </select>
+        </div>
+        <div class="advanced-search-price">
+            <span>Giá từ</span>
+            <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+            <span>đến</span>
+            <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+            <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+        </div>
+        <div class="advanced-search-control">
+            <button id="sort-ascending" onclick="searchProducts(1)">
+                <i class="fa-regular fa-arrow-up-short-wide"></i>
+            </button>
+            <button id="sort-descending" onclick="searchProducts(2)">
+                <i class="fa-regular fa-arrow-down-wide-short"></i>
+            </button>
+            <button id="reset-search" onclick="searchProducts(0)">
+                <i class="fa-light fa-arrow-rotate-right"></i>
+            </button>
+            <button onclick="closeSearchAdvanced()">
+                <i class="fa-light fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+  </div>
+  
+  <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+  
+
+<div class="home-title-block" id="home-title">
+    <h2 class="home-title">Lịch sử mua hàng</h2>
+</div>
+
+<div class="purchase-history">
+    
+    <div class="order-item">
+        <img src="Images/aothun1.webp" alt="Suxipo">
+        <div class="order-details">
+            <h3>Áo Thun Nam Trơn Strength Contour Form Regular</h3>
+            <p>Không có ghi chú</p>
+            <p>x1</p>
+        </div>
+        <p class="order-price">200.000đ</p>
+    </div>
+    <div class="order-item">
+        <img src="Images/somi1.jpg" alt="Choco Rabbit">
+        <div class="order-details">
+            <h3>Áo Sơ Mi Cuban Vải Xốp Nam Tay Ngắn Modern Vibe Form Relaxed</h3>
+            <p>Không có ghi chú</p>
+            <p>x1</p>
+        </div>
+        <p class="order-price">200.000đ</p>
+    </div>
+    <div class="order-item">
+        <img src="Images/short4.webp" alt="Teddy Tee">
+        <div class="order-details">
+            <h3>Quần Short Nỉ Chân Cua Nam Orgnls Highlight Border Form Regular</h3>
+            <p>Không có ghi chú</p>
+            <p>x1</p>
+        </div>
+        <p class="order-price">200.000đ</p>
+    </div>
+    <div class="order-item">
+        <img src="Images/polo1.webp" alt="Teddy Tee">
+        <div class="order-details">
+            <h3>Áo Polo Nam Phối Sọc Họa Tiết Thêu Form Regular</h3>
+            <p>Không có ghi chú</p>
+            <p>x1</p>
+        </div>
+        <p class="order-price">200.000đ</p>
+    </div>
+    <div class="order-summary">
+        <button class="status-button" >
+            <i class="fa-solid fa-truck"></i> Đang vận chuyển
+        </button>
+        <a href="history_chitiet.html">
+            <button class="details-button">
+                <i class="fa-solid fa-eye"></i> Xem chi tiết
+            </button>
+        </a>
+        <p class="total-price">Tổng tiền: <span>600.000đ</span></p>
+    </div>
+</div>
+
+
+
+<div class="purchase-history">
+    
+    <div class="order-item">
+        <img src="Images/Teddy Tee.webp" alt="Teddy Tee">
+        <div class="order-details">
+            <h3>Teddy Tee</h3>
+            <p>Không có ghi chú</p>
+            <p>x4</p>
+        </div>
+        <p class="order-price">200.000đ</p>
+    </div>
+    <div class="order-summary">
+        <button class="status-button">
+            <i class="fa-solid fa-check-circle"></i> Đã hoàn thành
+        </button>
+        <a href="history_chitiet.html">
+            <button class="details-button">
+                <i class="fa-solid fa-eye"></i> Xem chi tiết
+            </button>
+        </a>
+        <p class="total-price">Tổng tiền: <span>800.000đ</span></p>
+    </div>
+</div>
+
+
+<div class="pagination-controls">
+    <button class="pagination" onclick="window.location.href='history.html';">1</button>
+    <button class="pagination" onclick="window.location.href='history.html';">2</button>
+    <button class="pagination" onclick="window.location.href='history.html';">3</button>
+    <button class="pagination" onclick="window.location.href='history.html';">Next >></button>
+</div>
+
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-top-content">
+                <div class="footer-top-subbox">
+                    
+                   
                 </div>
             </div>
         </div>
+    </div>
 
         <div class="widget-area">
             <div class="container">
