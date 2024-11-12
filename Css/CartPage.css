@@ -1024,12 +1024,13 @@ header {
 }
 
 [popover] .no:hover {
-    background-color: #ddd;
+    color: white;
+    background-color: #08397a;
 }
 
 [popover] .yes:hover {
     color: white;
-    background-color: #000;
+    background-color: #08397a;
 }
 
 /* Total */
