@@ -238,10 +238,12 @@ header {
 }
   
 .text-dndk {
+    color: #000;
     font-size: 12px;
 }
   
 .text-tk {
+    color: #000;
     font-size: 15px;
 }
   
@@ -864,15 +866,20 @@ input[type="radio"] {
     transition: background-color 0.3s, color 0.3s; /* Chỉ chuyển màu */
 }
 
-.payment-button:hover {
-    background-color: #08397a; /* Đổi màu nền khi hover */
-    color: white; /* Đổi màu chữ khi hover */
-    border: 1px solid #08397a; /* Đảm bảo border không thay đổi */
+.payment-button.active {
+    background-color: #08397a;
+    color: white;
+    border: 1px solid #08397a;
 }
 
-.payment-button img {
-    width: 12px;
-    height: 12px;
+.payment-button:not(.active):hover {
+    background-color: #08397a;
+    color: white;
+    border: 1px solid #08397a;
+}
+
+.card-information, .account-information {
+    display: none;
 }
 
 /* Note */

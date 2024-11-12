@@ -155,39 +155,40 @@
                 <form>
                     <h2>Hình thức nhận hàng</h2>
                     <label class="delivery-method">Chọn phương thức nhận hàng<ng style="color: red;">*</ng></label><br><br>
-                    <input type="radio" id="saved-address-account" name="delivery-method" value="saved" checked>
-                    <label class="saved-address-account">Địa chỉ mặc định</label><br><br>
-
-                    <div id="saved-address-section">
-                        <label class="saved-address">Địa chỉ đã lưu<ng style="color: red;">*</ng></label>
+                    <input type="radio" id="saved-address-account" name="delivery-method" value="saved">
+                    <label class="saved-address-account">Địa chỉ mặc định</label><br>
+            
+                    <div id="saved-address-section" style="display: none;">
+                        <br><label class="saved-address">Địa chỉ đã lưu<ng style="color: red;">*</ng></label>
                         <select id="saved-address-select" class="select-field">
-                            <option value="address1">123 Đường ABC, Quận 1, TP. HCM, Việt Nam</option>
-                            <option value="address2">456 Đường XYZ, Quận 3, TP. HCM, Việt Nam</option>
+                            <option value="address1">123 Đường ABC, Quận 1, TP.HCM, Việt Nam</option>
+                            <option value="address2">456 Đường XYZ, Quận 3, TP.HCM, Việt Nam</option>
                             <!-- Add more saved addresses as needed -->
                         </select>
                     </div><br>
-
+            
                     <input type="radio" id="new-address" name="delivery-method" value="new">
-                    <label class="new-address">Nhập địa chỉ mới</label><br><br>
+                    <label class="new-address">Nhập địa chỉ mới</label><br>
                     
-                    <div id="new-address-section">
-                        <div>
+                    <div id="new-address-section" style="display: none;">
+                        <br><div>
                             <label class="country">Quốc gia<ng style="color: red;">*</ng></label>
                             <input type="text" class="countries-input" placeholder="Quốc gia">
                         </div><br>
-
-                        <label class="city">Tỉnh - Thành phố<ng style="color: red;">*</ng></label>
-                        <input type="text" class="cities-input" placeholder="Tỉnh/Thành phố">
-                    </div><br>
-
-                    <div>
-                        <label class="district">Quận - Huyện<ng style="color: red;">*</ng></label>
-                        <input type="text" class="districts-input" placeholder="Quận/Huyện">
-                    </div><br>
-
-                    <label for="address" class="address-label">Địa chỉ cụ thể<ng style="color: red;">*</ng></label>
-                    <input type="text" id="address" class="address-input" placeholder="Địa chỉ">
-
+                        
+                        <div>
+                            <label class="city">Tỉnh/Thành phố<ng style="color: red;">*</ng></label>
+                            <input type="text" class="cities-input" placeholder="Tỉnh/Thành phố">
+                        </div><br>
+                        
+                        <div>
+                            <label class="district">Quận/Huyện<ng style="color: red;">*</ng></label>
+                            <input type="text" class="districts-input" placeholder="Quận/Huyện">
+                        </div><br>
+            
+                        <label for="address" class="address-label">Địa chỉ<ng style="color: red;">*</ng></label>
+                        <input type="text" id="address" class="address-input" placeholder="Địa chỉ">
+                    </div>
                 </form>
             </div>
 
@@ -197,9 +198,40 @@
                     <label class="payment-methods">Chọn một phương thức thanh toán dưới đây<ng style="color: red;">*</ng></label>
                     
                     <div class="payment-options">
-                        <button class="payment-button">Thẻ ATM</button>
-                        <button class="payment-button">Thẻ Tín dụng/Ghi nợ</button>
-                        <button class="payment-button">Thanh toán khi nhận hàng</button>
+                        <!--Credit/Debit Card-->
+                        <span class="payment-button">Thẻ Tín dụng/Ghi nợ</span>
+                        <div class="payment-box">
+                            <div class="card-information">
+                                <h2 class="popover-info">Thông tin thẻ Tín dụng/Ghi nợ</h2>
+                                <label class="card-name">Tên chủ thẻ<ng style="color: red;">*</ng></label><br>
+                                <input type="text" class="card-name-input" placeholder="VD:NGUYEN VAN A"><br>
+                                <label class="card-number">Số thẻ<ng style="color: red;">*</ng></label><br>
+                                <input type="text" class="card-number-input" placeholder="VD:09xxxxxxxx"><br>
+                                <label class="expiration-date">Ngày hết hạn<ng style="color: red;">*</ng></label><br>
+                                <input type="date" class="expiration-date-input"><br>
+                                <label class="cvv-code">CVV<ng style="color: red;">*</ng></label><br>
+                                <input type="text" class="cvv-code-input" placeholder="3 đến 4 số">
+                                <button class="card-information-confirmation">Xác nhận</button>
+                            </div>
+                        </div>
+
+                        <!--Transactions-->
+                        <span class="payment-button">Chuyển khoản ngân hàng</span>
+                        <div class="payment-box">
+                            <div class="account-information">
+                                <h2 class="popover-info">Thông tin tài khoản ngân hàng</h2>
+                                <label class="account-name">Tên chủ tài khoản<ng style="color: red;">*</ng></label>
+                                <input type="text" class="account-name-input" placeholder="VD:NGUYEN VAN A">
+                                <label class="account-number">Số tài khoản<ng style="color: red;">*</ng></label>
+                                <input type="text" class="account-number-input" placeholder="VD:09xxxxxxxx">
+                                <label class="account-banks">Ngân hàng<ng style="color: red;">*</ng></label>
+                                <input type="text" class="account-banks-input" placeholder="VD:Techcombank">
+                                <button class="account-information-confirmation">Xác nhận</button>
+                            </div>
+                        </div>
+
+                        <!--Cash-->
+                        <span class="payment-button">Thanh toán khi nhận hàng</span>
                     </div>
                 </form>
             </div>
