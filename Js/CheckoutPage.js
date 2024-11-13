@@ -129,17 +129,44 @@ paymentButtons.forEach(button => {
     });
 });
 
-// Close popover when clicking outside of it
-document.addEventListener('click', (event) => {
-    if (currentActiveButton && !currentActiveButton.contains(event.target)) {
-        currentActiveButton.classList.remove('active'); // Reset the active state of the previously selected button
-        currentActiveButton.classList.remove('hover'); // Remove hover state
-        // Restore previous state if needed
-        if (previousButtonState[currentActiveButton.id].active) {
-            currentActiveButton.classList.add('active'); // Restore active state
-        } else {
-            currentActiveButton.classList.remove('active'); // Ensure it's inactive
-        }
-        currentActiveButton = null; // Reset the currently active button
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  const cardButton = document.querySelector('.payment-button');
+  const cardInformation = document.querySelector('.card-information');
+
+  cardButton.addEventListener('click', () => {
+      if (cardInformation.classList.contains('show')) {
+          // Hide card information
+          cardInformation.classList.remove('show');
+          setTimeout(() => {
+              cardInformation.style.display = 'none';
+          });
+      } else {
+          // Show card information
+          cardInformation.style.display = 'block';
+          setTimeout(() => {
+              cardInformation.classList.add('show');
+          }, 10);
+      }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const accountButton = document.querySelector('.payment-button');
+  const accountInformation = document.querySelector('.account-information');
+
+  accountButton.addEventListener('click', () => {
+      if (accountInformation.classList.contains('show')) {
+          // Hide account information
+          accountInformation.classList.remove('show');
+          setTimeout(() => {
+              accountInformation.style.display = 'none';
+          });
+      } else {
+          // Show account information
+          accountInformation.style.display = 'block';
+          setTimeout(() => {
+              accountInformation.classList.add('show');
+          }, 10);
+      }
+  });
 });
