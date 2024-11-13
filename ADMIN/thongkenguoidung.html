@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+			    <style>
+        #filterForm {
+            margin: 20px; /* Khoảng cách quanh form */
+        }
+        
+        .form-container {
+            margin-top: 20px; /* Khoảng cách phía trên */
+        }
+        #dateInputs {
+            display: none;
+        }
+
+   
+    </style>
 </head>
 <body>
     <header>
@@ -144,6 +158,38 @@
             <h2 class="home-title">THỐNG KÊ NGƯỜI DÙNG</h2>
         </div>
 
+ <button type="button" id="showFilterButton">Lọc theo thời gian</button>
+
+    <div id="dateInputs">
+        <form id="filterForm">
+            <label for="startDate">Từ ngày:</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <label for="endDate">Đến ngày:</label>
+            <input type="date" id="endDate" name="endDate" required>
+
+            <button type="button" onclick="filterResults()">Xác nhận</button>
+        </form>
+    </div>
+
+    <script>
+        // Hiện thị các trường nhập liệu khi nhấn nút "Lọc theo ngày"
+        document.getElementById('showFilterButton').onclick = function() {
+            document.getElementById('dateInputs').style.display = 'block';
+        };
+
+        // Hàm xử lý khi xác nhận muốn lọc
+        function filterResults() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            // Bạn có thể xử lý dữ liệu tại đây hoặc điều hướng đến trang khác
+            console.log("Từ ngày: " + startDate + ", Đến ngày: " + endDate);
+            window.location.href = 'locthongkenguoidung.html?startDate=' + startDate + '&endDate=' + endDate;
+        }
+    </script>
+	
+</style>
         <!-- Bảng quản lý người dùng -->
         <table class="table-user">
             <thead>

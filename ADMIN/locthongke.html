@@ -11,20 +11,7 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
-	    <style>
-        #filterForm {
-            margin: 20px; /* Khoảng cách quanh form */
-        }
-        
-        .form-container {
-            margin-top: 20px; /* Khoảng cách phía trên */
-        }
-        #dateInputs {
-            display: none;
-        }
 
-   
-    </style>
 </head>
 <body>
     <header>
@@ -98,10 +85,14 @@
                         <span class="text-dndk">Tài khoản</span>
                         <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
                     </div>
-                    <ul class="header-middle-right-menu">
-                        
-                        <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                    </ul>
+<ul class="header-middle-right-menu">
+    <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+    <li><a id="account-name" href="#"><i class="fa-solid fa-id-badge"></i> Tên: Nhóm 99</a></li> <!-- Tên -->
+    <li><a id="phone-number" href="#"><i class="fa-solid fa-phone"></i>SĐT: 092 683 975</a></li> <!-- Số điện thoại -->
+    <li><a id="password" href="#"><i class="fa-solid fa-lock"></i> Mật khẩu: ********</a></li> <!-- Mật khẩu (ẩn) -->
+    <li><a id="country" href="#"><i class="fa-solid fa-globe"></i> Quốc gia: Việt Nam</a></li> <!-- Quốc gia -->
+    <li><a id="district" href="#"><i class="fa-solid fa-map-marker-alt"></i> Quận/Huyện: Quận 1, TP.HCM</a></li> <!-- Quận/Huyện -->
+</ul>
                 </li>
                 
                             
@@ -157,38 +148,8 @@
             <h2 class="home-title">THỐNG KÊ SẢN PHẨM</h2>
         </div>		
     
-<button type="button" id="showFilterButton">Lọc theo thời gian</button>
-
-    <div id="dateInputs">
-        <form id="filterForm">
-            <label for="startDate">Từ ngày:</label>
-            <input type="date" id="startDate" name="startDate" required>
-
-            <label for="endDate">Đến ngày:</label>
-            <input type="date" id="endDate" name="endDate" required>
-
-            <button type="button" onclick="filterResults()">Xác nhận</button>
-        </form>
-    </div>
-
-    <script>
-        // Hiện thị các trường nhập liệu khi nhấn nút "Lọc theo ngày"
-        document.getElementById('showFilterButton').onclick = function() {
-            document.getElementById('dateInputs').style.display = 'block';
-        };
-
-        // Hàm xử lý khi xác nhận muốn lọc
-        function filterResults() {
-            const startDate = document.getElementById('startDate').value;
-            const endDate = document.getElementById('endDate').value;
-
-            // Bạn có thể xử lý dữ liệu tại đây hoặc điều hướng đến trang khác
-            console.log("Từ ngày: " + startDate + ", Đến ngày: " + endDate);
-            window.location.href = 'locthongke.html?startDate=' + startDate + '&endDate=' + endDate;
-        }
-    </script>
-	
-
+<p style="display: inline;">Từ ngày <input  value="01-11-2024" style="width: 100px;text-align:center;"></p>
+<p style="display: inline;">Đến ngày <input  value="30-11-2024" style="width: 100px;text-align:center;"></p>
         <!-- Main Content -->
         <main>
             <!-- Analyses -->
@@ -197,14 +158,14 @@
                     <div class="status">
                         <div class="info">
                             <h3>Tổng thu</h3>
-                            <h1>110.800.000 VNĐ</h1>
+                            <h1>11.800.000 VNĐ</h1>
                         </div>
                         <div class="progresss">
                             <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="percentage">
-                                <p>+81%</p>
+                                <p>+32%</p>
                             </div>
                         </div>
                     </div>
@@ -220,7 +181,7 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="percentage">
-                                <p>+48%</p>
+                                <p>+21%</p>
                             </div>
                         </div>
                     </div>
@@ -236,7 +197,7 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="percentage">
-                                <p>+21%</p>
+                                <p>+12%</p>
                             </div>
                         </div>
                     </div>
@@ -258,20 +219,20 @@
                     <tbody>
                         <tr>
                             <td>Áo Thun</td>
-                            <td>32</td>
-                            <td>65.400.000 VNĐ</td>
+                            <td>8</td>
+                            <td>2.400.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
                             <td>Áo Polo</td>
-                            <td>9</td>
-                            <td>14.600.000 VNĐ</td>
+                            <td>5</td>
+                            <td>1.600.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
                             <td>Áo Sơ Mi</td>
                             <td>8</td>
-                            <td>17.600.000 VNĐ</td>
+                            <td>2.600.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>

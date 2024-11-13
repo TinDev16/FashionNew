@@ -11,20 +11,7 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
-	    <style>
-        #filterForm {
-            margin: 20px; /* Khoảng cách quanh form */
-        }
-        
-        .form-container {
-            margin-top: 20px; /* Khoảng cách phía trên */
-        }
-        #dateInputs {
-            display: none;
-        }
 
-   
-    </style>
 </head>
 <body>
     <header>
@@ -98,10 +85,14 @@
                         <span class="text-dndk">Tài khoản</span>
                         <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
                     </div>
-                    <ul class="header-middle-right-menu">
-                        
-                        <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                    </ul>
+<ul class="header-middle-right-menu">
+    <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+    <li><a id="account-name" href="#"><i class="fa-solid fa-id-badge"></i> Tên: Nhóm 99</a></li> <!-- Tên -->
+    <li><a id="phone-number" href="#"><i class="fa-solid fa-phone"></i>SĐT: 092 683 975</a></li> <!-- Số điện thoại -->
+    <li><a id="password" href="#"><i class="fa-solid fa-lock"></i> Mật khẩu: ********</a></li> <!-- Mật khẩu (ẩn) -->
+    <li><a id="country" href="#"><i class="fa-solid fa-globe"></i> Quốc gia: Việt Nam</a></li> <!-- Quốc gia -->
+    <li><a id="district" href="#"><i class="fa-solid fa-map-marker-alt"></i> Quận/Huyện: Quận 1, TP.HCM</a></li> <!-- Quận/Huyện -->
+</ul>
                 </li>
                 
                             
@@ -153,148 +144,161 @@
 
 <main class="main-wrapper">
     <div class="container" id="trangchu">
+
         <div class="home-title-block" id="home-title">
-            <h2 class="home-title">THỐNG KÊ SẢN PHẨM</h2>
-        </div>		
-    
-<button type="button" id="showFilterButton">Lọc theo thời gian</button>
+            <h2 class="home-title">THỐNG KÊ NGƯỜI DÙNG</h2>
+        </div>
 
-    <div id="dateInputs">
-        <form id="filterForm">
-            <label for="startDate">Từ ngày:</label>
-            <input type="date" id="startDate" name="startDate" required>
+<p style="display: inline; margin: 20px 20px 20px 0;">Từ ngày <input value="01-11-2024" style="width: 100px;text-align:center;"></p>
+<p style="display: inline; margin: 20px 0;">Đến ngày <input value="30-11-2024" style="width: 100px;text-align:center;"></p>
+        <!-- Bảng quản lý người dùng -->
+        <table class="table-user">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TÊN ĐĂNG NHẬP</th>
+                    <th>SỐ ĐIỆN THOẠI</th>
+                    <th>ĐỊA CHỈ</th>
+                    <th>TỔNG CHI TIÊU</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A1B2C3</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>0123456789</td>
+                    <td>123 Nguyễn Thái Học, Phường 1, TPHCM, Việt Nam</td>
+                    <td>5,970,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>B2C3D4</td>
+                    <td>Trần Thị B</td>
+                    <td>0123456789</td>
+                    <td>456 Lê Đình Lý, Quận 2, TPHCM, Việt Nam</td>
+                    <td>2,500,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>C3D4E5</td>
+                    <td>Phạm Minh C</td>
+                    <td>0123456789</td>
+                    <td>789 Bến Nghé, Quận 1, TPHCM, Việt Nam</td>
+                    <td>4,000,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>D4E5F6</td>
+                    <td>Nguyễn Thế D</td>
+                    <td>0123456789</td>
+                    <td>135 Hoàng Hoa Thám, Phường 10, TPHCM, Việt Nam</td>
+                    <td>7,200,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>E5F6G7</td>
+                    <td>Lê Quốc E</td>
+                    <td>0123456789</td>
+                    <td>202 Lê Văn Khương, Quận 12, TPHCM, Việt Nam</td>
+                    <td>5,500,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td>F6G7H8</td>
+                    <td>Đỗ Minh F</td>
+                    <td>0123456789</td>
+                    <td>48 Trần Hưng Đạo, Phường 2, TPHCM, Việt Nam</td>
+                    <td>1,800,000 VNĐ</td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: center; font-weight: bold; color: purple; cursor: pointer;" onclick="alert('Show all customers')">Show All</td>
+                </tr>
+            </tbody>
+        </table>
 
-            <label for="endDate">Đến ngày:</label>
-            <input type="date" id="endDate" name="endDate" required>
+        <!-- Nút "Lọc" -->
+        <button class="btn-loc" onclick="toggleVIPTable()">TOP 5 KHÁCH HÀNG PHÁT SINH DOANH THU NHIỀU NHẤT THÁNG 11</button>
 
-            <button type="button" onclick="filterResults()">Xác nhận</button>
-        </form>
-    </div>
+        <!-- Bảng Khách VIP -->
+        <div class="vip-customers-block" id="vip-customers" style="display: none;">
+            <h2 class="home-title">KHÁCH HÀNG VIP</h2>
+            <table class="table-vip-users">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>ID</th>
+                        <th>TÊN ĐĂNG NHẬP</th>
+                        <th>TỔNG DOANH THU</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>A1B2C3</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>5,970,000 VNĐ</td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>B2C3D4</td>
+                        <td>Trần Thị B</td>
+                        <td>5,500,000 VNĐ</td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>C3D4E5</td>
+                        <td>Phạm Minh C</td>
+                        <td>5,400,000 VNĐ</td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>D4E5F6</td>
+                        <td>Nguyễn Thế D</td>
+                        <td>5,200,000 VNĐ</td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>M3N4O5</td>
+                        <td>Lê Quốc E</td>
+                        <td>5,150,000 VNĐ</td>
+                        <td>
+    <button onclick="window.location.href='hoadonnguoidung.html'">Xem Các Hóa Đơn</button>
+</td>
 
-    <script>
-        // Hiện thị các trường nhập liệu khi nhấn nút "Lọc theo ngày"
-        document.getElementById('showFilterButton').onclick = function() {
-            document.getElementById('dateInputs').style.display = 'block';
-        };
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Kết thúc bảng khách hàng VIP -->
 
-        // Hàm xử lý khi xác nhận muốn lọc
-        function filterResults() {
-            const startDate = document.getElementById('startDate').value;
-            const endDate = document.getElementById('endDate').value;
-
-            // Bạn có thể xử lý dữ liệu tại đây hoặc điều hướng đến trang khác
-            console.log("Từ ngày: " + startDate + ", Đến ngày: " + endDate);
-            window.location.href = 'locthongke.html?startDate=' + startDate + '&endDate=' + endDate;
-        }
-    </script>
-	
-
-        <!-- Main Content -->
-        <main>
-            <!-- Analyses -->
-            <div class="analyse">
-                <div class="sales">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Tổng thu</h3>
-                            <h1>110.800.000 VNĐ</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+81%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="visits">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Bán Chạy nhất</h3>
-                            <h1>Áo Thun</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+48%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="searches">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Bán ế nhất</h3>
-                            <h1>Mũ</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+21%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Analyses -->
-            <!-- Recent Orders Table -->
-            <div class="recent-orders">
-                <h2>MẶT HÀNG</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>TÊN MẶT HÀNG</th>
-                            <th>SỐ LƯỢNG BÁN RA</th>
-                            <th>TỔNG THU</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Áo Thun</td>
-                            <td>32</td>
-                            <td>65.400.000 VNĐ</td>
-                            <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
-                        </tr>
-                        <tr>
-                            <td>Áo Polo</td>
-                            <td>9</td>
-                            <td>14.600.000 VNĐ</td>
-                            <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
-                        </tr>
-                        <tr>
-                            <td>Áo Sơ Mi</td>
-                            <td>8</td>
-                            <td>17.600.000 VNĐ</td>
-                            <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
-                        </tr>
-                        <tr>
-                            <td>Quần Short</td>
-                            <td>10</td>
-                            <td>12.800.000 VNĐ</td>
-                            <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
-                        </tr>
-                        <tr>
-                            <td>Mũ</td>
-                            <td>5</td>
-                            <td>4.000.000 VNĐ</td>
-                            <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
-                        </tr>
-                       
-                    </tbody>
-                </table>
-                <a href="#">Show All</a>
-            </div>
-            <!-- End of Recent Orders -->
-        </main>
     </div>
 </main>
+
+<script>
+function xemHoaDon(id) {
+    alert("Xem hóa đơn cho khách hàng có ID: " + id);
+}
+
+function toggleVIPTable() {
+    var vipTable = document.getElementById("vip-customers");
+    var locButton = document.getElementById("locButton");
+    if (vipTable.style.display === "none") {
+        vipTable.style.display = "block"; // Hiện bảng khách hàng VIP
+        locButton.style.display = "none"; // Ẩn nút "Lộc"
+    } else {
+        vipTable.style.display = "none"; // Ẩn bảng khách hàng VIP
+        locButton.style.display = "block"; // Hiện lại nút "Lộc" nếu cần
+    }
+}
+</script>
 
         <footer class="footer">
             <div class="container">
@@ -437,7 +441,8 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
+</main>
 
     <div id="toast"></div>
     <script src="main.js"></script> 
