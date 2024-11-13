@@ -8,14 +8,14 @@ function showOrderDetails(orderId) {
             receiverName: "Nguyễn Văn An",
             receiverPhone: "095463448",
             receiverAddress: "62, Bình Long, Quận Bình Tân, TP.HCM",
+            notes: "Không",
             product: "Áo Thun Nam Trơn Strength Contour Form Regular",
             mv: 15364,
             productQuantity: 2,
             productPrice: 200000,
             totalPrice: 400000,
-            paymentcash:400000,
             paymentMethod: "MOMO",
-            paymentinternet: 400000,
+            payment: 400000,
             paymentAmount: 400000,
             promotion: 0,
             shippingFee: "Miễn phí",
@@ -29,14 +29,14 @@ function showOrderDetails(orderId) {
             receiverName: "Lê Văn Bình",
             receiverPhone: "096789106",
             receiverAddress: "56,Hàm Nghi,Quận 1, TP.HCM",
+            notes: "Nếu không có người nhận, xin để hàng tại cửa và gửi ảnh xác nhận.",
             product: "Áo Polo Nam Họa Tiết Pattern Typography Form Regular",
             mv:14953,
             productQuantity: 3,
             productPrice: 200000,
             totalPrice: 600000,
-            paymentcash: 600000,
-            paymentMethod: "VNPayQR",
-            paymentinternet: 600000,
+            paymentMethod: "Tiền mặt",
+            payment: 600000,
             paymentAmount: 600000,
             promotion: 0,
             shippingFee: "Miễn phí",
@@ -50,20 +50,20 @@ function showOrderDetails(orderId) {
             receiverName: "Lê Lợi",
             receiverPhone: "0987073458",
             receiverAddress: "65,Hồng Bàng,Quận 5, TP.HCM",
+            notes: "Gọi trước 30 phút trước khi giao để đảm bảo có người nhận.",
             product: "Nón Nam Lưỡi Trai High-crown The Spiritual Kingdom Of Fashion",
             mv:14359,
             productQuantity: 1,
             productPrice: 200000,
             totalPrice: 200000,
-            paymentcash: 200000,
             paymentMethod: "VNPayQR",
-            paymentinternet: 200000,
+            payment: 200000,
             paymentAmount: 200000,
             promotion: 0,
             shippingFee: "Miễn phí",
             total: 200000,
             amountdue: 200000,
-        }
+        },
     };
 
 
@@ -84,14 +84,9 @@ function showOrderDetails(orderId) {
                         <span class="text-secondary">NV tư vấn:</span> Admin - admin@gmail.com
                     </p>
                 </div>
-                <div class="d-flex justify-content-end">
-                    <select class="form-select text-white fw-bold p-2 rounded-pill" id="status-select" style="width: 200px; background-color: #007bff; border: none; text-align: center;">
-                        <option value="chua_xu_ly">Chưa xử lý</option>
-                        <option value="da_xac_nhan">Đã xác nhận</option>
-                        <option value="giao_thanh_cong">Giao thành công</option>
-                        <option value="da_huy">Đã hủy</option>
-                    </select>
-                </div>
+         <button class="btn text-white fw-bold p-2 rounded-pill" style="width: 200px; background-color: #007bff; border: none; text-align: center;" id="status-button">
+    Chưa xử lý
+</button>
             </div>
 
             <div class="row" style="margin-top: 20px">
@@ -115,6 +110,17 @@ function showOrderDetails(orderId) {
                     </div>
                 </div>
             </div>
+            <!-- New row for the notes section -->
+<div class="row" style="margin-top: 20px">
+    <div class="col-lg-12">
+        <div class="card" style="width: 100%">
+            <div class="card-header">Ghi Chú</div>
+            <div class="card-body">
+                <p class="text-secondary" id="order-notes">${order.notes}</p>
+            </div>
+        </div>
+    </div>
+</div>
 
             <div style="margin-top: 20px">
                 <table class="table border" style="width: 100%">
@@ -147,13 +153,10 @@ function showOrderDetails(orderId) {
                     <div class="card-header">Phương Thức Thanh Toán</div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <p class="text-black">Tiền mặt:</p>
-                            <p class="fw-bold fs-4 text-black" id="payment-cash">${order.paymentcash.toLocaleString()}</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
                             <p class="text-black">${order.paymentMethod}:</p>
-                            <p class="fw-bold fs-4 text-black" id="payment-vnpay">${order.paymentinternet.toLocaleString()}</p>
+                            <p class="fw-bold fs-4 text-black" id="payment-cash">${order.payment.toLocaleString()}</p>
                         </div>
+                      
                     </div>
                 </div>
             </div>
@@ -196,21 +199,50 @@ function showOrderDetails(orderId) {
     }
 }
 // Thử gọi hàm với một orderId hợp lệ
-showOrderDetails("22050124171");  // Hoặc bất kỳ orderId nào từ dữ liệu của bạn
 showOrderDetails("22010124111");
+showOrderDetails("22050124171");  // Hoặc bất kỳ orderId nào từ dữ liệu của bạn
 showOrderDetails("28359124178");
+document.addEventListener('DOMContentLoaded', function() {
+    const statuses = [
+        { text: "Chưa xử lý", value: "chua_xu_ly" },
+        { text: "Đã xác nhận", value: "da_xac_nhan" },
+        { text: "Giao thành công", value: "giao_thanh_cong" },
+        { text: "Đã hủy", value: "da_huy" }
+    ];
 
-window.onload = function() {
-    // Lấy orderId từ URL
+    let currentIndex = 0;  // Vị trí của trạng thái hiện tại
+
+    // Lấy orderId từ URL để xác định trạng thái khởi tạo
     const params = new URLSearchParams(window.location.search);
     const orderId = params.get('orderId');
     
-    // Kiểm tra orderId và chọn trạng thái tương ứng
-    if (orderId === '220101124111') {
-        document.getElementById('status-select').value = 'giao_thanh_cong';  // Chọn "Giao thành công"
+    // Xác định trạng thái khởi đầu dựa trên orderId
+    if (orderId === '22010124111') {
+        currentIndex = 2; // "Giao thành công"
     } else if (orderId === '22050124171') {
-        document.getElementById('status-select').value = 'da_xac_nhan'; 
+        currentIndex = 1; // "Đã xác nhận"
     } else if (orderId === '28359124178') {
-        document.getElementById('status-select').value = 'da_huy';  
+        currentIndex = 3; // "Đã hủy"
+    } else {
+        currentIndex = 0; // Mặc định "Chưa xử lý"
     }
-};
+
+    // Cập nhật nút khi trang được tải
+    updateButton();
+
+    // Thêm sự kiện click vào nút để thay đổi trạng thái (chỉ thay đổi trong phiên)
+    document.getElementById('status-button').addEventListener('click', function() {
+        console.log("Button clicked!");  // Xem sự kiện click có được kích hoạt
+        currentIndex = (currentIndex + 1) % statuses.length;  // Chuyển sang trạng thái tiếp theo
+        updateButton();
+    });
+
+    // Hàm cập nhật văn bản và giá trị cho nút
+    function updateButton() {
+        const statusButton = document.getElementById('status-button');
+        if (statusButton) {
+            statusButton.textContent = statuses[currentIndex].text;
+            statusButton.setAttribute('data-value', statuses[currentIndex].value);
+        }
+    }
+});
