@@ -200,34 +200,49 @@
                     <div class="payment-options">
                         <!--Credit/Debit Card-->
                         <span class="payment-button">Thẻ Tín dụng/Ghi nợ</span>
-                        <div class="payment-box">
-                            <div class="card-information">
-                                <h2 class="popover-info">Thông tin thẻ Tín dụng/Ghi nợ</h2>
-                                <label class="card-name">Tên chủ thẻ<ng style="color: red;">*</ng></label><br>
-                                <input type="text" class="card-name-input" placeholder="VD:NGUYEN VAN A"><br>
-                                <label class="card-number">Số thẻ<ng style="color: red;">*</ng></label><br>
-                                <input type="text" class="card-number-input" placeholder="VD:09xxxxxxxx"><br>
-                                <label class="expiration-date">Ngày hết hạn<ng style="color: red;">*</ng></label><br>
-                                <input type="date" class="expiration-date-input"><br>
-                                <label class="cvv-code">CVV<ng style="color: red;">*</ng></label><br>
+                        <div class="card-information">
+                            <div>
+                                <label class="card-name">Tên chủ thẻ<ng style="color: red;">*</ng></label>
+                                <input type="text" class="card-name-input" placeholder="VD:NGUYEN VAN A">
+                            </div><br>
+
+                            <div>
+                                <label class="card-number">Số thẻ<ng style="color: red;">*</ng></label>
+                                <input type="text" class="card-number-input" placeholder="VD:09xxxxxxxx">
+                            </div><br>
+
+                            <div>
+                                <label class="expiration-date">Ngày hết hạn<ng style="color: red;">*</ng></label>
+                                <input type="date" class="expiration-date-input">
+                            </div><br>
+
+                            <div>
+                                <label class="cvv-code">CVV<ng style="color: red;">*</ng></label>
                                 <input type="text" class="cvv-code-input" placeholder="3 đến 4 số">
-                                <button class="card-information-confirmation">Xác nhận</button>
-                            </div>
+                            </div><br>
+
+                            <button class="card-information-confirmation">Xác nhận</button>
                         </div>
 
                         <!--Transactions-->
                         <span class="payment-button">Chuyển khoản ngân hàng</span>
-                        <div class="payment-box">
-                            <div class="account-information">
-                                <h2 class="popover-info">Thông tin tài khoản ngân hàng</h2>
-                                <label class="account-name">Tên chủ tài khoản<ng style="color: red;">*</ng></label>
-                                <input type="text" class="account-name-input" placeholder="VD:NGUYEN VAN A">
-                                <label class="account-number">Số tài khoản<ng style="color: red;">*</ng></label>
-                                <input type="text" class="account-number-input" placeholder="VD:09xxxxxxxx">
-                                <label class="account-banks">Ngân hàng<ng style="color: red;">*</ng></label>
-                                <input type="text" class="account-banks-input" placeholder="VD:Techcombank">
-                                <button class="account-information-confirmation">Xác nhận</button>
-                            </div>
+                        <div class="account-information">
+                            <div>
+                            <label class="account-name">Tên chủ tài khoản<ng style="color: red;">*</ng></label>
+                            <input type="text" class="account-name-input" placeholder="VD:NGUYEN VAN A">
+                            </div><br>
+
+                            <div>
+                            <label class="account-number">Số tài khoản<ng style="color: red;">*</ng></label>
+                            <input type="text" class="account-number-input" placeholder="VD:09xxxxxxxx">
+                            </div><br>
+
+                            <div>
+                            <label class="account-banks">Ngân hàng<ng style="color: red;">*</ng></label>
+                            <input type="text" class="account-banks-input" placeholder="VD:Techcombank">
+                            </div><br>
+
+                            <button class="account-information-confirmation">Xác nhận</button>
                         </div>
 
                         <!--Cash-->
