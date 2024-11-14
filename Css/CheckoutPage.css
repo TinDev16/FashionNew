@@ -897,6 +897,10 @@ input[type="radio"] {
     box-sizing: border-box;
 }
 
+.card-information.show {
+    display: block;
+}
+
 .card-name, .card-number, .expiration-date, .cvv-code {
     font-size: 1.1em;
     margin-bottom: 10px;
@@ -952,6 +956,10 @@ input[type="radio"] {
     left: 0;
     z-index: 1;
     box-sizing: border-box;
+}
+
+.account-information.show {
+    display: block;
 }
 
 .account-name, .account-number, .account-banks {

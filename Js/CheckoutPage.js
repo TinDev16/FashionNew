@@ -11,6 +11,10 @@ function goToCartPage() {
   window.location.href = "CartPage.html";
 }
 
+function goToBillPage() {
+  window.location.href = "BillPage.html";
+}
+
 function toggleMenu() {
   const sidebarMenu = document.getElementById("sidebarMenu");
   
@@ -96,24 +100,12 @@ paymentButtons.forEach(button => {
     };
 
     button.addEventListener('click', () => {
-        // Check if the clicked button is already active
-        if (currentActiveButton === button) {
-            // Restore previous state
-            button.classList.remove('active');
-            if (previousButtonState[button.id].hover) {
-                button.classList.add('hover'); // Restore hover state if it was hovered before
-            } else {
-                button.classList.remove('hover'); // Ensure hover state is removed
-            }
-            currentActiveButton = null; // Reset the currently active button
-        } else {
-            // Remove the "active" class from all buttons
-            paymentButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add the "active" class to the clicked button
-            button.classList.add('active');
-            currentActiveButton = button; // Store the currently active button
-        }
+        // Remove the "active" class from all buttons
+        paymentButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add the "active" class to the clicked button
+        button.classList.add('active');
+        currentActiveButton = button; // Store the currently active button
     });
 
     button.addEventListener('mouseenter', () => {
@@ -130,43 +122,17 @@ paymentButtons.forEach(button => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const cardButton = document.querySelector('.payment-button');
-  const cardInformation = document.querySelector('.card-information');
+  const cardButton = document.getElementById('card-button');
+  const cardInformation = document.getElementById('card-information');
 
   cardButton.addEventListener('click', () => {
-      if (cardInformation.classList.contains('show')) {
-          // Hide card information
-          cardInformation.classList.remove('show');
-          setTimeout(() => {
-              cardInformation.style.display = 'none';
-          });
-      } else {
-          // Show card information
-          cardInformation.style.display = 'block';
-          setTimeout(() => {
-              cardInformation.classList.add('show');
-          }, 10);
-      }
+      cardInformation.classList.toggle('show');
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const accountButton = document.querySelector('.payment-button');
-  const accountInformation = document.querySelector('.account-information');
+  const accountButton = document.getElementById('account-button');
+  const accountInformation = document.getElementById('account-information');
 
   accountButton.addEventListener('click', () => {
-      if (accountInformation.classList.contains('show')) {
-          // Hide account information
-          accountInformation.classList.remove('show');
-          setTimeout(() => {
-              accountInformation.style.display = 'none';
-          });
-      } else {
-          // Show account information
-          accountInformation.style.display = 'block';
-          setTimeout(() => {
-              accountInformation.classList.add('show');
-          }, 10);
-      }
+      accountInformation.classList.toggle('show');
   });
 });

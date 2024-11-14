@@ -199,8 +199,8 @@
                     
                     <div class="payment-options">
                         <!--Credit/Debit Card-->
-                        <span class="payment-button">Thẻ Tín dụng/Ghi nợ</span>
-                        <div class="card-information">
+                        <span class="payment-button" id="card-button">Thẻ Tín dụng/Ghi nợ</span>
+                        <div class="card-information" id="card-information">
                             <div>
                                 <label class="card-name">Tên chủ thẻ<ng style="color: red;">*</ng></label>
                                 <input type="text" class="card-name-input" placeholder="VD:NGUYEN VAN A">
@@ -225,8 +225,8 @@
                         </div>
 
                         <!--Transactions-->
-                        <span class="payment-button">Chuyển khoản ngân hàng</span>
-                        <div class="account-information">
+                        <span class="payment-button" id="account-button">Chuyển khoản ngân hàng</span>
+                        <div class="account-information" id="account-information">
                             <div>
                             <label class="account-name">Tên chủ tài khoản<ng style="color: red;">*</ng></label>
                             <input type="text" class="account-name-input" placeholder="VD:NGUYEN VAN A">
@@ -270,7 +270,7 @@
                     <span class="value">800.000₫</span>
                 </div>
                 <hr>
-                <button class="checkout-btn" onclick="alert('Đơn hàng đã được thanh toán thành công.'); setTimeout(goToHomePage, 50);">Thanh toán</button>
+                <button class="checkout-btn" onclick="alert('Đơn hàng đã được thanh toán thành công.'); setTimeout(goToBillPage, 50);">Thanh toán</button>
             </div>
         </div>
         
