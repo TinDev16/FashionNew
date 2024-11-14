@@ -2791,57 +2791,31 @@ small {
   margin-right: 20px; /* Tăng khoảng cách giữa hình ảnh và chi tiết đơn hàng */
 }
 
-.order-details {
-  flex-grow: 1;
+table {
+  width: 80%; /* Adjusted width to make the table smaller */
+  margin: auto; /* Center the table */
+  border-collapse: collapse;
 }
-
-.order-details h3 {
-  margin: 0;
-  font-size: 18px; /* Tăng kích thước chữ */
-  color: #333;
+th,
+td {
+  padding: 8px; /* Reduced padding to make the table more compact */
+  border: 1px solid #ddd;
+  text-align: left;
 }
-
-.order-details p {
-  margin: 6px 0; /* Tăng khoảng cách giữa các đoạn văn */
-  font-size: 16px; /* Tăng kích thước chữ */
-  color: #666;
+th {
+  background-color: #f2f2f2;
 }
-
-.order-price {
-  font-size: 18px; /* Tăng kích thước chữ */
-  color:#08397a;
-  font-weight: bold;
-}
-
-.order-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0; /* Tăng khoảng cách giữa các phần tử */
-}
-
-.status-button,
-.details-button {
+.btn {
+  padding: 5px 15px;
+  text-decoration: none;
+  color: white;
   background-color: #08397a;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px; /* Tăng kích thước nút */
-  font-size: 16px; /* Tăng kích thước chữ */
-  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
 }
-
-.details-button {
-  background-color: #eee;
-  color: #333;
-  margin-right: 310px; /* Giảm khoảng cách giữa các nút */
-}
-
-.total-price {
-  font-size: 20px; /* Tăng kích thước chữ */
-  font-weight: bold;
-  color: red;
-  text-align: right;
+.btn:hover {
+  background-color: #08397a;
 }
 .order-details1 {
   font-family: Arial, sans-serif;
