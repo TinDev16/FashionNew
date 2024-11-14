@@ -762,13 +762,7 @@ header {
     width: 120px;
     overflow-wrap: break-word;
     font-size: 14px;
-}
-
-.cart-content-middle .product-info select {
-    width: auto; 
-    position: relative; /* Đặt phần select ở vị trí tương đối */
-    display: inline-block; /* Hiển thị phần select trên cùng một hàng */
-    padding-top: 0;
+    margin-top: 20px;
 }
 
 .cart-content-middle .product-info {
