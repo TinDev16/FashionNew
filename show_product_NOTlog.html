@@ -55,9 +55,13 @@
               <div class="header-middle-center">
                 <form action="product_search_NOTlog.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                    <button type="button" class="filter-btn" onclick="window.location.href='product_search_NOTlog.html'">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                    </button> 
+                    <!-- Nút tìm kiếm nâng cao -->
+                    <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
                     </button>
                 </form>
             </div>
@@ -96,9 +100,11 @@
    
     <div class="advanced-search" id="advanced-search">
       <div class="container">
-          <div class="advanced-search-category">
+        <div class="advanced-search-category">
+            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
               <span>Phân loại</span>
               <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                <option selected>Tất cả</option>
                   <option>Áo thun</option>
                   <option>Polo</option>
                   <option>Sơ mi</option>
