@@ -690,7 +690,7 @@ header {
 }
 
 /* Hiển thị menu con khi hover vào mục "Sản phẩm" */
-.dropdown:hover .dropdown-content {
+.dropdown .dropdown-content {
   display: block;
 }
 
@@ -2757,14 +2757,14 @@ small {
 }
 
 .links a {
-  color: #e1e1e1;
+  color: #08397a;
   margin-left: 5px;
   transition: 0.3s;
   font-size: 17px;
 }
 
 .links a:hover {
-  color: #08397a;
+  color:#0056b3;
 }
 
 .purchase-history {
@@ -2913,4 +2913,31 @@ th {
   text-decoration: none;
   font-weight: bold;
   margin-top: 20px;
+}
+
+
+
+.advanced-search-btn {
+    display: flex;
+    align-items: center;
+    gap: 3px; /* Khoảng cách giữa icon và chữ */
+    padding: 8px 12px;
+    background-color: #08397a; /* Màu nền xanh dương nhạt */
+    color: #fff; /* Màu chữ trắng */
+    border: none;
+    border-radius: 25px; /* Viền bo tròn */
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.advanced-search-btn i {
+    font-size: 16px;
+}
+
+/* Hiệu ứng hover */
+.advanced-search-btn:hover {
+    background-color: #0056b3; /* Màu xanh đậm khi hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
 }

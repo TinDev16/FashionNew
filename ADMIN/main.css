@@ -2757,14 +2757,14 @@ small {
 }
 
 .links a {
-  color: #e1e1e1;
+  color: #08397a;
   margin-left: 5px;
   transition: 0.3s;
   font-size: 17px;
 }
 
 .links a:hover {
-  color: #08397a;
+  color: #0056b3;
 }
 .history-container {
   width: 60%;
