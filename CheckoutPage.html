@@ -13,18 +13,16 @@
         <header>
             <div class="header-middle">
                 <div class="container">
-                    
-                    <!--Phần bên trái của header-->
+                    <!--Header's left part-->
                     <div class="header-middle-left">
                         <!-- Nút mở menu -->
                         <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
-        
                         <!-- Thanh menu ẩn -->
                         <div id="sidebarMenu" class="sidebar-menu">
                             <button class="close-button" onclick="toggleMenu()">×</button>
                             <ul>
                                 <li><a href="index_logged.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
-            
+                                
                                 <!-- Menu con cho "Sản phẩm" -->
                                 <li class="dropdown">
                                     <a href="index_logged.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
@@ -36,7 +34,7 @@
                                         <a href="product_classification.html">Mũ</a>
                                     </div>
                                 </li>
-        
+                                
                                 <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
                                 <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
                             </ul>
@@ -44,23 +42,28 @@
         
                         <div class="header-logo">
                             <a href="index_logged.html">
-                                <img src="Images/logo.png" alt="" class="header-logo-img">
+                                <img src="./Images/logo.png" alt="" class="header-logo-img">
                             </a>
                         </div>
                     </div>
 
-                    <!--Phần ở giữa của header-->
+                    <!--Header's center part-->
                     <div class="header-middle-center">
                         <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
                             <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                             <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                            <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                                <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                            <button type="button" class="filter-btn" onclick="window.location.href='product_search.html'">
+                                <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                            </button> 
+                            
+                            <!-- Nút tìm kiếm nâng cao -->
+                            <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                                <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
                             </button>
                         </form>
                     </div>
                     
-                    <!--Phần bên phải của header-->
+                    <!--Header's right part-->
                     <div class="header-middle-right">
                         <ul class="header-middle-right-list">
                             <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
@@ -68,11 +71,13 @@
                                     <i class="fa-light fa-magnifying-glass"></i>
                                 </div>
                             </li>
+                            
                             <li class="header-middle-right-item close" onclick="closeSearchMb()">
                                 <div class="cart-icon-menu">
                                     <i class="fa-light fa-circle-xmark"></i>
                                 </div>
                             </li>
+                            
                             <li class="header-middle-right-item dropdown open">
                                 <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
                                 <div class="auth-container">
@@ -81,11 +86,16 @@
                                 </div>
                                 <ul class="header-middle-right-menu">
                                     <li><a id="account-info" href="thongtinnguoidung.html"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                                    <li><a id="purchase-history" href="history.html"><i class="fa-solid fa-history"></i> Lịch sử mua hàng</a></li> <!-- Biểu tượng lịch sử mua hàng -->
-                                    <li><a id="logout" href="Login.html?signin"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
+                                    <li>
+                                        <a id="purchase-history" href="history.html" onclick="openPurchaseHistoryModal()">
+                                            <i class="fa-solid fa-history"></i> Lịch sử mua hàng
+                                        </a>
+                                    </li> <!-- Biểu tượng lịch sử mua hàng -->
+                                    <li><a id="logout" href="index.html"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
                                 </ul>
                             </li>
-                            <li class="header-middle-right-item open" onclick="goToCartPage()">
+                    
+                            <li class="header-middle-right-item open" onclick="window.location.href='CartPage.html'">
                                 <div class="cart-icon-menu">
                                     <i class="fa-light fa-basket-shopping"></i>
                                     <span class="count-product-cart">4</span>
@@ -253,6 +263,149 @@
                 <hr>
                 <button class="checkout-btn" onclick="alert('Đơn hàng đã được thanh toán thành công.'); setTimeout(goToBillPage, 50);">Thanh toán</button>
             </div>
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="widget-area">
+                <div class="container">
+                    <div class="widget-row">
+                        <div class="widget-row-col-1">
+                            <h3 class="widget-title">Về chúng tôi</h3>
+                            <div class="widget-row-col-content">
+                                <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                            </div>
+                            <div class="widget-social">
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-row-col">
+                            <h3 class="widget-title">Liên kết</h3>
+                            <ul class="widget-contact">
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Về chúng tôi</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Điều khoản</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Liên hệ</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Tin tức</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-row-col">
+                            <h3 class="widget-title">Sản Phẩm</h3>
+                            <ul class="widget-contact">
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Áo Thun</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Áo Polo</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Áo Sơ Mi</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Quần Short</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Mũ</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-row-col-1">
+                            <h3 class="widget-title">Liên hệ</h3>
+                            <div class="contact">
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-regular fa-location-dot"></i>
+                                    </div>
+                                    <div class="contact-content">
+                                        <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-regular fa-phone"></i>
+                                    </div>
+                                    <div class="contact-content contact-item-phone">
+                                        <span>0123 456 789</span>
+                                        <br>
+                                        <span>0987 654 321</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-content conatct-item-email">
+                                        <span>abc@domain.com</span><br />
+                                        <span>infoabc@domain.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+                </div>
+            </div>
+        
         </div>
         
         <script src="Js/CheckoutPage.js"></script>
