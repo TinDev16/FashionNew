@@ -188,72 +188,14 @@
     </script>
 	
 </style>
-        <!-- Bảng quản lý người dùng -->
-        <table class="table-user">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>TÊN ĐĂNG NHẬP</th>
-                    <th>SỐ ĐIỆN THOẠI</th>
-                    <th>ĐỊA CHỈ</th>
-                    <th>TỔNG CHI TIÊU</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>A1B2C3</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0123456789</td>
-                    <td>123 Nguyễn Thái Học, Phường 1, TPHCM, Việt Nam</td>
-                    <td>5,970,000 VNĐ</td>
-                </tr>
-                <tr>
-                    <td>B2C3D4</td>
-                    <td>Trần Thị B</td>
-                    <td>0123456789</td>
-                    <td>456 Lê Đình Lý, Quận 2, TPHCM, Việt Nam</td>
-                    <td>2,500,000 VNĐ</td>
-                </tr>
-                <tr>
-                    <td>C3D4E5</td>
-                    <td>Phạm Minh C</td>
-                    <td>0123456789</td>
-                    <td>789 Bến Nghé, Quận 1, TPHCM, Việt Nam</td>
-                    <td>4,000,000 VNĐ</td>
-                </tr>
-                <tr>
-                    <td>D4E5F6</td>
-                    <td>Nguyễn Thế D</td>
-                    <td>0123456789</td>
-                    <td>135 Hoàng Hoa Thám, Phường 10, TPHCM, Việt Nam</td>
-                    <td>7,200,000 VNĐ</td>
-                </tr>
-                <tr>
-                    <td>E5F6G7</td>
-                    <td>Lê Quốc E</td>
-                    <td>0123456789</td>
-                    <td>202 Lê Văn Khương, Quận 12, TPHCM, Việt Nam</td>
-                    <td>5,500,000 VNĐ</td>
-                </tr>
-                <tr>
-                    <td>F6G7H8</td>
-                    <td>Đỗ Minh F</td>
-                    <td>0123456789</td>
-                    <td>48 Trần Hưng Đạo, Phường 2, TPHCM, Việt Nam</td>
-                    <td>1,800,000 VNĐ</td>
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align: center; font-weight: bold; color: purple; cursor: pointer;" onclick="alert('Show all customers')">Show All</td>
-                </tr>
-            </tbody>
-        </table>
 
         <!-- Nút "Lọc" -->
-        <button class="btn-loc" onclick="toggleVIPTable()">TOP 5 KHÁCH HÀNG PHÁT SINH DOANH THU NHIỀU NHẤT THÁNG 11</button>
+ <p style="text-align: center; color: red; margin: 20px 0; padding: 10px; border: 0px solid red;">
+    <strong>TOP 5 KHÁCH HÀNG PHÁT SINH DOANH THU NHIỀU NHẤT</strong>
+</p>
 
         <!-- Bảng Khách VIP -->
-        <div class="vip-customers-block" id="vip-customers" style="display: none;">
-            <h2 class="home-title">KHÁCH HÀNG VIP</h2>
+        <div class="vip-customers-block" id="vip-customers" style="display: flex;">
             <table class="table-vip-users">
                 <thead>
                     <tr>
