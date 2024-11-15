@@ -86,53 +86,88 @@ function toggleAddressFields() {
 savedAddressRadio.addEventListener('change', toggleAddressFields);
 newAddressRadio.addEventListener('change', toggleAddressFields);
 
-// Payment buttons
-const paymentButtons = document.querySelectorAll('.payment-button');
-let currentActiveButton = null; // Track the currently active button
-let previousButtonState = {}; // Track previous state of buttons
+// Khai báo các biến cần thiết 
+let clickCount = 0; // Đếm số lần nhấn nút
+let currentActiveButton = null; // Biến để lưu nút đang active
+const paymentButtons = document.querySelectorAll('.card-button'); // Khai báo và khởi tạo paymentButtons
+const previousButtonState = {}; // Lưu trạng thái nút trước đó
 
-// Initialize button states
+// Lặp qua tất cả các nút và thêm sự kiện click
 paymentButtons.forEach(button => {
-    // Store initial state
-    previousButtonState[button.id] = {
-        active: button.classList.contains('active'),
-        hover: false // Start with no hover state
-    };
+  button.addEventListener('click', () => {
+    clickCount++; // Tăng số lần nhấn lên
 
-    button.addEventListener('click', () => {
-        // Remove the "active" class from all buttons
-        paymentButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add the "active" class to the clicked button
-        button.classList.add('active');
-        currentActiveButton = button; // Store the currently active button
-    });
+    if (button === currentActiveButton) {
+        // Nếu nút đã được kích hoạt
+        if (clickCount === 2) {
+            // Nếu nhấn hai lần, ẩn phần card-information
+            const cardInfo = document.querySelector('.card-information');
+            if (cardInfo) {
+                cardInfo.style.display = 'none'; // Ẩn phần card-information
+            }
 
-    button.addEventListener('mouseenter', () => {
-        button.classList.add('hover'); // Add hover class on mouse enter
-        previousButtonState[button.id].hover = true; // Update hover state
-    });
-
-    button.addEventListener('mouseleave', () => {
-        if (currentActiveButton !== button) {
-            button.classList.remove('hover'); // Remove hover class on mouse leave if not active
-            previousButtonState[button.id].hover = false; // Update hover state
+            // Xóa trạng thái active và hover
+            button.classList.remove('active'); // Xóa trạng thái active
+            button.classList.remove('hover'); // Xóa trạng thái hover
+            currentActiveButton = null; // Xóa tham chiếu đến nút active
+            clickCount = 0; // Đặt lại đếm về 0
+        } else {
+            // Nếu chưa nhấn hai lần, thêm lớp hover
+            button.classList.add('hover'); // Thêm lớp hover
+            // Không cần xóa trạng thái active ở đây
         }
-    });
+    } else {
+        // Xóa lớp "active" và "hover" từ tất cả các nút
+        paymentButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.remove('hover'); // Xóa lớp hover từ các nút khác
+            previousButtonState[btn.id].hover = false; // Cập nhật trạng thái hover
+        });
+
+        // Thêm lớp "active" và "hover" vào nút được nhấn
+        button.classList.add('active');
+        button.classList.add('hover'); // Thêm lớp hover cho nút được nhấn
+        currentActiveButton = button; // Lưu nút đang active
+        clickCount = 0; // Đặt lại đếm về 0 nếu nút khác được nhấn
+    }
+  });
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const cardButton = document.getElementById('card-button');
+  const codButton = document.getElementById('cod-button');
   const cardInformation = document.getElementById('card-information');
+  const confirmButton = document.querySelector('.card-information-confirmation');
 
+  // Hàm để hiển thị phần thông tin thẻ và lưu trạng thái vào localStorage
+  function showCardInformation() {
+    cardInformation.classList.add('show');
+    localStorage.setItem('paymentMethod', 'card');
+  }
+
+  // Hàm để lưu trạng thái chọn "Thanh toán khi nhận hàng" vào localStorage
+  function selectCodPayment() {
+    localStorage.setItem('paymentMethod', 'cod');
+  }
+
+  // Sự kiện khi bấm vào nút "Thẻ Tín dụng/Ghi nợ"
   cardButton.addEventListener('click', () => {
-      cardInformation.classList.toggle('show');
+    showCardInformation();
   });
 
-  const accountButton = document.getElementById('account-button');
-  const accountInformation = document.getElementById('account-information');
-
-  accountButton.addEventListener('click', () => {
-      accountInformation.classList.toggle('show');
+  // Sự kiện khi bấm vào nút "Thanh toán khi nhận hàng"
+  codButton.addEventListener('click', () => {
+    cardInformation.classList.remove('show');
+    selectCodPayment();
   });
+
+  // Sự kiện khi bấm vào nút "Xác nhận"
+  confirmButton.addEventListener('click', () => {
+    showCardInformation();
+  });
+
+  // Kiểm tra trạng thái đã lưu trong localStorage khi tải trang
+  const savedPaymentMethod = localStorage.getItem('paymentMethod');
 });
+

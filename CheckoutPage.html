@@ -161,8 +161,9 @@
                     <div id="saved-address-section" style="display: none;">
                         <br><label class="saved-address">Địa chỉ đã lưu<ng style="color: red;">*</ng></label>
                         <select id="saved-address-select" class="select-field">
-                            <option value="address1">123 Đường ABC, Quận 1, TP.HCM, Việt Nam</option>
-                            <option value="address2">456 Đường XYZ, Quận 3, TP.HCM, Việt Nam</option>
+                            <option value="address1">62, Bình Long, Quận Bình Tân, TP.HCM, Việt Nam</option>
+                            <option value="address2">56, Hàm Nghi, Quận 1, TP.HCM, Việt Nam</option>
+                            <option value="address3">56, Hồng Bàng, Quận 5, TP.HCM, Việt Nam</option>
                             <!-- Add more saved addresses as needed -->
                         </select>
                     </div><br>
@@ -200,54 +201,34 @@
                     <div class="payment-options">
                         <!--Credit/Debit Card-->
                         <span class="payment-button" id="card-button">Thẻ Tín dụng/Ghi nợ</span>
-                        <div class="card-information" id="card-information">
-                            <div>
-                                <label class="card-name">Tên chủ thẻ<ng style="color: red;">*</ng></label>
-                                <input type="text" class="card-name-input" placeholder="VD:NGUYEN VAN A">
-                            </div><br>
-
-                            <div>
-                                <label class="card-number">Số thẻ<ng style="color: red;">*</ng></label>
-                                <input type="text" class="card-number-input" placeholder="VD:09xxxxxxxx">
-                            </div><br>
-
-                            <div>
-                                <label class="expiration-date">Ngày hết hạn<ng style="color: red;">*</ng></label>
-                                <input type="date" class="expiration-date-input">
-                            </div><br>
-
-                            <div>
-                                <label class="cvv-code">CVV<ng style="color: red;">*</ng></label>
-                                <input type="text" class="cvv-code-input" placeholder="3 đến 4 số">
-                            </div><br>
-
-                            <button class="card-information-confirmation">Xác nhận</button>
-                        </div>
-
-                        <!--Transactions-->
-                        <span class="payment-button" id="account-button">Chuyển khoản ngân hàng</span>
-                        <div class="account-information" id="account-information">
-                            <div>
-                            <label class="account-name">Tên chủ tài khoản<ng style="color: red;">*</ng></label>
-                            <input type="text" class="account-name-input" placeholder="VD:NGUYEN VAN A">
-                            </div><br>
-
-                            <div>
-                            <label class="account-number">Số tài khoản<ng style="color: red;">*</ng></label>
-                            <input type="text" class="account-number-input" placeholder="VD:09xxxxxxxx">
-                            </div><br>
-
-                            <div>
-                            <label class="account-banks">Ngân hàng<ng style="color: red;">*</ng></label>
-                            <input type="text" class="account-banks-input" placeholder="VD:Techcombank">
-                            </div><br>
-
-                            <button class="account-information-confirmation">Xác nhận</button>
-                        </div>
-
                         <!--Cash-->
-                        <span class="payment-button">Thanh toán khi nhận hàng</span>
+                        <span class="payment-button" id="cod-button">Thanh toán khi nhận hàng</span>
                     </div>
+                    
+                    <div class="card-information" id="card-information">
+                        <div>
+                            <label class="card-name">Tên chủ thẻ<ng style="color: red;">*</ng></label>
+                            <input type="text" class="card-name-input" placeholder="VD:NGUYEN VAN A">
+                        </div><br>
+                    
+                        <div>
+                            <label class="card-number">Số thẻ<ng style="color: red;">*</ng></label>
+                            <input type="text" class="card-number-input" placeholder="VD:09xxxxxxxx">
+                        </div><br>
+                    
+                        <div>
+                            <label class="expiration-date">Ngày hết hạn<ng style="color: red;">*</ng></label>
+                            <input type="date" class="expiration-date-input">
+                        </div><br>
+                    
+                        <div>
+                            <label class="cvv-code">CVV<ng style="color: red;">*</ng></label>
+                            <input type="text" class="cvv-code-input" placeholder="3 đến 4 số">
+                        </div><br>
+                    
+                        <span class="card-information-confirmation">Xác nhận</span>
+                    </div>
+                    
                 </form>
             </div>
 
