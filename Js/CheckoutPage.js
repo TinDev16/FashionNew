@@ -82,92 +82,87 @@ function toggleAddressFields() {
     }
 }
 
-// Lắng nghe sự kiện 'change' trên các radio button
-savedAddressRadio.addEventListener('change', toggleAddressFields);
-newAddressRadio.addEventListener('change', toggleAddressFields);
+// Payment options buttons
+// DOM Elements
+const codButton = document.getElementById('cod-button');
+const cardButton = document.getElementById('card-button');
+const cardInformation = document.getElementById('card-information');
+const confirmationButton = document.querySelector('.card-information-confirmation');
 
-// Khai báo các biến cần thiết 
-let clickCount = 0; // Đếm số lần nhấn nút
-let currentActiveButton = null; // Biến để lưu nút đang active
-const paymentButtons = document.querySelectorAll('.card-button'); // Khai báo và khởi tạo paymentButtons
-const previousButtonState = {}; // Lưu trạng thái nút trước đó
+// State variables
+let isCardInfoVisible = false;
 
-// Lặp qua tất cả các nút và thêm sự kiện click
-paymentButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    clickCount++; // Tăng số lần nhấn lên
+// Function to update button styles
+function setActiveButton(button) {
+    // Reset styles for all buttons
+    codButton.classList.remove('active');
+    cardButton.classList.remove('active');
 
-    if (button === currentActiveButton) {
-        // Nếu nút đã được kích hoạt
-        if (clickCount === 2) {
-            // Nếu nhấn hai lần, ẩn phần card-information
-            const cardInfo = document.querySelector('.card-information');
-            if (cardInfo) {
-                cardInfo.style.display = 'none'; // Ẩn phần card-information
-            }
+    // Set active style for the selected button
+    if (button) button.classList.add('active');
+}
 
-            // Xóa trạng thái active và hover
-            button.classList.remove('active'); // Xóa trạng thái active
-            button.classList.remove('hover'); // Xóa trạng thái hover
-            currentActiveButton = null; // Xóa tham chiếu đến nút active
-            clickCount = 0; // Đặt lại đếm về 0
-        } else {
-            // Nếu chưa nhấn hai lần, thêm lớp hover
-            button.classList.add('hover'); // Thêm lớp hover
-            // Không cần xóa trạng thái active ở đây
-        }
+// Event Listener for COD Button
+codButton.addEventListener('click', () => {
+    setActiveButton(codButton);
+    cardInformation.style.display = 'none'; // Hide card information
+    isCardInfoVisible = false;
+    localStorage.setItem('activeButton', 'cod'); // Store active button
+});
+
+// Event Listener for Card Button
+cardButton.addEventListener('click', () => {
+    if (isCardInfoVisible) {
+        cardInformation.style.display = 'none'; // Hide card information
+        cardButton.classList.remove('active');
+        isCardInfoVisible = false;
+        localStorage.removeItem('activeButton'); // Reset active button
     } else {
-        // Xóa lớp "active" và "hover" từ tất cả các nút
-        paymentButtons.forEach(btn => {
-            btn.classList.remove('active');
-            btn.classList.remove('hover'); // Xóa lớp hover từ các nút khác
-            previousButtonState[btn.id].hover = false; // Cập nhật trạng thái hover
-        });
-
-        // Thêm lớp "active" và "hover" vào nút được nhấn
-        button.classList.add('active');
-        button.classList.add('hover'); // Thêm lớp hover cho nút được nhấn
-        currentActiveButton = button; // Lưu nút đang active
-        clickCount = 0; // Đặt lại đếm về 0 nếu nút khác được nhấn
+        setActiveButton(cardButton);
+        cardInformation.style.display = 'block'; // Show card information
+        isCardInfoVisible = true;
+        localStorage.setItem('activeButton', 'card'); // Store active button
     }
-  });
 });
 
+// Event Listener for Confirmation Button
+confirmationButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default form submission
+    localStorage.setItem('cardData', JSON.stringify({
+        cardName: document.querySelector('.card-name-input').value,
+        cardNumber: document.querySelector('.card-number-input').value,
+        expirationDate: document.querySelector('.expiration-date-input').value,
+        cvvCode: document.querySelector('.cvv-code-input').value
+    }));
 
-document.addEventListener("DOMContentLoaded", () => {
-  const cardButton = document.getElementById('card-button');
-  const codButton = document.getElementById('cod-button');
-  const cardInformation = document.getElementById('card-information');
-  const confirmButton = document.querySelector('.card-information-confirmation');
-
-  // Hàm để hiển thị phần thông tin thẻ và lưu trạng thái vào localStorage
-  function showCardInformation() {
-    cardInformation.classList.add('show');
-    localStorage.setItem('paymentMethod', 'card');
-  }
-
-  // Hàm để lưu trạng thái chọn "Thanh toán khi nhận hàng" vào localStorage
-  function selectCodPayment() {
-    localStorage.setItem('paymentMethod', 'cod');
-  }
-
-  // Sự kiện khi bấm vào nút "Thẻ Tín dụng/Ghi nợ"
-  cardButton.addEventListener('click', () => {
-    showCardInformation();
-  });
-
-  // Sự kiện khi bấm vào nút "Thanh toán khi nhận hàng"
-  codButton.addEventListener('click', () => {
-    cardInformation.classList.remove('show');
-    selectCodPayment();
-  });
-
-  // Sự kiện khi bấm vào nút "Xác nhận"
-  confirmButton.addEventListener('click', () => {
-    showCardInformation();
-  });
-
-  // Kiểm tra trạng thái đã lưu trong localStorage khi tải trang
-  const savedPaymentMethod = localStorage.getItem('paymentMethod');
+    localStorage.setItem('activeButton', 'card'); // Store active button
+    location.reload(); // Reload the page
 });
 
+// On Page Load
+window.addEventListener('DOMContentLoaded', () => {
+    const activeButton = localStorage.getItem('activeButton');
+    const cardData = JSON.parse(localStorage.getItem('cardData'));
+
+    if (activeButton === 'card') {
+        setActiveButton(cardButton);
+        cardInformation.style.display = 'block'; // Show card information
+
+        // Populate the form with saved data
+        if (cardData) {
+            document.querySelector('.card-name-input').value = cardData.cardName || '';
+            document.querySelector('.card-number-input').value = cardData.cardNumber || '';
+            document.querySelector('.expiration-date-input').value = cardData.expirationDate || '';
+            document.querySelector('.cvv-code-input').value = cardData.cvvCode || '';
+        }
+
+        isCardInfoVisible = true;
+    } else if (activeButton === 'cod') {
+        setActiveButton(codButton);
+    } else {
+        // Reset to default state (no buttons active)
+        setActiveButton(null);
+        cardInformation.style.display = 'none';
+        isCardInfoVisible = false;
+    }
+});
