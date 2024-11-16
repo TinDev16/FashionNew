@@ -112,8 +112,10 @@
         <div class="advanced-search" id="advanced-search">
             <div class="container">
                 <div class="advanced-search-category">
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
                     <span>Phân loại</span>
                     <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                        <option selected>Tất cả</option>
                         <option>Áo thun</option>
                         <option>Polo</option>
                         <option>Sơ mi</option>
@@ -154,10 +156,10 @@
             <div class="customer-info">
                 <form>
                     <h2>Thông tin khách hàng</h2>
-                    <label class="name">Tên khách hàng<ng style="color: red;">*</ng></label>
-                    <input type="text" class="name-input" placeholder="Nhập họ và tên"><br><br>
-                    <label class="phone-number">Số điện thoại<ng style="color: red;">*</ng></label>
-                    <input type="text" class="phone-number-input" placeholder="Nhập số điện thoại"><br>
+                    <label class="customer-name">Tên khách hàng<ng style="color: red;">*</ng></label>
+                    <input type="text" id="customer-name" class="customer-name-input" placeholder="Nhập họ và tên"><br><br>
+                    <label class="customer-phone">Số điện thoại<ng style="color: red;">*</ng></label>
+                    <input type="text" id="customer-phone" class="customer-phone-input" placeholder="Nhập số điện thoại"><br>
                 </form>
             </div>
 

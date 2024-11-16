@@ -528,7 +528,7 @@ header {
 }
   
 /* Hiển thị menu con khi hover vào mục "Sản phẩm" */
-.dropdown:hover .dropdown-content {
+.dropdown .dropdown-content {
     display: block;
 }
   
@@ -726,8 +726,8 @@ header {
     margin-bottom: 10px;
 }
 
-.name-input,
-.phone-number-input {
+.customer-name-input,
+.customer-phone-input {
     width: 100%;
     padding: 14px 18px;
     font-size: 1.1em;
@@ -737,19 +737,19 @@ header {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.name-input:hover,
-.phone-number-input:hover {
+.customer-name-input:hover,
+.customer-phone-input:hover {
     border-color: #007BFF;
 }
 
-.name-input:focus,
-.phone-number-input:focus {
+.customer-name-input:focus,
+.customer-phone-input:focus {
     border-color: #007BFF;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
     outline: none;
 }
 
-.name, .phone-number {
+.customer-name, .customer-phone {
     font-size: 1.1em;
     color: #333;
     margin-bottom: 10px;

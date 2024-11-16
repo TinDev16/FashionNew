@@ -528,7 +528,7 @@ header {
 }
   
 /* Hiển thị menu con khi hover vào mục "Sản phẩm" */
-.dropdown:hover .dropdown-content {
+.dropdown .dropdown-content {
     display: block;
 }
   
