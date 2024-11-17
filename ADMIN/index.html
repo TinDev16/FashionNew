@@ -86,6 +86,86 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+* {
+    box-sizing: border-box; /* Thêm box-sizing để bao gồm padding và border vào kích thước */
+}
+
+.menu-container {
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: center; /* Căn giữa menu theo chiều ngang */
+}
+
+.horizontal-menu {
+    display: flex; /* Sắp xếp các phần tử nằm ngang */
+    list-style-type: none; /* Bỏ dấu chấm cạnh danh sách */
+    padding: 10px; /* Thêm padding cho menu */
+    background-color: #007BFF; /* Màu nền của menu */
+    border-radius: 5px; /* Làm tròn các góc của menu */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho menu */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của màn hình */
+    margin: 0; /* Bỏ khoảng cách bên ngoài */
+    justify-content: center; /* Căn giữa các mục menu theo chiều ngang */
+    align-items: center; /* Căn giữa các mục menu theo chiều dọc */
+}
+
+.menu-item {
+    position: relative; /* Cần thiết để định vị dropdown */
+    margin-right: 20px; /* Thiết lập khoảng cách giữa các mục menu */
+}
+
+.menu-item:last-child {
+    margin-right: 0; /* Không có margin cho mục cuối cùng */
+}
+
+.menu-item a {
+    text-decoration: none; /* Bỏ gạch chân của link */
+    color: white; /* Màu chữ */
+    padding: 10px 15px; /* Thêm padding cho nút */
+    border-radius: 5px; /* Làm tròn các góc của nút */
+    transition: background-color 0.3s; /* Thêm hiệu ứng chuyển đổi khi hover */
+}
+
+.menu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hiệu ứng hover nền sáng hơn */
+}
+
+/* Dropdown styles */
+.dropdown-content {
+    display: none; /* Ẩn theo mặc định */
+    position: absolute; /* Định vị tuyệt đối */
+    background-color: white; /* Nền trắng cho dropdown */
+    border: 1px solid #ccc; /* Viền cho dropdown */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+    z-index: 1; /* Đảm bảo dropdown hiện lên trên phần tử khác */
+    margin-top: 5px; /* Khoảng cách giữa dropdown và mục cha */
+    padding: 0; /* Bỏ phần padding */
+    list-style-type: none; /* Bỏ dấu chấm cạnh danh sách */
+    border-radius: 5px; /* Làm tròn các góc */
+}
+
+.dropdown-content li {
+    padding: 10px; /* Khoảng cách trong dropdown */
+}
+
+.dropdown-content li a {
+    color: #333; /* Màu chữ trong dropdown */
+    display: block; /* Làm cho toàn bộ khoảng cách có thể nhấp */
+    transition: background-color 0.3s; /* Thêm hiệu ứng chuyển đổi cho dropdown */
+}
+
+.dropdown-content li a:hover {
+    background-color: #007BFF; /* Màu nền khi hover vào mục dropdown */
+    color: white; /* Thay đổi màu chữ khi hover vào mục dropdown */
+}
+
+/* Hiện dropdown khi di chuột qua */
+.menu-item:hover .dropdown-content {
+    display: block; /* Hiện dropdown khi hover */
+}
+
+.menu-icon {
+    margin-right: 5px; /* Khoảng cách giữa icon và chữ */
+}
     </style>
 </head>
 <body>
@@ -94,7 +174,7 @@ button:hover {
             <div class="container">
               <div class="header-middle-left">
                 <!-- Nút mở menu -->
-    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    <button class="menu-button" onclick="toggleMenu()">                 </button>
     
     <!-- Thanh menu ẩn -->
     <div id="sidebarMenu" class="sidebar-menu">
@@ -172,6 +252,7 @@ button:hover {
             </div>
           </div>
         
+
     </header>
   
     
@@ -213,7 +294,30 @@ button:hover {
     
     <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
 
-
+<div class="menu-container">
+    <ul class="horizontal-menu">
+        <li class="menu-item dropdown">
+            <a href="index.html"><i class="menu-icon fa-solid fa-tshirt"></i> Sản phẩm</a>
+            <ul class="dropdown-content">
+                <li><a href="index.html">Áo Thun</a></li>
+                <li><a href="index.html">Áo Polo</a></li>
+                <li><a href="index.html">Áo Sơ Mi</a></li>
+                <li><a href="index.html">Quần Short</a></li>
+                <li><a href="index.html">Mũ</a></li>
+            </ul>
+        </li>
+        <li class="menu-item"><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
+        <li class="menu-item"><a href="orderManagement.html"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
+        
+        <li class="menu-item dropdown">
+            <a href="thongke.html"><i class="menu-icon fa-solid fa-chart-bar"></i> Thống kê</a>
+            <ul class="dropdown-content">
+                <li><a href="thongke.html">Thống kê đơn hàng</a></li>
+                <li><a href="thongkenguoidung.html">Thống kê người dùng</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
   
             <div class="home-title-block" id="home-title">
                 <h2 class="home-title">ADMIN</h2>
