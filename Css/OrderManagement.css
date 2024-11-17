@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+/* Font chữ Montserrat cho toàn bộ trang */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+/* Định dạng tiêu đề chính của trang */
+h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+/* Khoảng cách cho bảng */
+.table {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Định dạng tiêu đề của bảng */
+.table th {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Định dạng các ô trong bảng */
+.table td {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 12px;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+}
+
+/* Kiểu trạng thái đơn hàng với hiệu ứng khi hover */
+.order-status {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.order-status:hover {
+    color: #007bff;
+}
+
+/* Định dạng nút với màu sắc đặc trưng */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Định dạng sidebar */
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* CSS cho ẩn sidebar */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Định dạng tiêu đề sidebar */
+.sidebar h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Bỏ khoảng cách thụt đầu dòng mặc định cho danh sách trong sidebar */
+.sidebar ul {
+    padding-left: 0;
+}
+
+/* Định dạng liên kết trong sidebar */
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+  font-size: 1.2em; 
+}
+
+.sidebar a:hover {
+    background-color: #495057;
+    transform: translateX(10px);
+}
+
+/* Khoảng cách giữa icon và văn bản trong sidebar */
+.sidebar a i {
+    margin-right: 10px;
+}
+
+/* Căn lề cho phần nội dung chính */
+.content {
+    margin-left: 260px;
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Hiệu ứng chuyển động cho nội dung */
+}
+
+/* Định dạng ô avatar tài khoản */
+.avatar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.avatar-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Nút ẩn/hiện sidebar */
+.toggle-sidebar {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Thiết kế phần lọc đơn hàng */
+.filter-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.filter-section .btn {
+    padding: 10px 20px; /* Thêm khoảng cách bên trong để nút có kích thước lớn hơn */
+    margin-left: 10px; /* Thêm khoảng cách bên trái nếu cần để tách nút khỏi các phần tử khác */
+    margin-top: 0; /* Nếu muốn căn chỉnh cùng hàng với các ô nhập liệu */
+    height: 52px; /* Đặt chiều cao cố định để căn chỉnh với các ô nhập liệu */
+}
+
+
+.filter-section label {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.filter-section .form-control {
+    max-width: 150px;
+    margin-right: 15px;
+    max-width: 150px; /* Đặt chiều rộng tối đa nếu cần */
+}
+filter-section .btn {
+    margin-right: 10px; /* Khoảng cách giữa các phần tử */
+    margin-bottom: 0; /* Đảm bảo không có khoảng cách bên dưới */
+}
+
+
+/* Thiết kế responsive cho màn hình nhỏ */
+@media (max-width: 576px) {
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-section .form-control {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 10px;
+    }
+    
+    .filter-section label {
+        margin-bottom: 5px;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+/* Định dạng ô chứa avatar và thông tin người dùng */
+.account-info {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 50px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#userName {
+    font-weight: bold;
+    color: #333;
+}
+
+#userRole {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Điều chỉnh vị trí thanh sidebar và nút toggle */
+.toggle-sidebar {
+    position: fixed; /* Đảm bảo nó cố định */
+    top: 15px; /* Điều chỉnh vị trí trên */
+    left: 15px; /* Điều chỉnh vị trí bên trái */
+    z-index: 1000; /* Đặt z-index cao hơn để nó hiển thị trên sidebar */
+}
+.sidebar {
+    top: 0px;
+}
+
+.sidebar h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.sidebar img {
+    width: 100%; /* Điều chỉnh kích thước ảnh cho vừa với thanh sidebar */
+    max-width: 180px; /* Đặt chiều rộng tối đa nếu cần */
+    height: auto; /* Giữ tỉ lệ ảnh */
+   
+}
+/* Định dạng kích thước chữ cho nút Chi tiết */
+.table .btn-info {
+    font-size: 0.9em; /* Thay đổi kích thước chữ tại đây */
+}
+
+
+
+
+/* Định dạng cho các nút trong thông tin tài khoản */
+.account-buttons {
+    display: flex; /* Sử dụng flexbox để hiển thị các nút theo hàng ngang */
+    margin-left: 10px; /* Khoảng cách bên trái */
+}
+
+.account-buttons .btn {
+    margin-left: 5px; /* Khoảng cách giữa các nút */
+    font-size: 0.9em; /* Kích thước chữ của nút */
+    padding: 5px 8px; /* Padding cho nút */
+}
+
+/* Định dạng nút khi hover */
+.account-buttons .btn:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
+
+

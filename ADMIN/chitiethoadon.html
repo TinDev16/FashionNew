@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href="Images/logo.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="thongke.css">
+    <link rel="stylesheet" href="home-responsive.css">
+    <link rel="stylesheet" href="toast-message.css">
+    <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+	<style>
+table {
+    width: 100%; /* Chiều rộng 100% */
+    border-collapse: collapse; /* Gộp các đường viền lại với nhau */
+    margin-top: 20px; /* Khoảng cách trên bảng */
+    border-radius: 15px; /* Bo tròn các góc */
+    overflow: hidden; /* Đảm bảo các góc bo tròn không bị overflow */
+}
+        th, td {
+            border: 2px solid #000; /* Đường viền mỗi ô */
+            padding: 10px; /* Khoảng cách bên trong ô */
+            text-align: center; /* Căn giữa văn bản trong ô */
+        }
+        th {
+            background-color: #66BB6A; /* Màu xanh lá cây tươi cho tiêu đề bảng */
+            color: black; /* Màu chữ trắng cho tiêu đề */
+        }
+.signatures {
+            display: flex;
+            justify-content: space-between; /* Cách đều hai bên */
+            margin-top: 50px; /* Khoảng cách trên */
+        }
+        .signature {
+            text-align: center; /* Canh giữa chữ ký */
+            margin-right: 125px; /* Khoảng cách bên phải cho bên Bán */
+            margin-left: 125px; /* Khoảng cách bên trái cho bên Mua */
+        }
+        .signature p {
+            margin: 5px 0; /* Giảm khoảng cách giữa các đoạn văn bản */
+        }
+        .signature .sign-space {
+            margin-top: 100px; /* Khoảng trống để ký */
+            height: 100px; /* Chiều cao cho phần ký */
+            border-top: 1px solid #000; /* Đường gạch ngang để ký */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+              <div class="header-middle-left">
+                <!-- Nút mở menu -->
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    
+    <!-- Thanh menu ẩn -->
+    <div id="sidebarMenu" class="sidebar-menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <ul>
+        
+        <!-- Menu con cho "Sản phẩm" -->
+<li class="dropdown">
+    <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Sản phẩm</a>
+    <div class="dropdown-content">
+        <a href="index.html">Áo Thun</a>
+        <a href="index.html">Áo Polo</a>
+        <a href="index.html">Áo Sơ Mi</a>
+        <a href="index.html">Quần Short</a>
+        <a href="index.html">Mũ</a>
+    </div>
+</li>
+        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
+        <li><a href="#footer"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
+        <li class="dropdown">
+    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
+    <div class="dropdown-content">
+	    <a href="thongke.html">thống kê đơn hàng</a>
+        <a href="thongkenguoidung.html">Thống kê người dùng</a>
+    </div>
+</li>
+    </ul>
+    </div>
+    
+      
+                <div class="header-logo">
+                  <a href="#">
+                      <img src="./Images/logo.png" alt="" class="header-logo-img">
+                  </a>
+              </div>
+    
+              </div>
+              <div class="header-middle-center">
+                <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                    <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    </button>
+                </form>
+            </div>
+            
+            
+              <div class="header-middle-right">
+                <ul class="header-middle-right-list">
+                  <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-magnifying-glass"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-circle-xmark"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item dropdown open">
+                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                    <div class="auth-container">
+                        <span class="text-dndk">Tài khoản</span>
+                        <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                    </div>
+<ul class="header-middle-right-menu">
+    <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+</ul>
+                </li>
+                
+                            
+                </ul>
+              </div>
+            </div>
+          </div>
+        
+    </header>
+  
+    
+    <div class="advanced-search" id="advanced-search">
+      <div class="container">
+          <div class="advanced-search-category">
+              <span>Phân loại</span>
+              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                  <option>Áo thun</option>
+                  <option>Polo</option>
+                  <option>Sơ mi</option>
+                  <option>Quần short</option>
+                  <option>Mũ</option>
+              </select>
+          </div>
+          <div class="advanced-search-price">
+              <span>Giá từ</span>
+              <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+              <span>đến</span>
+              <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+              <button id="advanced-search-price-btn" onclick="window.location.href='#'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+          </div>
+          <div class="advanced-search-control">
+              <button id="sort-ascending" onclick="searchProducts(1)">
+                  <i class="fa-regular fa-arrow-up-short-wide"></i>
+              </button>
+              <button id="sort-descending" onclick="searchProducts(2)">
+                  <i class="fa-regular fa-arrow-down-wide-short"></i>
+              </button>
+              <button id="reset-search" onclick="searchProducts(0)">
+                  <i class="fa-light fa-arrow-rotate-right"></i>
+              </button>
+              <button onclick="closeSearchAdvanced()">
+                  <i class="fa-light fa-xmark"></i>
+              </button>
+          </div>
+      </div>
+    </div>
+    
+    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+    
+
+
+               
+<main class="main-wrapper">
+    <div class="container" id="trangchu">
+        <div class="home-title-block" id="home-title">
+            <h2 class="home-title">BẢNG KÊ CHI TIẾT HÀNG BÁN</h2>
+        </div>
+        <!-- Main Content -->
+        <main>
+            <!-- Detailed Invoice Section -->
+            <div class="invoice-details">
+                <p style="text-align: center; font-size: 16px; color: #333; margin: 5px 0;"; >Số 01 - Kim theo hóa đơn với 0000001, ký hiệu AA/14P lập ngày 11/11/2024</p>
+                <p style="text-align: center; font-size: 16px; color: #333; margin: 5px 0;";>Ngày lập bảng kê: 11/11/2024</p>
+                <p>Đơn vị bán hàng: CÔNG TY TNHH FASHION NEW</p>
+                <p>Mã số thuế: 0100995189</p>
+                <p>Địa chỉ: 45 đường X, quận 7, thành phố Hồ Chí Minh, Việt Nam.</p>
+                <p>Họ tên người mua hàng: Nguyễn Văn A</p>
+                <p>Địa chỉ: 50 ngõ 23 đường X, quận 7, thành phố Hồ Chí Minh, Việt Nam.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Hàng hóa</th>
+                            <th>Đơn vị</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+							<th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Áo Thun Nam Trơn</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Áo Thun Nam Họa Tiết In Thêu Đắp</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Áo Thun Nam Phim Điện Ảnh Cám Hoạ</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nón Lưỡi Trai Snapback</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Áo Polo Nam Phối Sọc Họa Tiết Thêu</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Áo Thun Nam Họa Tiết In Araneae</td>
+                            <td>Cáii</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Áo Thun Nam In Nổi</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Áo Thun Nam Họa Tiết Phối Viền</td>
+                            <td>Cái</td>
+                            <td>1</td>
+                            <td>200.000</td>
+                            <td>200.000</td>
+							<td></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right" colspan="5">Cộng tiền hàng</th>
+                            <td style="background-color: #66BB6A;"><strong>1.600.000</strong></td>
+							<td style="background-color: #66BB6A;"></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: right" colspan="5">Tổng thanh toán</th>
+                            <td style="background-color: #66BB6A;"><strong>1.600.000</strong></td>
+							<td style="background-color: #66BB6A;"></td>
+                        </tr>			
+                        <tr>
+                            <th style="text-align: right" colspan="7">Số tiền hàng chữ: Một triệu, sáu trăm nghìn đồng chẵn</th>
+                        </tr>						
+                    </tbody>
+                </table>
+<div class="signatures">
+    <div class="signature">
+        <p><strong>ĐẠI DIỆN BÊN BÁN</strong></p>
+        <p>(Ký, ghi rõ họ tên)</p>
+    </div>
+    <div class="signature">
+        <p><strong>ĐẠI DIỆN BÊN MUA</strong></p>
+        <p>(Ký, ghi rõ họ tên)</p>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+            </div>
+            <!-- End of Detailed Invoice Section -->
+        </main>
+    </div>
+</main>
+   
+        
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-top-content">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="widget-area">
+            <div class="container">
+                <div class="widget-row">
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Về chúng tôi</h3>
+                        <div class="widget-row-col-content">
+                            <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                        </div>
+                        <div class="widget-social">
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Liên kết</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Về chúng tôi</span>
+                                </a>
+                            </li>
+
+                            <!--  -->
+                    
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Điều khoản</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Tin tức</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Sản Phẩm</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="#">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Áo Thun</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="#">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Áo Polo</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="#">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Áo Sơ Mi</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="#">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Quần Short</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="#">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Mũ</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Liên hệ</h3>
+                        <div class="contact">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-location-dot"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="contact-content contact-item-phone">
+                                    <span>0123 456 789</span>
+                                    <br>
+                                    <span>0987 654 321</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="contact-content conatct-item-email">
+                                    <span>abc@domain.com</span><br />
+                                    <span>infoabc@domain.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="copyright-content">
+                <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+            </div>
+        </div>
+     
+    <div id="toast"></div>
+    <script src="main.js"></script> 
+    <script src="toast-message.js"></script>
+</body>
+</html>

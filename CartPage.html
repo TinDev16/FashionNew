@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Giỏ hàng</title>
+        <link href="Images/logo.png" rel="icon" type="image/x-icon">
+        <link rel="stylesheet" href="Css/CartPage.css">
+        <link rel="stylesheet" href="Css/CartPageResponsive.css">
+        <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-middle">
+                <div class="container">
+                    <!--Header's left part-->
+                    <div class="header-middle-left">
+                        <!-- Nút mở menu -->
+                        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+                        <!-- Thanh menu ẩn -->
+                        <div id="sidebarMenu" class="sidebar-menu">
+                            <button class="close-button" onclick="toggleMenu()">×</button>
+                            <ul>
+                                <li><a href="index_logged.html"><i class="menu-icon fa-solid fa-home"></i>Trang chủ</a></li>
+                                
+                                <!-- Menu con cho "Sản phẩm" -->
+                                <li class="dropdown">
+                                    <a href="index_logged.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i>Sản phẩm</a>
+                                    <div class="dropdown-content">
+                                        <a href="product_classification.html">Áo Thun</a>
+                                        <a href="product_classification.html">Áo Polo</a>
+                                        <a href="product_classification.html">Áo Sơ Mi</a>
+                                        <a href="product_classification.html">Quần Short</a>
+                                        <a href="product_classification.html">Mũ</a>
+                                    </div>
+                                </li>
+                                
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-shopping-cart"></i>Dịch vụ</a></li>
+                                <li><a href="#footer"><i class="menu-icon fa-solid fa-phone"></i>Liên hệ</a></li>
+                            </ul>
+                        </div>
+        
+                        <div class="header-logo">
+                            <a href="index_logged.html">
+                                <img src="./Images/logo.png" alt="" class="header-logo-img">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--Header's center part-->
+                    <div class="header-middle-center">
+                        <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                            <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                            <button type="button" class="filter-btn" onclick="window.location.href='product_search.html'">
+                                <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                            </button> 
+                            
+                            <!-- Nút tìm kiếm nâng cao -->
+                            <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                                <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!--Header's right part-->
+                    <div class="header-middle-right">
+                        <ul class="header-middle-right-list">
+                            <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-light fa-magnifying-glass"></i>
+                                </div>
+                            </li>
+                            
+                            <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-light fa-circle-xmark"></i>
+                                </div>
+                            </li>
+                            
+                            <li class="header-middle-right-item dropdown open">
+                                <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                                <div class="auth-container">
+                                    <span class="text-dndk">Tài khoản</span>
+                                    <span class="text-tk">User <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                                </div>
+                                <ul class="header-middle-right-menu">
+                                    <li><a id="account-info" href="thongtinnguoidung.html"><i class="fa-solid fa-user-circle"></i> Thông tin tài khoản</a></li> <!-- Biểu tượng thông tin tài khoản -->
+                                    <li>
+                                        <a id="purchase-history" href="history.html" onclick="openPurchaseHistoryModal()">
+                                            <i class="fa-solid fa-history"></i> Lịch sử mua hàng
+                                        </a>
+                                    </li> <!-- Biểu tượng lịch sử mua hàng -->
+                                    <li><a id="logout" href="index.html"><i class="fa-solid fa-sign-out-alt"></i> Đăng Xuất</a></li> <!-- Biểu tượng đăng xuất -->
+                                </ul>
+                            </li>
+                    
+                            <li class="header-middle-right-item open" onclick="window.location.href='CartPage.html'">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-light fa-basket-shopping"></i>
+                                    <span class="count-product-cart">4</span>
+                                </div>
+                                <span>Giỏ hàng</span>
+                            </li>                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--Phần tìm kiếm năng cao-->
+        <div class="advanced-search" id="advanced-search">
+            <div class="container">
+                <div class="advanced-search-category">
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
+                    <span>Phân loại</span>
+                    <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                        <option selected>Tất cả</option>
+                        <option>Áo thun</option>
+                        <option>Polo</option>
+                        <option>Sơ mi</option>
+                        <option>Quần short</option>
+                        <option>Mũ</option>
+                    </select>
+                </div>
+                <div class="advanced-search-price">
+                    <span>Giá từ</span>
+                    <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+                    <span>đến</span>
+                    <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+                    <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'">
+                        <i class="fa-light fa-magnifying-glass-dollar"></i>
+                    </button>
+                </div>
+                <div class="advanced-search-control">
+                    <button id="sort-ascending" onclick="searchProducts(1)">
+                        <i class="fa-regular fa-arrow-up-short-wide"></i>
+                    </button>
+                    <button id="sort-descending" onclick="searchProducts(2)">
+                        <i class="fa-regular fa-arrow-down-wide-short"></i>
+                    </button>
+                    <button id="reset-search" onclick="searchProducts(0)">
+                        <i class="fa-light fa-arrow-rotate-right"></i>
+                    </button>
+                    <button onclick="closeSearchAdvanced()">
+                        <i class="fa-light fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+
+        <h2 class="home-title">Giỏ hàng</h2>
+
+        <div class="cart-content-header">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all"></th>
+                        <th class="products">Sản Phẩm <span id="cart-count">(0)</span></th>
+                        <th class="prices">Đơn Giá</th>
+                        <th class="quantities">Số Lượng</th>
+                        <th class="prices-sum">Thành Tiền</th>
+                        <th class="actions">Thao Tác</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="cart-container">
+            <div class="cart-content">
+                <div class="cart-content-middle">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="product-checkbox" value="aothun1"></td>
+                                <td><img src="Images/aothun1.webp" alt="aothun1"></td>
+                                <td class="product-info">
+                                <span>Áo Thun Nam Trơn Strength Contour Form Regular</span><br>
+                                </td>
+                                <td>
+                                    <span class="price">200.000₫</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button" data-product-id="product1">-</button>
+                                        <input type="number" value="1" min="1" class="product-quantity" data-product-id="product1">
+                                        <button class="add-button" data-product-id="product1">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price" data-product-id="product1">200.000₫</span>
+                                </td>
+                                <td>
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover> 
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button">&times;</span></h2>
+                                            <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPageNoBtn()">Không</button>
+                                                <button class="yes" onclick="goToCartPageYesBtn()">Chắc chắn</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="product-checkbox" value="polo2"></td>
+                                <td><img src="Images/polo2.jpg" alt="polo2"></td>
+                                <td class="product-info">
+                                <span>Áo Polo Nam Phối Sọc Tay</span><br>
+                                </td>
+                                <td>
+                                    <span class="price">200.000₫</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button" data-product-id="product2">-</button>
+                                        <input type="number" value="1" min="1" class="product-quantity" data-product-id="product2">
+                                        <button class="add-button" data-product-id="product2">+</button>                                       
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price" data-product-id="product2">200.000₫</span>
+                                </td>
+                                <td>
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button">&times;</span></h2>
+                                            <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPageNoBtn()">Không</button>
+                                                <button class="yes" onclick="goToCartPageYesBtn()">Chắc chắn</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="product-checkbox" value="somi1"></td>
+                                <td><img src="Images/somi1.jpg" alt="somi1"></td>
+                                <td class="product-info">
+                                <span>Áo Sơ Mi Cuban Vải Xốp Nam Tay Ngắn Modern Vibe Form Relaxed</span><br>
+                                </td>
+                                <td>
+                                    <span class="price">200.000₫</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button" data-product-id="product3">-</button>
+                                        <input type="number" value="1" min="1" class="product-quantity" data-product-id="product3">
+                                        <button class="add-button" data-product-id="product3">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price" data-product-id="product3">200.000₫</span>
+                                </td>
+                                <td>
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button">&times;</span></h2>
+                                            <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPageNoBtn()">Không</button>
+                                                <button class="yes" onclick="goToCartPageYesBtn()">Chắc chắn</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="product-checkbox" value="short1"></td>
+                                <td><img src="Images/short1.jpg" alt="short1"></td>
+                                <td class="product-info">
+                                <span>Quần Short Nỉ Nam Đánh Bông Quai Túi Form Regular</span><br>
+                                </td>
+                                <td>
+                                    <span class="price">200.000₫</span>
+                                </td>
+                                <td>
+                                    <div class="quantity">
+                                        <button class="minus-button" data-product-id="product4">-</button>
+                                        <input type="number" value="1" min="1" class="product-quantity" data-product-id="product4">
+                                        <button class="add-button" data-product-id="product4">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="price" data-product-id="product4">200.000₫</span>
+                                </td>
+                                <td>
+                                    <button class="deleteButton" data-product-id="product4" popovertarget="delete-confirmation">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 50 59"
+                                            class="bin"
+                                        >
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                                        ></path>
+                                        <path
+                                            fill="#B5BAC1"
+                                            d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        ></path>
+                                        <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                                        </svg>
+    
+                                        <span class="tooltip">Delete</span>
+                                    </button>
+                                    <div class="overlay">
+                                        <div id="delete-confirmation" popover>
+                                            <h2 class="question">Bạn có muốn xóa sản phẩm này không?<span class="popover-close-button">&times;</span></h2>
+                                            <p class="warning">*Nếu đã xóa thì KHÔNG khôi phục được nữa</p>
+
+                                            <div class="yes-no-buttons">
+                                                <button class="no" onclick="goToCartPageNoBtn()">Không</button>
+                                                <button class="yes" onclick="goToCartPageYesBtn()">Chắc chắn</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="total">
+            <h2>Thông tin đơn hàng</h2>
+            <div class="order-item">
+                <span class="label">Tổng sản phẩm</span>
+                <span class="total-products" style="color: black;"></span> <!-- Total Products count element -->
+            </div>
+            <div class="order-item">
+                <span class="label">Tổng thanh toán</span>
+                <span class="value"></span> <!-- Total Price element -->
+            </div>
+            <hr>
+            <button class="checkout-btn">Thanh toán</button> <!-- Checkout button without an <a> tag -->
+        </div>
+        
+        <footer class="footer" id="footer">
+            <div class="widget-area">
+                <div class="container">
+                    <div class="widget-row">
+                        <div class="widget-row-col-1">
+                            <h3 class="widget-title">Về chúng tôi</h3>
+                            <div class="widget-row-col-content">
+                                <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                            </div>
+                            <div class="widget-social">
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-row-col">
+                            <h3 class="widget-title">Liên kết</h3>
+                            <ul class="widget-contact">
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Về chúng tôi</span>
+                                    </a>
+                                </li>
+                            
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Điều khoản</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Liên hệ</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Tin tức</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-row-col">
+                            <h3 class="widget-title">Sản Phẩm</h3>
+                            <ul class="widget-contact">
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Áo Thun</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Áo Polo</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Áo Sơ Mi</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Quần Short</span>
+                                    </a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="product_classification.html">
+                                        <i class="fa-regular fa-arrow-right"></i>
+                                        <span>Mũ</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-row-col-1">
+                            <h3 class="widget-title">Liên hệ</h3>
+                            <div class="contact">
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-regular fa-location-dot"></i>
+                                    </div>
+                                    <div class="contact-content">
+                                        <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-regular fa-phone"></i>
+                                    </div>
+                                    <div class="contact-content contact-item-phone">
+                                        <span>0123 456 789</span>
+                                        <br>
+                                        <span>0987 654 321</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-content conatct-item-email">
+                                        <span>abc@domain.com</span><br />
+                                        <span>infoabc@domain.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast"></div>
+        <script src="Js/CartPage.js"></script>
+        <script src="Js/toast-message.js"></script>
+    </body>
+</html> 

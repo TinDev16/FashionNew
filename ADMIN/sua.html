@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href="Images/logo.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="sua.css">
+    <link rel="stylesheet" href="home-responsive.css">
+    <link rel="stylesheet" href="toast-message.css">
+    <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+              <div class="header-middle-left">
+                <!-- Nút mở menu -->
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    
+    <!-- Thanh menu ẩn -->
+    <div id="sidebarMenu" class="sidebar-menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <ul>
+        
+        <!-- Menu con cho "Sản phẩm" -->
+<li class="dropdown">
+    <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Sản phẩm</a>
+    <div class="dropdown-content">
+        <a href="index.html">Áo Thun</a>
+        <a href="index.html">Áo Polo</a>
+        <a href="index.html">Áo Sơ Mi</a>
+        <a href="index.html">Quần Short</a>
+        <a href="index.html">Mũ</a>
+    </div>
+</li>
+        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
+        <li><a href="#footer"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
+        <li class="dropdown">
+    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
+    <div class="dropdown-content">
+	    <a href="thongke.html">thống kê đơn hàng</a>
+        <a href="thongkenguoidung.html">Thống kê người dùng</a>
+    </div>
+</li>
+    </ul>
+    </div>
+    
+      
+                <div class="header-logo">
+                  <a href="#">
+                      <img src="./Images/logo.png" alt="" class="header-logo-img">
+                  </a>
+              </div>
+    
+              </div>
+              <div class="header-middle-center">
+                <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                    <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    </button>
+                </form>
+            </div>
+            
+            
+              <div class="header-middle-right">
+                <ul class="header-middle-right-list">
+                  <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-magnifying-glass"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-circle-xmark"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item dropdown open">
+                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                    <div class="auth-container">
+                        <span class="text-dndk">Tài khoản</span>
+                        <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                    </div>
+<ul class="header-middle-right-menu">
+    <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+</ul>
+                </li>
+                
+                            
+                </ul>
+              </div>
+            </div>
+          </div>
+        
+    </header>
+  
+    
+    <div class="advanced-search" id="advanced-search">
+      <div class="container">
+          <div class="advanced-search-category">
+              <span>Phân loại</span>
+              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                  <option>Áo thun</option>
+                  <option>Polo</option>
+                  <option>Sơ mi</option>
+                  <option>Quần short</option>
+                  <option>Mũ</option>
+              </select>
+          </div>
+          <div class="advanced-search-price">
+              <span>Giá từ</span>
+              <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+              <span>đến</span>
+              <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+              <button id="advanced-search-price-btn" onclick="window.location.href='#'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+          </div>
+          <div class="advanced-search-control">
+              <button id="sort-ascending" onclick="searchProducts(1)">
+                  <i class="fa-regular fa-arrow-up-short-wide"></i>
+              </button>
+              <button id="sort-descending" onclick="searchProducts(2)">
+                  <i class="fa-regular fa-arrow-down-wide-short"></i>
+              </button>
+              <button id="reset-search" onclick="searchProducts(0)">
+                  <i class="fa-light fa-arrow-rotate-right"></i>
+              </button>
+              <button onclick="closeSearchAdvanced()">
+                  <i class="fa-light fa-xmark"></i>
+              </button>
+          </div>
+      </div>
+    </div>
+    
+    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+
+<main class="main-wrapper">
+    <div class="container" id="trangchu">
+
+        <div class="home-title-block" id="home-title">
+            <h2 class="home-title">Sửa SẢN PHẨM</h2>
+        </div>
+
+        <!-- Form sửa sản phẩm hiển thị sẵn -->
+        <div id="editProductForm" class="edit-product-form">
+            <form id="productForm" action="#" method="POST">
+  <div class="form-left">
+    <label for="productImage">Hình ảnh:</label>
+    <div class="image-container">
+        <div class="image-item" style="position: relative;">
+            <span class="delete-icon" onclick="alert('Hình ảnh đã được xóa!');">x</span>
+            <img id="previewImage1" src="Images/aothun1.webp" alt="Hình ảnh sản phẩm 1" class="product-image-preview">
+        </div>
+        <div class="image-item" style="position: relative;">
+            <span class="delete-icon" onclick="alert('Hình ảnh đã được xóa!');">x</span>
+            <img id="previewImage2" src="Images/aothun4.jpg" alt="Hình ảnh sản phẩm 2" class="product-image-preview">
+        </div>
+    </div>
+    <button type="button" class="upload-btn" onclick="document.getElementById('productImage').click()">Thêm ảnh</button>
+    <input type="file" id="productImage" name="productImage" accept="image/*" onchange="previewImage(event)" style="display: none;">
+</div>
+
+<div class="form-right">
+                    <!-- Phần thông tin sản phẩm bên phải -->
+                    <label for="productName">Tên sản phẩm:</label>
+                    <input type="text" id="productName" name="productName" value="Áo Thun Nam Trơn Strength Contour Form Regular" required>
+
+<label for="productDescription">Mô tả:</label>
+<textarea id="productDescription" name="productDescription" rows="4" cols="50" required>
+Logo ICONDENIM in tinh tế trên ngực trái, cùng với nhãn tem chi tiết đặc biệt. Sản phẩm phù hợp với nhiều dịp khác nhau, mang lại vẻ ngoài đơn giản nhưng đầy phong cách. Form dáng Regular ôm vừa vặn, phù hợp với nhiều dáng người, mang lại sự thoải mái và linh hoạt trong mọi hoạt động. Chất liệu thun cotton mềm mại, thoáng mát, có độ dày vừa phải. Giữ form dáng và chất lượng qua nhiều lần giặt, mang lại sự thoải mái và chắc chắn.
+</textarea>
+					
+					<label for="productPrice">Giá cũ:</label>
+                    <input type="text" id="productPrice" name="productPrice" value="250.000đ" required>
+
+                    <label for="productPrice">Giá mới:</label>
+                    <input type="text" id="productPrice" name="productPrice" value="200.000đ" required>
+    
+    <!-- Nút Cập Nhật sản phẩm -->
+	
+<button type="submit" onclick="showUpdateMessage()">Cập Nhật sản phẩm</button>
+<script>
+    // Hàm hiển thị thông báo khi cập nhật sản phẩm
+    function showUpdateMessage() {
+        // Ngăn form gửi lại dữ liệu ngay lập tức
+        event.preventDefault();
+
+        // Hiển thị thông báo cập nhật
+        alert("Sản phẩm đã được cập nhật!");
+
+        // Chuyển hướng đến trang index.html"; sau 1 giây
+        setTimeout(function() {
+            window.location.href = "index.html";
+        }, 1000);
+    }
+</script>
+                    <button type="button" onclick="cancelEdit()" class="cancel-btn">Hủy</button>
+
+<script>
+function cancelEdit() {
+    window.location.href = "index.html";
+}
+</script>
+                </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="widget-area">
+                    <div class="container">
+                        <div class="widget-row">
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Về chúng tôi</h3>
+                                <div class="widget-row-col-content">
+                                    <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                                </div>
+                                <div class="widget-social">
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+                                    <div class="widget-social-item">
+                                        <a href="">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Liên kết</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Về chúng tôi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Điều khoản</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Liên hệ</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Tin tức</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col">
+                                <h3 class="widget-title">Sản Phẩm</h3>
+                                <ul class="widget-contact">
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Thun</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Polo</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Áo Sơ Mi</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Quần Short</span>
+                                        </a>
+                                    </li>
+                                    <li class="widget-contact-item">
+                                        <a href="">
+                                            <i class="fa-regular fa-arrow-right"></i>
+                                            <span>Mũ</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget-row-col-1">
+                                <h3 class="widget-title">Liên hệ</h3>
+                                <div class="contact">
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-location-dot"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-phone"></i>
+                                        </div>
+                                        <div class="contact-content contact-item-phone">
+                                            <span>0123 456 789</span>
+                                            <br>
+                                            <span>0987 654 321</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-content conatct-item-email">
+                                            <span>abc@domain.com</span><br />
+                                            <span>infoabc@domain.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script src="./main.js"></script> 
+<script src="./toast-message.js"></script>
+    </body>
+</html>

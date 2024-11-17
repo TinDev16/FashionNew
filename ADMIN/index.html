@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion New</title>
+    <link href="Images/logo.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="home-responsive.css">
+    <link rel="stylesheet" href="toast-message.css">
+    <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+ <style>
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;  
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.6);  /* Màu nền với độ trong suốt */
+    justify-content: center; /* Căn giữa theo trục ngang */
+    align-items: center;  /* Căn giữa theo trục dọc */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 350px; 
+    text-align: center; 
+    border-radius: 5px; 
+    position: relative; /* Để điều chỉnh vị trí của .close */
+	left: 50%; /* Đặt phía bên trái ở 50% */
+    top: 50%; /* Đặt phía trên ở 50% */
+    transform: translate(-50%, -50%); /* Dịch chuyển về phía trái và lên phía trên một nửa chiều rộng và chiều cao của phần tử */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Đặt lại vị trí để có thể điều chỉnh */
+    top: 5px; /* Điều chỉnh khoảng cách từ trên */
+    right: 15px; /* Điều chỉnh khoảng cách từ bên phải */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: #0056b3; 
+}
+.btn-xóa {
+    padding: 10px 20px;
+    margin-right: 20px; /* Tạo khoảng cách phía bên phải cho nút Xóa */
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-huy {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Màu nền khác cho nút Hủy */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-middle">
+            <div class="container">
+              <div class="header-middle-left">
+                <!-- Nút mở menu -->
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    
+    <!-- Thanh menu ẩn -->
+    <div id="sidebarMenu" class="sidebar-menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <ul>
+        
+        <!-- Menu con cho "Sản phẩm" -->
+<li class="dropdown">
+    <a href="index.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Sản phẩm</a>
+    <div class="dropdown-content">
+        <a href="index.html">Áo Thun</a>
+        <a href="index.html">Áo Polo</a>
+        <a href="index.html">Áo Sơ Mi</a>
+        <a href="index.html">Quần Short</a>
+        <a href="index.html">Mũ</a>
+    </div>
+</li>
+        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
+        <li><a href="orderManagement.html"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
+        <li class="dropdown">
+    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
+    <div class="dropdown-content">
+	    <a href="thongke.html">thống kê đơn hàng</a>
+        <a href="thongkenguoidung.html">Thống kê người dùng</a>
+    </div>
+</li>
+    </ul>
+    </div>
+    
+      
+                <div class="header-logo">
+                  <a href="#">
+                      <img src="./Images/logo.png" alt="" class="header-logo-img">
+                  </a>
+              </div>
+    
+              </div>
+              <div class="header-middle-center">
+                <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
+                    <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    </button>
+                </form>
+            </div>
+            
+            
+              <div class="header-middle-right">
+                <ul class="header-middle-right-list">
+                  <li class="header-middle-right-item dnone open" onclick="openSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-magnifying-glass"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item close" onclick="closeSearchMb()">
+                    <div class="cart-icon-menu">
+                      <i class="fa-light fa-circle-xmark"></i>
+                    </div>
+                  </li>
+                  <li class="header-middle-right-item dropdown open">
+                    <i class="fa-solid fa-user"></i> <!-- Biểu tượng tài khoản chính -->
+                    <div class="auth-container">
+                        <span class="text-dndk">Tài khoản</span>
+                        <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
+                    </div>
+<ul class="header-middle-right-menu">
+    <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+</ul>
+                </li>
+                
+                            
+                </ul>
+              </div>
+            </div>
+          </div>
+        
+    </header>
+  
+    
+    <div class="advanced-search" id="advanced-search">
+      <div class="container">
+          <div class="advanced-search-category">
+              <span>Phân loại</span>
+              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                  <option>Áo thun</option>
+                  <option>Polo</option>
+                  <option>Sơ mi</option>
+                  <option>Quần short</option>
+                  <option>Mũ</option>
+              </select>
+          </div>
+          <div class="advanced-search-price">
+              <span>Giá từ</span>
+              <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+              <span>đến</span>
+              <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+              <button id="advanced-search-price-btn" onclick="window.location.href='#'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+          </div>
+          <div class="advanced-search-control">
+              <button id="sort-ascending" onclick="searchProducts(1)">
+                  <i class="fa-regular fa-arrow-up-short-wide"></i>
+              </button>
+              <button id="sort-descending" onclick="searchProducts(2)">
+                  <i class="fa-regular fa-arrow-down-wide-short"></i>
+              </button>
+              <button id="reset-search" onclick="searchProducts(0)">
+                  <i class="fa-light fa-arrow-rotate-right"></i>
+              </button>
+              <button onclick="closeSearchAdvanced()">
+                  <i class="fa-light fa-xmark"></i>
+              </button>
+          </div>
+      </div>
+    </div>
+    
+    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+
+
+  
+            <div class="home-title-block" id="home-title">
+                <h2 class="home-title">ADMIN</h2>
+            </div>
+            
+            <div class="button-container">
+                <button class="add-product-button" onclick="window.location.href='them.html';">
+                    <i class="fa fa-plus"></i> Thêm Sản Phẩm
+                </button>
+            </div>
+            
+
+<style>
+    .button-container {
+        text-align: right; /* Căn chỉnh nội dung bên phải */
+        margin: 10px 0; /* Khoảng cách trên và dưới cho container */
+    }
+
+    .add-product-button {
+        background-color: #C62828; /* Màu xanh lá cây */
+        color: white; /* Màu chữ trắng */
+        border: none; /* Không viền */
+        border-radius: 5px; /* Bo tròn */
+        padding: 10px 20px; /* Khoảng cách bên trong */
+        cursor: pointer; /* Con trỏ chuột hình tay */
+        font-size: 16px; /* Kích thước chữ */
+        margin: 0; /* Không có margin cho button */
+        margin-right: 10px; /* Điều chỉnh khoảng cách bên phải để xích vào thêm */
+    }
+
+    .add-product-button:hover {
+        background-color: #931e1e; /* Màu xanh lá cây đậm hơn khi hover */
+        transform: scale(1.05); /* Phóng to một chút khi hover */
+    }
+
+    .product-content {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .products {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .product {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 10px; /* Thêm padding nếu cần */
+        border: 1px solid #ccc; /* Nếu bạn muốn viền cho sản phẩm */
+    }
+</style>
+            <section class="product-content">
+               <section class="products">
+
+                <div class="card_cart">
+                  <div class="badge">HOT</div>
+                  <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                      <img src="Images/aothun1.webp" alt="Women leather bag">
+                  </div>
+                  <div class="details">
+                      <span class="category">Men, Shirt</span>
+                      <h4>
+                        <a href="show_product_NOTlog.html">Áo Thun Nam Trơn Strength Contour Form Regular</a>
+                      </h4>
+                      <div class="bottom-details">
+                          <div class="price">
+                              <small>250.000đ</small>200.000đ
+                          </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card_cart">
+                <div class="badge">HOT</div>
+                <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/aothun2.webp" alt="Women leather bag">
+                </div>
+                <div class="details">
+                    <span class="category">Men, Shirt</span>
+                    <h4>
+                      <a href="show_product_NOTlog.html">Áo Thun Nam Họa Tiết In Thêu Đắp Team Dog Max Form Regular</a>
+                    </h4>
+                    <div class="bottom-details">
+                        <div class="price">
+                            <small>250.000đ</small>200.000đ
+                        </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                    </div>
+                </div>
+            </div>
+                  
+                    <div class="card_cart">
+                      <div class="badge">HOT</div>
+                      <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                          <img src="Images/aothun3.webp" alt="Women leather bag">
+                      </div>
+                      <div class="details">
+                          <span class="category">Men, Shirt</span>
+                          <h4>
+                            <a href="show_product_NOTlog.html">Áo Thun Nam Phim Điện Ảnh Cám Hoạ Tiết Thêu The Oriole Form Oversize
+                            </a>
+                          </h4>
+                          <div class="bottom-details">
+                              <div class="price">
+                                  <small>250.000đ</small>200.000đ
+                              </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                          </div>
+                      </div>
+                  </div>
+
+                          <div class="card_cart">
+                            <div class="badge">HOT</div>
+                            <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                                <img src="Images/aothun4.jpg" alt="Women leather bag">
+                            </div>
+                            <div class="details">
+                                <span class="category">Men, Shirt</span>
+                                <h4>
+                                  <a href="show_product_NOTlog.html">Áo Thun Nam Họa Tiết Thêu Idyllic Scenery Form Regular</a>
+                                </h4>
+                                <div class="bottom-details">
+                                    <div class="price">
+                                        <small>250.000đ</small>200.000đ
+                                    </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card_cart">
+                          <div class="badge">HOT</div>
+                          <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                              <img src="Images/aothun5.webp" alt="Women leather bag">
+                          </div>
+                          <div class="details">
+                              <span class="category">Men, Shirt</span>
+                              <h4>
+                                <a href="show_product_NOTlog.html">Áo Thun Nam Họa Tiết In Araneae Form Regular</a>
+                              </h4>
+                              <div class="bottom-details">
+                                  <div class="price">
+                                      <small>250.000đ</small>200.000đ
+                                  </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                              </div>
+                          </div>
+                      </div>
+
+                  <div class="card_cart">
+                    <div class="badge">HOT</div>
+                    <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                        <img src="Images/polo1.webp" alt="Women leather bag">
+                    </div>
+                    <div class="details">
+                        <span class="category">Men, Shirt</span>
+                        <h4>
+                          <a href="show_product_NOTlog.html">Áo Polo Nam Họa Tiết Pattern Typography Form Regular
+                          </a>
+                        </h4>
+                        <div class="bottom-details">
+                            <div class="price">
+                                <small>250.000đ</small>200.000đ
+                            </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+                              
+                <div class="card_cart">
+                  <div class="badge">HOT</div>
+                  <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                      <img src="Images/polo2.jpg" alt="Women leather bag">
+                  </div>
+                  <div class="details">
+                      <span class="category">Men, Shirt</span>
+                      <h4>
+                        <a href="show_product_NOTlog.html">Áo Polo Nam Phối Sọc Tay The Baseball Dog Form Regular</a>
+                      </h4>
+                      <div class="bottom-details">
+                          <div class="price">
+                              <small>250.000đ</small>200.000đ
+                          </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card_cart">
+                <div class="badge">HOT</div>
+                <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                    <img src="Images/somi1.jpg" alt="Women leather bag">
+                </div>
+                <div class="details">
+                    <span class="category">Men, Shirt</span>
+                    <h4>
+                      <a href="show_product_NOTlog.html">Áo Sơ Mi Cuban Vải Xốp Nam Tay Ngắn Modern Vibe Form Relaxed</a>
+                    </h4>
+                    <div class="bottom-details">
+                        <div class="price">
+                            <small>250.000đ</small>200.000đ
+                        </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card_cart">
+              <div class="badge">HOT</div>
+              <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                  <img src="Images/somi2.webp" alt="Women leather bag">
+              </div>
+              <div class="details">
+                  <span class="category">Men, Shirt</span>
+                  <h4>
+                    <a href="show_product_NOTlog.html">Áo Sơ Mi Cotton Nam Tay Dài Comfortable Stripe Form Regular</a>
+                  </h4>
+                  <div class="bottom-details">
+                      <div class="price">
+                          <small>250.000đ</small>200.000đ
+                      </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                  </div>
+              </div>
+            </div>
+
+            <div class="card_cart">
+              <div class="badge">HOT</div>
+              <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                  <img src="Images/short1.jpg" alt="Women leather bag">
+              </div>
+              <div class="details">
+                  <span class="category">Men, Shirt</span>
+                  <h4>
+                    <a href="show_product_NOTlog.html">Quần Short Nỉ Nam Đánh Bông Quai Túi Form Regular</a>
+                  </h4>
+                  <div class="bottom-details">
+                      <div class="price">
+                          <small>250.000đ</small>200.000đ
+                      </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                  </div>
+              </div>
+            </div>
+
+                      <div class="card_cart">
+                        <div class="badge">HOT</div>
+                        <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                            <img src="Images/short2.jpg" alt="Women leather bag">
+                        </div>
+                        <div class="details">
+                            <span class="category">Men, Shirt</span>
+                            <h4>
+                              <a href="show_product_NOTlog.html">Quần Short Denim Túi Hộp Nam Cargo Pocket Form Regular
+                              </a>
+                            </h4>
+                            <div class="bottom-details">
+                                <div class="price">
+                                    <small>250.000đ</small>200.000đ
+                                </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                            </div>
+                        </div>
+                      </div>
+
+                <div class="card_cart">
+                  <div class="badge">HOT</div>
+                  <div class="tumb" onclick="window.location.href='show_product_NOTlog.html';">
+                      <img src="Images/non1.jpg" alt="Women leather bag">
+                  </div>
+                  <div class="details">
+                      <span class="category">Men, Shirt</span>
+                      <h4>
+                        <a href="show_product_NOTlog.html">Nón Nam Lưỡi Trai High-crown The Spiritual Kingdom Of Fashion</a>
+                      </h4>
+                      <div class="bottom-details">
+                          <div class="price">
+                              <small>250.000đ</small>200.000đ
+                          </div>
+<div class="links">
+    <a href="sua.html"><i class="fa-solid fa-edit"></i></a>
+    <a onclick="confirmDelete()"><i class="fa-solid fa-trash"></i></a>
+</div>
+
+                      </div>
+                  </div>
+                </div>
+
+                 
+                </section>
+              </section>
+			  
+			  <div id="confirmDeleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Bạn có chắc muốn xóa sản phẩm?</p>
+            <button class="btn-xóa" id="confirmBtn">Xóa</button>
+            <button class="btn-huy" onclick="closeModal()">Hủy</button>
+        </div>
+    </div>
+
+
+
+              <div class="pagination-controls">
+                <button class="pagination" onclick="window.location.href='index.html';">1</button>
+                <button class="pagination" onclick="window.location.href='index.html';">2</button>
+                <button class="pagination" onclick="window.location.href='index.html';">3</button>
+                <button class="pagination" onclick="window.location.href='index.html';">Next >></button>
+            </div>
+
+            <div class="home-products" id="home-products">
+            </div>
+            
+            <div class="page-nav">
+                <ul class="page-nav-list">
+                </ul>
+            </div>
+            
+        </div>
+   
+        
+    <footer class="footer" id="footer">
+
+        <div class="widget-area">
+            <div class="container">
+                <div class="widget-row">
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Về chúng tôi</h3>
+                        <div class="widget-row-col-content">
+                            <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
+                        </div>
+                        <div class="widget-social">
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <div class="widget-social-item">
+                                <a href="">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Liên kết</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Về chúng tôi</span>
+                                </a>
+                            </li>
+
+                            <!--  -->
+                    
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Điều khoản</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Tin tức</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col">
+                        <h3 class="widget-title">Sản Phẩm</h3>
+                        <ul class="widget-contact">
+                            <li class="widget-contact-item">
+                                <a href="product_classification_NOTlog.html">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Áo Thun</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="product_classification_NOTlog.html">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Áo Polo</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="product_classification_NOTlog.html">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Áo Sơ Mi</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="product_classification_NOTlog.html">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Quần Short</span>
+                                </a>
+                            </li>
+                            <li class="widget-contact-item">
+                                <a href="product_classification_NOTlog.html">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                    <span>Mũ</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-row-col-1">
+                        <h3 class="widget-title">Liên hệ</h3>
+                        <div class="contact">
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-location-dot"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <span>273 An Dương Vương, Phường 3, Quận 5, TP Hồ Chí Minh</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-phone"></i>
+                                </div>
+                                <div class="contact-content contact-item-phone">
+                                    <span>0123 456 789</span>
+                                    <br>
+                                    <span>0987 654 321</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-item-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="contact-content conatct-item-email">
+                                    <span>abc@domain.com</span><br />
+                                    <span>infoabc@domain.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="copyright-content">
+                <p>Copyright 2024 Fashion New. All Rights Reserved.</p>
+            </div>
+        </div>
+     
+    <div id="toast"></div>
+    <script src="main.js"></script> 
+    <script src="toast-message.js"></script>
+</body>
+</html>
