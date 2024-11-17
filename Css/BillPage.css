@@ -445,7 +445,6 @@ header {
     }
 }
   
-  
 /* CSS cho sidebar menu */
 .sidebar-menu {
     position: fixed;
@@ -701,6 +700,31 @@ header {
     left: 50%;
     transform: translate(-50%);
     bottom: -5px;
+}
+
+/* Main content */
+.bill-container {
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 0;
+    padding-bottom: 15px;
+}
+
+.bill-box {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.bill-box:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
