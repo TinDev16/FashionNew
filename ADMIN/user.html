@@ -11,13 +11,7 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
-	<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
-        
+	<style>        
         .main-wrapper {
             padding: 20px;
             background: white;
@@ -60,6 +54,43 @@
             background-color: #dc3545;
             color: white;
         }
+		    .button-container {
+        text-align: right; /* Căn chỉnh nội dung bên phải */
+        margin: 0px 0; /* Khoảng cách trên và dưới cho container */
+    }
+
+.add-product-button {
+    background-color:  #673AB7; 
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không viền */
+    border-radius: 5px; /* Bo tròn nhỏ hơn */
+    padding: 8px 16px; /* Giảm padding bên trong */
+    cursor: pointer; /* Con trỏ chuột hình tay */
+    font-size: 14px; /* Giảm kích thước chữ */
+    margin: 0; /* Không có margin cho button */
+    margin-top: 15px; /* Giữ khoảng cách trên cho button */
+    margin-right: 10px; /* Điều chỉnh khoảng cách bên phải để xích vào thêm */
+}
+
+    .add-product-button:hover {
+        background-color: #D1C4E9;
+    }
+
+    .product-content {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .products {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .product {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0px; /* Thêm padding nếu cần */
+        border: 1px solid #ccc; /* Nếu bạn muốn viền cho sản phẩm */
+    }
     </style>
 </head>
 <body>
@@ -194,6 +225,12 @@
             <h2 class="home-title">NGƯỜI DÙNG</h2>
         </div>
 
+            <div class="button-container">
+                <button class="add-product-button" onclick="window.location.href='themnguoidung.html';">
+                    <i class="fa fa-plus"></i> Thêm Người Dùng
+                </button>
+            </div>
+			
         <table class="table-user">
             <thead>
                 <tr>
@@ -262,10 +299,6 @@
                     <td><button class="btn-lock" onclick="showConfirmation()"><i class="fas fa-lock"></i></button></td>
                     <td><button class="btn-edit" onclick="location.href='suanguoidung.html'"><i class="fas fa-pencil-alt"></i></button></td>
                 </tr>
-                <tr>
-                    <td><button class="btn-add" onclick="location.href='themnguoidung.html'">Thêm người dùng</button></td>
-                    <td colspan="6"></td>
-                </tr>
             </tbody>
         </table>
 
@@ -297,6 +330,23 @@
     }
 </script>
 
+<br/><br/>
+              <div class="pagination-controls">
+                <button class="pagination" onclick="window.location.href='user.html';">1</button>
+                <button class="pagination" onclick="window.location.href='user.html';">2</button>
+                <button class="pagination" onclick="window.location.href='user.html';">3</button>
+                <button class="pagination" onclick="window.location.href='user.html';">Next >></button>
+            </div>
+
+            <div class="home-products" id="home-products">
+            </div>
+            
+            <div class="page-nav">
+                <ul class="page-nav-list">
+                </ul>
+            </div>
+            
+        </div>
         <footer class="footer">
             <div class="container">
                 <div class="widget-area">
