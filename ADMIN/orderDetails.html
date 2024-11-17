@@ -3,29 +3,137 @@
   <!DOCTYPE html>
   <html lang="en">
     <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>orderDetails</title>
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous" />
-      <link href="../Images/logo.png" rel="icon" type="image/x-icon" />
-      <link rel="stylesheet" href="../Css/main.css" />
-      <link rel="stylesheet" href="../Css/home-responsive.css" />
-      <link rel="stylesheet" href="../Css/toast-message.css" />
-      <link
-        rel="stylesheet"
-        href="../font/font-awesome-pro-v6-6.2.0/css/all.min.css" />
-        <script>
-          .text-secondary {
-        color: black !important;
-    }
-    
-         </script>
-    
-      </head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>orderDetails</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous" />
+        <link href="../Images/logo.png" rel="icon" type="image/x-icon" />
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="home-responsive.css">
+        <link rel="stylesheet" href="toast-message.css">
+        <link
+          rel="stylesheet"
+          href="../font/font-awesome-pro-v6-6.2.0/css/all.min.css" />
+          <style>
+#status-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: none; /* Tắt hiệu ứng */
+}
+
+#status-button:hover {
+    background-color: #007bff; /* Giữ nguyên màu nền khi hover */
+    color: white; /* Giữ nguyên màu chữ */
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;  
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.6);  /* Màu nền với độ trong suốt */
+    justify-content: center; /* Căn giữa theo trục ngang */
+    align-items: center;  /* Căn giữa theo trục dọc */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 350px; 
+    text-align: center; 
+    border-radius: 5px; 
+    position: relative; /* Để điều chỉnh vị trí của .close */
+	left: 50%; /* Đặt phía bên trái ở 50% */
+    top: 50%; /* Đặt phía trên ở 50% */
+    transform: translate(-50%, -50%); /* Dịch chuyển về phía trái và lên phía trên một nửa chiều rộng và chiều cao của phần tử */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Đặt lại vị trí để có thể điều chỉnh */
+    top: 5px; /* Điều chỉnh khoảng cách từ trên */
+    right: 15px; /* Điều chỉnh khoảng cách từ bên phải */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+
+    border: none;
+    background-color: #08397a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: #0056b3; 
+}
+.btn-xóa {
+    padding: 10px 20px;
+    margin-right: 20px; /* Tạo khoảng cách phía bên phải cho nút Xóa */
+    border: none;
+    background-color: #08397a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-huy {
+    padding: 10px 20px;
+    border: none;
+    background-color: #08397a; /* Màu nền khác cho nút Hủy */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.advanced-search-btn {
+  display: flex;
+  align-items: center;
+  gap: 3px; /* Khoảng cách giữa icon và chữ */
+  padding: 8px 12px;
+  background-color: #08397a; /* Màu nền xanh dương nhạt */
+  color: #fff; /* Màu chữ trắng */
+  border: none;
+  border-radius: 25px; /* Viền bo tròn */
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.advanced-search-btn i {
+  font-size: 16px;
+}
+
+/* Hiệu ứng hover */
+.advanced-search-btn:hover {
+  background-color: #0056b3; /* Màu xanh đậm khi hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+}
+    </style>
 </head>
 <body>
     <header>
@@ -51,14 +159,6 @@
         <a href="index.html">Mũ</a>
     </div>
 </li>
-        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
-        <li><a href="orderManagement.html"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
-        <li class="dropdown">
-    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
-    <div class="dropdown-content">
-        <a href="thongke.html">thống kê đơn hàng</a>
-        <a href="thongkenguoidung.html">Thống kê người dùng</a>
-    </div>
 </li>
     </ul>
     </div>
@@ -75,8 +175,12 @@
                 <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                     <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    <button type="button" class="filter-btn" onclick="window.location.href='#'">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                    </button> 
+                    <!-- Nút tìm kiếm nâng cao -->
+                    <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
                     </button>
                 </form>
             </div>
@@ -100,10 +204,14 @@
                         <span class="text-dndk">Tài khoản</span>
                         <span class="text-tk">Admin <i class="fa-solid fa-caret-down"></i></span> <!-- Mũi tên xuống -->
                     </div>
-                    <ul class="header-middle-right-menu">
-                        
-                        <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
-                    </ul>
+<ul class="header-middle-right-menu">
+    <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+    <li><a id="account-info" href="user.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li> 
+    <li><a id="account-info" href="orderManagement.html"><i class="fa-solid fa-box"></i> Quản lý đơn hàng</a></li> 
+    <li><a id="account-info" href="thongke.html"><i class="fa-solid fa-chart-line"></i> Thống kê đơn hàng</a></li> 
+    <li><a id="account-info" href="thongkenguoidung.html"><i class="fa-solid fa-user-chart"></i> Thống kê người dùng</a></li> 
+    
+</ul>
                 </li>
                 
                             
@@ -118,13 +226,15 @@
     <div class="advanced-search" id="advanced-search">
       <div class="container">
           <div class="advanced-search-category">
-              <span>Phân loại</span>
-              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
-                  <option>Áo thun</option>
-                  <option>Polo</option>
-                  <option>Sơ mi</option>
-                  <option>Quần short</option>
-                  <option>Mũ</option>
+            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
+            <span>Phân loại</span>
+            <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+              <option selected>Tất cả</option>
+                <option>Áo thun</option>
+                <option>Polo</option>
+                <option>Sơ mi</option>
+                <option>Quần short</option>
+                <option>Mũ</option>
               </select>
           </div>
           <div class="advanced-search-price">
@@ -150,18 +260,18 @@
           </div>
       </div>
     </div>
-
-<div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+    
+    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
 
 </head>
-<div class="container p-4">
+
+<div class="container-fluid ">
     <h2 class="home-title">Chi tiết đơn hàng</h2>
   <div id="order-details-container"></div>
+  
   <footer class="footer" id="footer">
-
-
     <div class="widget-area">
-        <div class="container">
+        <div class="container-fluid">
             <div class="widget-row">
                 <div class="widget-row-col-1">
                     <h3 class="widget-title">Về chúng tôi</h3>
@@ -247,8 +357,8 @@
 </div>
 
 <div id="toast"></div>
-<script src="main.js"></script> 
-<script src="toast-message.js"></script>
+<script src="./main.js"></script> 
+<script src="./toast-message.js"></script>
     <script src="./orderDetails.js"></script> <!-- Đảm bảo script chứa hàm showOrderDetails() được liên kết đúng -->
     <script>
         // Lấy orderId từ URL

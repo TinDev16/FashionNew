@@ -3,6 +3,7 @@ function showOrderDetails(orderId) {
     const orderDetails = {
         "22010124111": {
             tg: "09/11/2024 - 14:30",
+            trangthai: "Giao thành công",
             customerName: "Nguyễn Văn An",
             customerPhone: "095463448",
             receiverName: "Nguyễn Văn An",
@@ -14,7 +15,7 @@ function showOrderDetails(orderId) {
             productQuantity: 2,
             productPrice: 200000,
             totalPrice: 400000,
-            paymentMethod: "MOMO",
+            paymentMethod: "Thẻ tín dụng/Ghi nợ",
             payment: 400000,
             paymentAmount: 400000,
             promotion: 0,
@@ -24,6 +25,7 @@ function showOrderDetails(orderId) {
         },
         "22050124171": {
             tg: "10/11/2024 - 14:30",
+            trangthai: "Đã xác nhận",
             customerName: "Lê Văn Bình",
             customerPhone: "096789106",
             receiverName: "Lê Văn Bình",
@@ -45,6 +47,7 @@ function showOrderDetails(orderId) {
         },
         "28359124178": {
             tg: "15/11/2024 - 17:00",
+            trangthai: "Đã hủy",
             customerName: "Lê Lợi",
             customerPhone: "0987073458",
             receiverName: "Lê Lợi",
@@ -84,9 +87,14 @@ function showOrderDetails(orderId) {
                         <span class="text-secondary">NV tư vấn:</span> Admin - admin@gmail.com
                     </p>
                 </div>
-         <button class="btn text-white fw-bold p-2 rounded-pill" style="width: 200px; background-color: #007bff; border: none; text-align: center;" id="status-button">
-    Chưa xử lý
+ <button class="btn text-white fw-bold p-2 rounded-pill" 
+        style="width: 200px; background-color: #08397a; border: none; text-align: center; pointer-events: none;" 
+        id="status-button">
+    ${order.trangthai}
 </button>
+
+
+
             </div>
 
             <div class="row" style="margin-top: 20px">
@@ -185,13 +193,15 @@ function showOrderDetails(orderId) {
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary p-4 fs-4" style="width: 100%; margin-top: 20px" onclick="window.location.href='./orderManagement.html';">
+            <button type="button" class="btn btn-primary p-4 fs-4"  style="width: 100%; margin-top: 20px; background-color: #08397a; color: white;"  onclick="window.location.href='./orderManagement.html';">
                 Đóng
             </button>
         </div>
     </div>
 </div>
-</div>
+
+
+
         `;
 
         // Chèn HTML vào phần tử hiển thị chi tiết đơn hàng
@@ -202,47 +212,3 @@ function showOrderDetails(orderId) {
 showOrderDetails("22010124111");
 showOrderDetails("22050124171");  // Hoặc bất kỳ orderId nào từ dữ liệu của bạn
 showOrderDetails("28359124178");
-document.addEventListener('DOMContentLoaded', function() {
-    const statuses = [
-        { text: "Chưa xử lý", value: "chua_xu_ly" },
-        { text: "Đã xác nhận", value: "da_xac_nhan" },
-        { text: "Giao thành công", value: "giao_thanh_cong" },
-        { text: "Đã hủy", value: "da_huy" }
-    ];
-
-    let currentIndex = 0;  // Vị trí của trạng thái hiện tại
-
-    // Lấy orderId từ URL để xác định trạng thái khởi tạo
-    const params = new URLSearchParams(window.location.search);
-    const orderId = params.get('orderId');
-    
-    // Xác định trạng thái khởi đầu dựa trên orderId
-    if (orderId === '22010124111') {
-        currentIndex = 2; // "Giao thành công"
-    } else if (orderId === '22050124171') {
-        currentIndex = 1; // "Đã xác nhận"
-    } else if (orderId === '28359124178') {
-        currentIndex = 3; // "Đã hủy"
-    } else {
-        currentIndex = 0; // Mặc định "Chưa xử lý"
-    }
-
-    // Cập nhật nút khi trang được tải
-    updateButton();
-
-    // Thêm sự kiện click vào nút để thay đổi trạng thái (chỉ thay đổi trong phiên)
-    document.getElementById('status-button').addEventListener('click', function() {
-        console.log("Button clicked!");  // Xem sự kiện click có được kích hoạt
-        currentIndex = (currentIndex + 1) % statuses.length;  // Chuyển sang trạng thái tiếp theo
-        updateButton();
-    });
-
-    // Hàm cập nhật văn bản và giá trị cho nút
-    function updateButton() {
-        const statusButton = document.getElementById('status-button');
-        if (statusButton) {
-            statusButton.textContent = statuses[currentIndex].text;
-            statusButton.setAttribute('data-value', statuses[currentIndex].value);
-        }
-    }
-});
