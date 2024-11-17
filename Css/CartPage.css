@@ -95,10 +95,10 @@ input::-webkit-inner-spin-button {
 
 /* Đảm bảo nội dung chính của trang nằm giữa */
 .cart-container {
-  max-width: 1200px;
-  margin: auto;
-  padding-top: 0;
-  padding-bottom: 15px;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 0;
+    padding-bottom: 15px;
 }
 
 /* Header Menu */
@@ -444,7 +444,6 @@ header {
       top: -15px;
     }
 }
-  
   
 /* CSS cho sidebar menu */
 .sidebar-menu {

@@ -219,59 +219,62 @@ savedAddressSelect.addEventListener('change', toggleAddressFields);
 
 // Restore Data from Local Storage on Page Load
 window.addEventListener('DOMContentLoaded', () => {
-    const activeButton = localStorage.getItem('activeButton');
-    const cardData = JSON.parse(localStorage.getItem('cardData') || '{}');
-    const customerInfo = JSON.parse(localStorage.getItem('customerInfo') || '{}');
-    const savedNote = localStorage.getItem('orderNote') || '';
-    const selectedAddressType = localStorage.getItem('selectedAddressType');
-    const newAddressData = JSON.parse(localStorage.getItem('newAddressData') || '{}');
+  const activeButton = localStorage.getItem('activeButton');
+  const cardData = JSON.parse(localStorage.getItem('cardData') || '{}');
+  const customerInfo = JSON.parse(localStorage.getItem('customerInfo') || '{}');
+  const savedNote = localStorage.getItem('orderNote') || '';
+  const selectedAddressType = localStorage.getItem('selectedAddressType');
+  const newAddressData = JSON.parse(localStorage.getItem('newAddressData') || '{}');
 
-    // Restore Payment Method
-    if (activeButton === 'card') {
-        setActiveButton(cardButton);
-        cardInformation.style.display = 'block';
-        isCardInfoVisible = true;
-    } else if (activeButton === 'cod') {
-        setActiveButton(codButton);
-    } else {
-        setActiveButton(null);
-        cardInformation.style.display = 'none';
-        isCardInfoVisible = false;
-    }
+  // Restore Payment Method
+  if (activeButton === 'card') {
+      setActiveButton(cardButton);
+      cardInformation.style.display = 'block';
+      isCardInfoVisible = true;
+  } else if (activeButton === 'cod') {
+      setActiveButton(codButton);
+  } else {
+      setActiveButton(null);
+      cardInformation.style.display = 'none';
+      isCardInfoVisible = false;
+  }
 
-    // Restore Card Data
-    document.querySelector('.card-name-input').value = cardData.cardName || '';
-    document.querySelector('.card-number-input').value = cardData.cardNumber || '';
-    document.querySelector('.expiration-date-input').value = cardData.expirationDate || '';
-    document.querySelector('.cvv-code-input').value = cardData.cvvCode || '';
+  // Restore Card Data
+  document.querySelector('.card-name-input').value = cardData.cardName || '';
+  document.querySelector('.card-number-input').value = cardData.cardNumber || '';
+  document.querySelector('.expiration-date-input').value = cardData.expirationDate || '';
+  document.querySelector('.cvv-code-input').value = cardData.cvvCode || '';
 
-    // Restore Customer Info and Note
-    document.querySelector('.customer-name-input').value = customerInfo.name || '';
-    document.querySelector('.customer-phone-input').value = customerInfo.phone || '';
-    noteField.value = savedNote;
+  // Restore Customer Info and Note
+  document.querySelector('.customer-name-input').value = customerInfo.name || '';
+  document.querySelector('.customer-phone-input').value = customerInfo.phone || '';
+  noteField.value = savedNote;
 
-    // Restore Address Data
-    if (selectedAddressType === 'saved') {
-        savedAddressRadio.checked = true;
-        toggleAddressFields();
-        const selectedSavedAddress = localStorage.getItem('selectedSavedAddress');
-        if (selectedSavedAddress) {
-            savedAddressSelect.value = selectedSavedAddress;
-        }
-    } else if (selectedAddressType === 'new') {
-        newAddressRadio.checked = true;
-        toggleAddressFields();
+  // Restore Address Data
+  if (selectedAddressType === 'saved') {
+      savedAddressRadio.checked = true;
+      toggleAddressFields();
+      const selectedSavedAddress = localStorage.getItem('selectedSavedAddress');
+      if (selectedSavedAddress) {
+          savedAddressSelect.value = selectedSavedAddress;
+      }
+  } else if (selectedAddressType === 'new') {
+      newAddressRadio.checked = true;
+      toggleAddressFields();
 
-        // Restore new-address-section data
-        countryInput.value = newAddressData.country || '';
-        cityInput.value = newAddressData.city || '';
-        districtInput.value = newAddressData.district || '';
-        addressInput.value = newAddressData.address || '';
-    } else {
-        // Reset both radio buttons to default state
-        savedAddressRadio.checked = false;
-        newAddressRadio.checked = false;
-        savedAddressSection.style.display = 'none';
-        newAddressSection.style.display = 'none';
-    }
+      // Restore new-address-section data
+      countryInput.value = newAddressData.country || '';
+      cityInput.value = newAddressData.city || '';
+      districtInput.value = newAddressData.district || '';
+      addressInput.value = newAddressData.address || '';
+  } else {
+      // Set saved-address-account as default
+      savedAddressRadio.checked = true;
+      toggleAddressFields();
+
+      // Hide new-address section by default
+      savedAddressSection.style.display = 'block';
+      newAddressSection.style.display = 'none';
+      localStorage.setItem('selectedAddressType', 'saved'); // Save default state
+  }
 });
