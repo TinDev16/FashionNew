@@ -7,92 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashion New</title>
     <link href="Images/logo.png" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="thongke.css">
+    <link rel="stylesheet" href="hoadon.css">
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
-	<style>
-			* {
-    box-sizing: border-box; /* Thêm box-sizing để bao gồm padding và border vào kích thước */
-}
 
-.menu-container {
-    display: flex; /* Sử dụng Flexbox */
-    justify-content: center; /* Căn giữa menu theo chiều ngang */
-}
-
-.horizontal-menu {
-    display: flex; /* Sắp xếp các phần tử nằm ngang */
-    list-style-type: none; /* Bỏ dấu chấm cạnh danh sách */
-    padding: 10px; /* Thêm padding cho menu */
-    background-color: #007BFF; /* Màu nền của menu */
-    border-radius: 5px; /* Làm tròn các góc của menu */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng cho menu */
-    width: 100%; /* Chiếm toàn bộ chiều rộng của màn hình */
-    margin: 0; /* Bỏ khoảng cách bên ngoài */
-    justify-content: center; /* Căn giữa các mục menu theo chiều ngang */
-    align-items: center; /* Căn giữa các mục menu theo chiều dọc */
-}
-
-.menu-item {
-    position: relative; /* Cần thiết để định vị dropdown */
-    margin-right: 20px; /* Thiết lập khoảng cách giữa các mục menu */
-}
-
-.menu-item:last-child {
-    margin-right: 0; /* Không có margin cho mục cuối cùng */
-}
-
-.menu-item a {
-    text-decoration: none; /* Bỏ gạch chân của link */
-    color: white; /* Màu chữ */
-    padding: 10px 15px; /* Thêm padding cho nút */
-    border-radius: 5px; /* Làm tròn các góc của nút */
-    transition: background-color 0.3s; /* Thêm hiệu ứng chuyển đổi khi hover */
-}
-
-.menu-item a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Hiệu ứng hover nền sáng hơn */
-}
-
-/* Dropdown styles */
-.dropdown-content {
-    display: none; /* Ẩn theo mặc định */
-    position: absolute; /* Định vị tuyệt đối */
-    background-color: white; /* Nền trắng cho dropdown */
-    border: 1px solid #ccc; /* Viền cho dropdown */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
-    z-index: 1; /* Đảm bảo dropdown hiện lên trên phần tử khác */
-    margin-top: 5px; /* Khoảng cách giữa dropdown và mục cha */
-    padding: 0; /* Bỏ phần padding */
-    list-style-type: none; /* Bỏ dấu chấm cạnh danh sách */
-    border-radius: 5px; /* Làm tròn các góc */
-}
-
-.dropdown-content li {
-    padding: 10px; /* Khoảng cách trong dropdown */
-}
-
-.dropdown-content li a {
-    color: #333; /* Màu chữ trong dropdown */
-    display: block; /* Làm cho toàn bộ khoảng cách có thể nhấp */
-    transition: background-color 0.3s; /* Thêm hiệu ứng chuyển đổi cho dropdown */
-}
-
-.dropdown-content li a:hover {
-    background-color: #007BFF; /* Màu nền khi hover vào mục dropdown */
-    color: white; /* Thay đổi màu chữ khi hover vào mục dropdown */
-}
-
-/* Hiện dropdown khi di chuột qua */
-.menu-item:hover .dropdown-content {
-    display: block; /* Hiện dropdown khi hover */
-}
-
-.menu-icon {
-    margin-right: 5px; /* Khoảng cách giữa icon và chữ */
-}
-	</style>
 </head>
 <body>
     <header>
@@ -100,7 +19,7 @@
             <div class="container">
               <div class="header-middle-left">
                 <!-- Nút mở menu -->
-    <button class="menutton" onclick="toggleMenu()">            </button>
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
     
     <!-- Thanh menu ẩn -->
     <div id="sidebarMenu" class="sidebar-menu">
@@ -118,14 +37,6 @@
         <a href="index.html">Mũ</a>
     </div>
 </li>
-        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
-        <li><a href="#footer"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
-        <li class="dropdown">
-    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
-    <div class="dropdown-content">
-	    <a href="thongke.html">thống kê đơn hàng</a>
-        <a href="thongkenguoidung.html">Thống kê người dùng</a>
-    </div>
 </li>
     </ul>
     </div>
@@ -142,8 +53,12 @@
                 <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                     <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    <button type="button" class="filter-btn" onclick="window.location.href='#'">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                    </button> 
+                    <!-- Nút tìm kiếm nâng cao -->
+                    <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
                     </button>
                 </form>
             </div>
@@ -169,6 +84,11 @@
                     </div>
 <ul class="header-middle-right-menu">
     <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+    <li><a id="account-info" href="user.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li> 
+    <li><a id="account-info" href="orderManagement.html"><i class="fa-solid fa-box"></i> Quản lý đơn hàng</a></li> 
+    <li><a id="account-info" href="thongke.html"><i class="fa-solid fa-chart-line"></i> Thống kê đơn hàng</a></li> 
+    <li><a id="account-info" href="thongkenguoidung.html"><i class="fa-solid fa-user-chart"></i> Thống kê người dùng</a></li> 
+    
 </ul>
                 </li>
                 
@@ -184,13 +104,15 @@
     <div class="advanced-search" id="advanced-search">
       <div class="container">
           <div class="advanced-search-category">
-              <span>Phân loại</span>
-              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
-                  <option>Áo thun</option>
-                  <option>Polo</option>
-                  <option>Sơ mi</option>
-                  <option>Quần short</option>
-                  <option>Mũ</option>
+            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
+            <span>Phân loại</span>
+            <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+              <option selected>Tất cả</option>
+                <option>Áo thun</option>
+                <option>Polo</option>
+                <option>Sơ mi</option>
+                <option>Quần short</option>
+                <option>Mũ</option>
               </select>
           </div>
           <div class="advanced-search-price">
@@ -215,36 +137,7 @@
               </button>
           </div>
       </div>
-    </div>
-    
-    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
-    
-
-
- <div class="menu-container">
-    <ul class="horizontal-menu">
-        <li class="menu-item dropdown">
-            <a href="index.html"><i class="menu-icon fa-solid fa-tshirt"></i> Sản phẩm</a>
-            <ul class="dropdown-content">
-                <li><a href="index.html">Áo Thun</a></li>
-                <li><a href="index.html">Áo Polo</a></li>
-                <li><a href="index.html">Áo Sơ Mi</a></li>
-                <li><a href="index.html">Quần Short</a></li>
-                <li><a href="index.html">Mũ</a></li>
-            </ul>
-        </li>
-        <li class="menu-item"><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
-        <li class="menu-item"><a href="orderManagement.html"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
-        
-        <li class="menu-item dropdown">
-            <a href="thongke.html"><i class="menu-icon fa-solid fa-chart-bar"></i> Thống kê</a>
-            <ul class="dropdown-content">
-                <li><a href="thongke.html">Thống kê đơn hàng</a></li>
-                <li><a href="thongkenguoidung.html">Thống kê người dùng</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>              
+    </div>       
 <main class="main-wrapper">
     <div class="container" id="trangchu">
         <div class="home-title-block" id="home-title">
@@ -258,7 +151,7 @@
     <i class="fa-light fa-magnifying-glass"></i>
 </a>
         </span>
-        <input type="text" class="form-search-input" placeholder="Nhập mã đơn hàng hoặc ID khách hàng" id="search-input" style="flex: 1; padding: 5px; margin-right: 5px;" onkeypress="if (event.key === 'Enter') location.href='hoadon.html';">
+        <input type="text" class="form-search-input" placeholder="Nhập mã hóa đơn hoặc ID khách hàng" id="search-input" style="flex: 1; padding: 5px; margin-right: 5px;" onkeypress="if (event.key === 'Enter') location.href='hoadon.html';">
         </button>
     </form>
 </div>
