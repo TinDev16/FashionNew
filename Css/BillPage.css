@@ -704,13 +704,6 @@ header {
 
 /* Main content */
 .bill-container {
-    max-width: 1200px;
-    margin: auto;
-    padding-top: 0;
-    padding-bottom: 15px;
-}
-
-.bill-box {
     width: 100%;
     max-width: 800px;
     margin: auto;
@@ -723,8 +716,138 @@ header {
     margin-bottom: 15px;
 }
 
-.bill-box:hover {
+.bill-container:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+  
+.order-info p {
+    color: #000;
+    margin: 0; /* Xóa khoảng cách mặc định giữa các đoạn văn */
+}
+
+.order-info strong {
+    color: #08397a;
+}
+  
+.order-date {
+    color: #333;
+    font-size: 14px; /* Điều chỉnh kích thước font cho ngày tháng */
+}
+  
+.success-btn {
+    background-color: #0046d5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center; /* Giữ nút ở giữa theo chiều ngang */
+}
+
+.order-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đều hai cột */
+    gap: 10px; /* Khoảng cách giữa hai box */
+    margin-bottom: 20px;
+}
+  
+.customer-info {
+    display: flex;
+    gap: 10px;
+    width: 760px; /* Đảm bảo nó sử dụng toàn bộ chiều rộng cha */
+    line-height: 1.6;
+}
+
+.info-box {
+    flex: 1; /* Các box chia đều chiều rộng */
+    max-width: 800px; /* Đặt giới hạn để box không quá to */
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.info-box p {
+    color: #000;
+}
+  
+.note-section {
+    grid-column: span 2;
+    width: 760px;
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    line-height: 1.6;
+}
+
+.note-section p {
+    color: #000;
+}
+  
+.product-table {
+    grid-column: span 2;
+    width: 760px;
+    margin-top: -5px;
+}
+  
+.product-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+  
+.product-table th, .product-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-table td {
+    color: #000;
+}
+  
+.payment-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+  
+.payment-summary {
+    margin-top: 10px;
+    width: 100%;
+}
+  
+.payment-summary p {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.payment-summary .total {
+    color: #0046d5;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+  
+.close-btn {
+    background-color: #08397a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
 }
 
 /* Footer */
