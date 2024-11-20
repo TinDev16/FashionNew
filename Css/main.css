@@ -2825,16 +2825,20 @@ th {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
 }
+
 .header1 {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .header1 h1 {
   font-size: 24px;
   margin: 0;
   color: #333;
 }
+
 .order-info1,
 .payment-info1,
 .customer-info1,
@@ -2843,6 +2847,7 @@ th {
 .total-info1 {
   margin-bottom: 20px;
 }
+
 .order-info1 p,
 .customer-info1 p,
 .note1 p,
@@ -2851,6 +2856,19 @@ th {
   margin: 5px 0;
   color: #000;
 }
+
+.order-info1 {
+  display: flex; /* Sử dụng Flexbox để căn chỉnh */
+  justify-content: space-between; /* Căn giữa nội dung hai bên */
+  align-items: center; /* Đưa các phần tử về cùng hàng */
+  background-color: white;
+  border: none;
+}
+
+.order-details {
+  flex: 1; /* Chiếm toàn bộ không gian còn lại bên trái */
+}
+
 .button-cancel1 {
   display: inline-block;
   padding: 10px 20px;
@@ -2860,50 +2878,65 @@ th {
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  white-space: nowrap; /* Đảm bảo nội dung nút không xuống dòng */
 }
+
 .customer-info1,
 .payment-info1 {
   display: flex;
   justify-content: space-between;
 }
+
 .box1 {
   border: 1px solid #000;
   padding: 10px;
   border-radius: 5px;
   width: 48%;
 }
+
 .note1 {
   padding: 10px;
   border: 1px solid #000;
   border-radius: 5px;
 }
+
 .note1 p {
   color: #555;
   color: #000;
 }
+
+.product-info1 {
+  color: #000;
+}
+
 .product-info1 table {
   width: 100%;
   border-collapse: collapse;
 }
+
 .product-info1 th,
 .product-info1 td {
   border: 1px solid #000;
   padding: 10px;
   text-align: left;
 }
+
 .product-info1 th {
   background-color: #f2f2f2;
   font-weight: bold;
 }
+
 .total-info1 {
   display: flex;
   justify-content: flex-end;
   font-size: 18px;
 }
+
 .total-info1 .amount {
   color: #d9534f;
   font-weight: bold;
 }
+
 .button-close1 {
   display: block;
   width: 100%;
