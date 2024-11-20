@@ -56,10 +56,15 @@
                 <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                     <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
-                    </button>
+                    <button type="button" class="filter-btn" onclick="window.location.href='product_search.html'">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                    </button> 
+                    <!-- Nút tìm kiếm nâng cao -->
+                    <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
+                    </button>                
                 </form>
+                
             </div>
             
             
@@ -105,13 +110,31 @@
             </div>
           </div>
         
-    </header>
+    </header> 
     
+<script>
+    function openSearchAdvanced() {
+    const advancedSearch = document.getElementById('advanced-search');
+    if (advancedSearch) {
+        advancedSearch.style.display = 'block'; // Hiển thị bảng
+    }
+}
+
+function closeSearchAdvanced() {
+    const advancedSearch = document.getElementById('advanced-search');
+    if (advancedSearch) {
+        advancedSearch.style.display = 'none'; // Ẩn bảng
+    }
+}
+</script>
+
     <div class="advanced-search" id="advanced-search">
       <div class="container">
-          <div class="advanced-search-category">
+        <div class="advanced-search-category">
+            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
               <span>Phân loại</span>
               <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                <option selected>Tất cả</option>
                   <option>Áo thun</option>
                   <option>Polo</option>
                   <option>Sơ mi</option>
@@ -124,7 +147,7 @@
               <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
               <span>đến</span>
               <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
-              <button id="advanced-search-price-btn" onclick="window.location.href='#'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
+              <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'"><i class="fa-light fa-magnifying-glass-dollar"></i></button>
           </div>
           <div class="advanced-search-control">
               <button id="sort-ascending" onclick="searchProducts(1)">
