@@ -3,7 +3,6 @@ function showOrderDetails(orderId) {
     const orderDetails = {
         "22010124111": {
             tg: "09/11/2024 - 14:30",
-            trangthai: "Giao thành công",
             customerName: "Nguyễn Văn An",
             customerPhone: "095463448",
             receiverName: "Nguyễn Văn An",
@@ -25,7 +24,6 @@ function showOrderDetails(orderId) {
         },
         "22050124171": {
             tg: "10/11/2024 - 14:30",
-            trangthai: "Đã xác nhận",
             customerName: "Lê Văn Bình",
             customerPhone: "096789106",
             receiverName: "Lê Văn Bình",
@@ -47,7 +45,6 @@ function showOrderDetails(orderId) {
         },
         "28359124178": {
             tg: "15/11/2024 - 17:00",
-            trangthai: "Đã hủy",
             customerName: "Lê Lợi",
             customerPhone: "0987073458",
             receiverName: "Lê Lợi",
@@ -87,13 +84,14 @@ function showOrderDetails(orderId) {
                         <span class="text-secondary">NV tư vấn:</span> Admin - admin@gmail.com
                     </p>
                 </div>
- <button class="btn text-white fw-bold p-2 rounded-pill" 
-        style="width: 200px; background-color: #08397a; border: none; text-align: center; pointer-events: none;" 
-        id="status-button">
-    ${order.trangthai}
-</button>
-
-
+     <div class="d-flex justify-content-end">
+                    <select class="form-select text-white fw-bold p-2 rounded-pill" id="status-select" style="width: 200px; background-color: #08397a; border: none; text-align: center;">
+                        <option value="chua_xu_ly">Chưa xử lý</option>
+                        <option value="da_xac_nhan">Đã xác nhận</option>
+                        <option value="giao_thanh_cong">Giao thành công</option>
+                        <option value="da_huy">Đã hủy</option>
+                    </select>
+                </div>
 
             </div>
 
@@ -192,7 +190,9 @@ function showOrderDetails(orderId) {
                     <p class="fw-bold fs-3 text-primary" id="amount-due">${order.amountdue.toLocaleString()}</p>
                 </div>
             </div>
-
+            <button type="button" class="btn btn-primary p-4 fs-4" style="width: 100%; margin-top: 20px; background-color: #08397a; color: white; margin-bottom: 0px;" onclick="saveOrder();">
+    Lưu
+</button>
             <button type="button" class="btn btn-primary p-4 fs-4"  style="width: 100%; margin-top: 20px; background-color: #08397a; color: white;"  onclick="window.location.href='./orderManagement.html';">
                 Đóng
             </button>
@@ -212,3 +212,21 @@ function showOrderDetails(orderId) {
 showOrderDetails("22010124111");
 showOrderDetails("22050124171");  // Hoặc bất kỳ orderId nào từ dữ liệu của bạn
 showOrderDetails("28359124178");
+window.onload = function() {
+    // Lấy orderId từ URL
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('orderId');
+    
+    // Kiểm tra orderId và chọn trạng thái tương ứng
+    if (orderId === '22010124111') {
+        document.getElementById('status-select').value = 'giao_thanh_cong';  // Chọn "Giao thành công"
+    } else if (orderId === '22050124171') {
+        document.getElementById('status-select').value = 'da_xac_nhan'; 
+    } else if (orderId === '28359124178') {
+        document.getElementById('status-select').value = 'da_huy';  
+    }
+};
+function saveOrder() {
+    // Bạn có thể thực hiện lưu dữ liệu ở đây, ví dụ gọi API hoặc lưu vào localStorage
+    alert("Lưu thành công");
+}

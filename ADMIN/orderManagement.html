@@ -292,6 +292,7 @@ button:hover {
                     <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
                 </select>
                 <a href="orderManagement-results.html" 
+                id="filterButton" 
                 class="filter-button" 
                 style="height: 40px; padding: 8px 20px; margin-top: 6px; 
                        display: inline-block; background-color:#08397a; 
@@ -485,7 +486,57 @@ button:hover {
  
     <script src="./main.js"></script> 
     <script src="./toast-message.js"></script>
- 
+    <script>
+        // Khi bấm nút "Lọc", lưu giá trị các trường vào sessionStorage
+        document.getElementById('filterButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Ngừng hành động mặc định (chuyển trang)
+    
+            // Lấy giá trị từ các trường lọc
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const orderStatus = document.getElementById('orderStatus').value;
+            const sortAddress = document.getElementById('sortAddress').value;
+    
+            // Lưu giá trị vào sessionStorage
+            sessionStorage.setItem('startDate', startDate);
+            sessionStorage.setItem('endDate', endDate);
+            sessionStorage.setItem('orderStatus', orderStatus);
+            sessionStorage.setItem('sortAddress', sortAddress);
+    
+            // Chuyển đến trang kết quả lọc
+            window.location.href = 'orderManagement-results.html'; // Thay đổi URL theo trang của bạn
+        });
+    </script>
+<script>
+    document.getElementById('filterButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Ngừng hành động mặc định (chuyển trang)
+
+        // Lấy giá trị từ các trường lọc
+        let startDate = document.getElementById('startDate').value;
+        let endDate = document.getElementById('endDate').value;
+        const orderStatus = document.getElementById('orderStatus').value;
+        const sortAddress = document.getElementById('sortAddress').value;
+
+        // Nếu người dùng không chọn ngày, thiết lập giá trị mặc định
+        if (!startDate) {
+            startDate = '2024-11-09'; // ngày mặc định
+        }
+        if (!endDate) {
+            endDate = '2024-11-15'; // ngày mặc định
+        }
+
+        // Lưu giá trị vào sessionStorage
+        sessionStorage.setItem('startDate', startDate);
+        sessionStorage.setItem('endDate', endDate);
+        sessionStorage.setItem('orderStatus', orderStatus);
+        sessionStorage.setItem('sortAddress', sortAddress);
+
+        // Chuyển đến trang kết quả lọc
+        window.location.href = 'orderManagement-results.html'; // Thay đổi URL theo trang của bạn
+    });
+</script>
+
+    
 
 
 

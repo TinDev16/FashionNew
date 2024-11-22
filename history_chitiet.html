@@ -55,8 +55,12 @@
                 <form action="product_search.html" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                     <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    <button type="button" class="filter-btn" onclick="window.location.href='product_search.html'">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                    </button> 
+                    <!-- Nút tìm kiếm nâng cao -->
+                    <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
                     </button>
                 </form>
             </div>
@@ -103,44 +107,6 @@
               </div>
             </div>
           </div>
-          <div class="advanced-search" id="advanced-search">
-            <div class="container">
-                <div class="advanced-search-category">
-                    <span>Phân loại</span>
-                    <select name="" id="advanced-search-category-select" onchange="searchProducts()">
-                        <option>Áo thun</option>
-                        <option>Polo</option>
-                        <option>Sơ mi</option>
-                        <option>Quần short</option>
-                        <option>Mũ</option>
-                    </select>
-                </div>
-                <div class="advanced-search-price">
-                    <span>Giá từ</span>
-                    <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
-                    <span>đến</span>
-                    <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
-                    <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'">
-                        <i class="fa-light fa-magnifying-glass-dollar"></i>
-                    </button>
-                </div>
-                <div class="advanced-search-control">
-                    <button id="sort-ascending" onclick="searchProducts(1)">
-                        <i class="fa-regular fa-arrow-up-short-wide"></i>
-                    </button>
-                    <button id="sort-descending" onclick="searchProducts(2)">
-                        <i class="fa-regular fa-arrow-down-wide-short"></i>
-                    </button>
-                    <button id="reset-search" onclick="searchProducts(0)">
-                        <i class="fa-light fa-arrow-rotate-right"></i>
-                    </button>
-                    <button onclick="closeSearchAdvanced()">
-                        <i class="fa-light fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
         
     </header>
     <div class="home-title-block" id="home-title">
@@ -152,10 +118,12 @@
        
         
         <div class="order-info1">
-            <p><strong>Đơn Hàng:</strong> 1234567</p>
-            <p>03/11/2024 - 14:00 </p>
+            <div class="order-details">
+                <p><strong>Đơn Hàng:</strong> 1234567</p>
+                <p>03/11/2024 - 14:00</p>
+            </div>
             <a href="#" class="button-cancel1">Đã hoàn thành</a>
-        </div>
+        </div>    
         
         <div class="customer-info1">
             <div class="box1">
@@ -233,7 +201,47 @@
         
         <a href="history.html" class="button-close1">Đóng</a>
     </div>
-   
+    <div class="advanced-search" id="advanced-search">
+        <div class="container">
+            <div class="advanced-search-category">
+                <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
+                <span>Phân loại</span>
+                <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+                    <option selected>Tất cả</option>
+                    <option>Áo thun</option>
+                    <option>Polo</option>
+                    <option>Sơ mi</option>
+                    <option>Quần short</option>
+                    <option>Mũ</option>
+                </select>
+            </div>
+            <div class="advanced-search-price">
+                <span>Giá từ</span>
+                <input type="number" placeholder="tối thiểu" id="min-price" onchange="searchProducts()">
+                <span>đến</span>
+                <input type="number" placeholder="tối đa" id="max-price" onchange="searchProducts()">
+                <button id="advanced-search-price-btn" onclick="window.location.href='product_search.html'">
+                    <i class="fa-light fa-magnifying-glass-dollar"></i>
+                </button>
+            </div>
+            <div class="advanced-search-control">
+                <button id="sort-ascending" onclick="searchProducts(1)">
+                    <i class="fa-regular fa-arrow-up-short-wide"></i>
+                </button>
+                <button id="sort-descending" onclick="searchProducts(2)">
+                    <i class="fa-regular fa-arrow-down-wide-short"></i>
+                </button>
+                <button id="reset-search" onclick="searchProducts(0)">
+                    <i class="fa-light fa-arrow-rotate-right"></i>
+                </button>
+                <button onclick="closeSearchAdvanced()">
+                    <i class="fa-light fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="advanced-search-overlay" id="advanced-search-overlay" onclick="closeSearchAdvanced()"></div>
+
         
     <footer class="footer" id="footer">
 

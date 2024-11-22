@@ -294,6 +294,7 @@ button:hover {
         
                 <a href="orderManagement-results.html" 
                 class="filter-button" 
+                id="filterButton" 
                 style="height: 40px; padding: 8px 20px; margin-top: 6px; 
                        display: inline-block; background-color:#08397a; 
                        color: white; text-align: center; border-radius: 5px; 
@@ -443,7 +444,29 @@ button:hover {
  
     <script src="./main.js"></script> 
     <script src="./toast-message.js"></script>
-
+    <script>
+        // Khi trang mới được tải, điền lại giá trị vào các trường lọc
+        window.onload = function() {
+            const savedStartDate = sessionStorage.getItem('startDate');
+            const savedEndDate = sessionStorage.getItem('endDate');
+            const savedOrderStatus = sessionStorage.getItem('orderStatus');
+            const savedSortAddress = sessionStorage.getItem('sortAddress');
+    
+            // Điền lại giá trị vào các trường lọc nếu có
+            if (savedStartDate) {
+                document.getElementById('startDate').value = savedStartDate;
+            }
+            if (savedEndDate) {
+                document.getElementById('endDate').value = savedEndDate;
+            }
+            if (savedOrderStatus) {
+                document.getElementById('orderStatus').value = savedOrderStatus;
+            }
+            if (savedSortAddress) {
+                document.getElementById('sortAddress').value = savedSortAddress;
+            }
+        };
+    </script>
 
 
 

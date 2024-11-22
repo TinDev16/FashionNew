@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
-
 </head>
 <body>
     <header>
@@ -37,15 +36,8 @@
         <a href="index.html">Mũ</a>
     </div>
 </li>
-        <li><a href="user.html"><i class="menu-icon fa-solid fa-user"></i> Người dùng</a></li>
-        <li><a href="#footer"><i class="menu-icon fa-solid fa-receipt"></i> Đơn hàng</a></li>
-        <li class="dropdown">
-    <a href="thongke.html" class="dropbtn"><i class="menu-icon fa-solid fa-tshirt"></i> Thống kê</a>
-    <div class="dropdown-content">
-	    <a href="thongke.html">thống kê đơn hàng</a>
-        <a href="thongkenguoidung.html">Thống kê người dùng</a>
-    </div>
-</li>    </ul>
+</li>
+    </ul>
     </div>
     
       
@@ -60,8 +52,12 @@
                 <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">
                     <span class="search-btn"><i class="fa-light fa-magnifying-glass"></i></span>
                     <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm..." id="search-input">
-                    <button type="button" class="filter-btn" onclick="openSearchAdvanced()">
-                        <i class="fa-light fa-filter-list"></i><span>Lọc</span>
+                    <button type="button" class="filter-btn" onclick="window.location.href='#'">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>
+                    </button> 
+                    <!-- Nút tìm kiếm nâng cao -->
+                    <button type="button" class="advanced-search-btn" onclick="openSearchAdvanced()">
+                        <i class="fa-solid fa-filter"></i><span>Tìm nâng cao</span>
                     </button>
                 </form>
             </div>
@@ -87,6 +83,11 @@
                     </div>
 <ul class="header-middle-right-menu">
     <li><a id="account-info" href="thongtinADMIN.html"><i class="fa-solid fa-user-circle"></i> Thông tin ADMIN</a></li> <!-- Biểu tượng thông tin tài khoản -->
+    <li><a id="account-info" href="user.html"><i class="fa-solid fa-users"></i> Quản lý người dùng</a></li> 
+    <li><a id="account-info" href="orderManagement.html"><i class="fa-solid fa-box"></i> Quản lý đơn hàng</a></li> 
+    <li><a id="account-info" href="thongke.html"><i class="fa-solid fa-chart-line"></i> Thống kê đơn hàng</a></li> 
+    <li><a id="account-info" href="thongkenguoidung.html"><i class="fa-solid fa-user-chart"></i> Thống kê người dùng</a></li> 
+    
 </ul>
                 </li>
                 
@@ -102,13 +103,15 @@
     <div class="advanced-search" id="advanced-search">
       <div class="container">
           <div class="advanced-search-category">
-              <span>Phân loại</span>
-              <select name="" id="advanced-search-category-select" onchange="searchProducts()">
-                  <option>Áo thun</option>
-                  <option>Polo</option>
-                  <option>Sơ mi</option>
-                  <option>Quần short</option>
-                  <option>Mũ</option>
+            <input type="text" class="form-search-input" placeholder="Tìm kiếm sản phẩm theo tên" id="search-input">
+            <span>Phân loại</span>
+            <select name="" id="advanced-search-category-select" onchange="searchProducts()">
+              <option selected>Tất cả</option>
+                <option>Áo thun</option>
+                <option>Polo</option>
+                <option>Sơ mi</option>
+                <option>Quần short</option>
+                <option>Mũ</option>
               </select>
           </div>
           <div class="advanced-search-price">
@@ -169,7 +172,7 @@
                     <div class="status">
                         <div class="info">
                             <h3>Bán Chạy nhất</h3>
-                            <h1>Áo Thun</h1>
+                            <h1>Áo Thun Nam Trơn</h1>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -185,7 +188,7 @@
                     <div class="status">
                         <div class="info">
                             <h3>Bán ế nhất</h3>
-                            <h1>Mũ</h1>
+                            <h1>Nón Lưỡi Trai Snapback</h1>
                         </div>
                         <div class="progresss">
                             <svg>
@@ -213,31 +216,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Áo Thun</td>
+                            <td>Áo Thun Nam Trơn</td>
                             <td>8</td>
                             <td>2.400.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
-                            <td>Áo Polo</td>
+                            <td>Áo Thun Nam Họa Tiết In Thêu Đắp</td>
                             <td>5</td>
                             <td>1.600.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
-                            <td>Áo Sơ Mi</td>
+                            <td>Áo Thun Nam Phim Điện Ảnh Cám Hoạ</td>
                             <td>8</td>
                             <td>2.600.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
-                            <td>Quần Short</td>
+                            <td>Áo Thun Nam Họa Tiết In Araneae</td>
                             <td>10</td>
                             <td>12.800.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
-                            <td>Mũ</td>
+                            <td>Nón Lưỡi Trai Snapback</td>
                             <td>5</td>
                             <td>4.000.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
