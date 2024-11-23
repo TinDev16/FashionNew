@@ -311,4 +311,199 @@
     }
   }
   
-  
+  /* responsive.css */
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    .edit-product-form {
+        flex-direction: column;
+        width: 90%;
+        padding: 15px;
+    }
+
+    #productForm {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-left,
+    .form-right {
+        width: 100%;
+    }
+
+    .product-image-preview {
+        max-width: 150px;
+    }
+
+    .image-item {
+        width: 70px;
+    }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+    .product-image-preview {
+        max-width: 100px;
+    }
+
+    .image-item {
+        width: 50px;
+    }
+
+    button {
+        font-size: 14px;
+        height: 35px;
+        padding: 0 15px;
+    }
+
+    .form-right label {
+        font-size: 14px;
+    }
+}
+/*-------------------------------------------------------*/
+/* Responsive CSS */
+
+/* Màn hình nhỏ hơn 1024px: điều chỉnh bố cục */
+@media (max-width: 1024px) {
+    .edit-product-form {
+        flex-direction: column; /* Chuyển thành bố cục dọc */
+        width: 90%; /* Tăng chiều rộng để phù hợp màn hình */
+    }
+
+    #productForm {
+        flex-direction: column;
+        gap: 10px; /* Khoảng cách nhỏ hơn giữa các phần */
+    }
+
+    .form-left,
+    .form-right {
+        width: 100%; /* Mỗi phần chiếm toàn bộ chiều rộng */
+    }
+
+    .form-right textarea {
+        height: 100px; /* Đặt chiều cao cố định cho textarea */
+    }
+}
+
+/* Màn hình nhỏ hơn 768px: tối ưu trên điện thoại */
+@media (max-width: 768px) {
+    .edit-product-form {
+        padding: 10px;
+    }
+
+    .form-left {
+        align-items: flex-start; /* Canh trái hình ảnh */
+    }
+
+    .product-image-preview {
+        width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+        max-width: 300px; /* Đặt giới hạn chiều rộng */
+    }
+
+    .upload-btn {
+        width: 100%; /* Nút thêm ảnh chiếm toàn bộ chiều rộng */
+    }
+
+    .form-right label {
+        font-size: 14px; /* Giảm kích thước chữ của nhãn */
+    }
+
+    .form-right input[type="text"],
+    .form-right input[type="number"],
+    .form-right textarea {
+        font-size: 14px; /* Giảm kích thước chữ trong các input */
+        padding: 8px; /* Thu nhỏ padding */
+    }
+
+    .edit-product-form button[type="submit"],
+    .cancel-btn {
+        font-size: 14px; /* Giảm kích thước chữ trên nút */
+        padding: 8px 12px; /* Thu nhỏ padding của nút */
+    }
+}
+
+/* Màn hình nhỏ hơn 480px: tối ưu trên điện thoại rất nhỏ */
+@media (max-width: 480px) {
+    .product-image-preview {
+        width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+        height: auto; /* Tự động điều chỉnh chiều cao */
+    }
+
+    .form-right textarea {
+        font-size: 12px; /* Giảm kích thước chữ cho textarea */
+        padding: 5px; /* Thu nhỏ padding */
+    }
+
+    .edit-product-form button[type="submit"],
+    .cancel-btn {
+        font-size: 12px; /* Giảm kích thước nút thêm sản phẩm */
+    }
+}
+/*--------------------------------*/
+/* Responsive CSS */
+
+/* Màn hình dưới 1024px */
+@media (max-width: 1024px) {
+    .user-form {
+        width: 90%; /* Giảm chiều rộng form */
+        margin: 0 auto; /* Căn giữa form */
+        padding: 15px; /* Giảm padding */
+    }
+
+    .user-form input[type="text"],
+    .user-form input[type="email"],
+    .user-form input[type="tel"] {
+        font-size: 14px; /* Giảm kích thước chữ */
+        padding: 8px; /* Giảm padding */
+    }
+
+    .user-form button {
+        font-size: 14px; /* Giảm kích thước nút */
+        padding: 8px 12px; /* Giảm kích thước padding nút */
+    }
+}
+
+/* Màn hình dưới 768px */
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 20px; /* Giảm kích thước tiêu đề */
+        text-align: center;
+    }
+
+    .user-form {
+        width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+        padding: 10px;
+    }
+
+    .user-form input[type="text"],
+    .user-form input[type="email"],
+    .user-form input[type="tel"] {
+        font-size: 12px; /* Giảm hơn nữa kích thước chữ */
+        padding: 6px; /* Giảm padding input */
+    }
+
+    .user-form button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+/* Màn hình dưới 480px */
+@media (max-width: 480px) {
+    .home-title {
+        font-size: 18px; /* Tiêu đề nhỏ hơn */
+        text-align: center;
+    }
+
+    .user-form input[type="text"],
+    .user-form input[type="email"],
+    .user-form input[type="tel"] {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .user-form button {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+}
