@@ -11,6 +11,42 @@
     <link rel="stylesheet" href="home-responsive.css">
     <link rel="stylesheet" href="toast-message.css">
     <link rel="stylesheet" href="./font/font-awesome-pro-v6-6.2.0/css/all.min.css"/>
+		<style>
+/* Đặt chiều rộng 100% cho toàn bộ filter */
+#filterForm {
+  display: flex;
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+  flex-wrap: nowrap; /* Không xuống hàng mặc định */
+  width: 100%; /* Dài toàn màn hình */
+  box-sizing: border-box; /* Bao gồm cả padding trong width */
+  padding: 10px; /* Thêm padding nếu cần */
+}
+
+.filter-item {
+  display: inline-flex;
+  align-items: center;
+  flex: 1; /* Mỗi phần tử con chiếm đều khoảng trống */
+}
+
+.filter-input {
+  width: 100%; /* Chiều rộng của input sẽ giãn theo phần tử cha */
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px; /* Thêm padding nếu cần */
+}
+
+/* Responsive cho màn hình nhỏ (điện thoại) */
+@media (max-width: 768px) {
+  #filterForm {
+    flex-direction: column; /* Các phần tử xếp dọc */
+    gap: 5px; /* Giảm khoảng cách giữa các phần tử */
+  }
+
+  .filter-item {
+    width: 100%; /* Phần tử con cũng full chiều ngang */
+  }
+}
+</style>
 
 </head>
 <body>
@@ -146,8 +182,14 @@
             <h2 class="home-title">THỐNG KÊ NGƯỜI DÙNG</h2>
         </div>
 
-<p style="display: inline; margin: 0 10px 0 0;">Từ ngày <input value="01-11-2024" style="width: 100px; text-align: center;"></p>
-<p style="display: inline; margin: 0;">Đến ngày <input value="30-11-2024" style="width: 100px; text-align: center;"></p>
+<div id="filterForm">
+  <p style="display: inline;">Từ ngày 
+    <input value="01-11-2024" style="width: 100px; text-align: center;">
+  </p>
+  <p style="display: inline;">Đến ngày 
+    <input value="30-11-2024" style="width: 100px; text-align: center;">
+	</p>
+	</div>
 
 
 <p style="text-align: left; color: blue; margin: 20px 0; padding: 10px; border: 0px solid red; font-size: 24px;">

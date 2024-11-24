@@ -2891,15 +2891,4 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
 }​21:20/-strong/-heart:>:o:-((:-h 
 
-	    <style>
-        #filterForm {
-            margin: 20px; /* Khoảng cách quanh form */
-        }
-        
-        .form-container {
-            margin-top: 20px; /* Khoảng cách phía trên */
-        }
-        #dateInputs {
-            display: none;
-        }
-    </style>
+

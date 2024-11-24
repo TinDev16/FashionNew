@@ -22,7 +22,39 @@
         #dateInputs {
             display: none;
         }
+/* Style mặc định cho form */
+#filterForm {
+  display: flex; /* Sử dụng flexbox để sắp xếp các phần tử theo hàng */
+  align-items: center; /* Căn giữa theo trục dọc */
+  justify-content: flex-start; /* Căn trái các phần tử */
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+}
 
+/* Style cho từng thành phần */
+#filterForm label,
+#filterForm input,
+#filterForm button {
+  margin: 0; /* Xóa khoảng cách mặc định giữa các thành phần */
+}
+
+/* Style Responsive cho Mobile (nếu cần) */
+@media (max-width: 768px) {
+  #filterForm {
+    flex-direction: column; /* Hiển thị dạng cột trên di động */
+    align-items: flex-start;
+    gap: 15px; /* Tăng khoảng cách cho di động */
+  }
+
+  #filterForm label,
+  #filterForm input,
+  #filterForm button {
+    width: 100%; /* Chiều rộng full màn hình */
+  }
+
+  #filterForm button {
+    align-self: center; /* Canh giữa nút "Xác nhận" */
+  }
+}
    
     </style>
 </head>

@@ -2816,6 +2816,86 @@ tr:last-child td:last-child {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
 }​21:20/-strong/-heart:>:o:-((:-h 
 
+        .main-wrapper {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
+        .confirmation-dialog {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hộp thoại không hiển thị ban đầu */
+            border-radius: 8px;
+        }
+
+        .dialog-content {
+            text-align: center;
+        }
+
+        .dialog-content button {
+            margin: 5px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dialog-content .confirm-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .dialog-content .cancel-btn {
+            background-color: #b5292f;
+            color: white;
+        }
+		    .button-container {
+        text-align: right; /* Căn chỉnh nội dung bên phải */
+        margin: 0px 0; /* Khoảng cách trên và dưới cho container */
+    }
+
+.add-product-button {
+    background-color:  #b5292f; 
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không viền */
+    border-radius: 5px; /* Bo tròn nhỏ hơn */
+    padding: 8px 16px; /* Giảm padding bên trong */
+    cursor: pointer; /* Con trỏ chuột hình tay */
+    font-size: 14px; /* Giảm kích thước chữ */
+    margin: 0; /* Không có margin cho button */
+    margin-top: 15px; /* Giữ khoảng cách trên cho button */
+    margin-right: 10px; /* Điều chỉnh khoảng cách bên phải để xích vào thêm */
+}
+
+    .add-product-button:hover {
+        background-color: #D1C4E9;
+    }
+
+    .product-content {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .products {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0;
+    }
+
+    .product {
+        margin: 0; /* Xóa khoảng cách mặc định */
+        padding: 0px; /* Thêm padding nếu cần */
+        border: 1px solid #ccc; /* Nếu bạn muốn viền cho sản phẩm */
+    }
+	
+	
 
 
