@@ -1382,36 +1382,128 @@ a:link, a:visited {
     }
 }
 
+/* ----------- Tablet (768px) ----------- */
 @media (max-width: 768px) {
+    .cart-content-header,
+    .cart-content,
+    .total {
+        padding: 15px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+    }
+
     .cart-content-header thead th,
     .cart-content-middle tbody td {
         font-size: 12px;
     }
 
+    .cart-content-middle input[type="checkbox"] {
+        margin-left: 5px;
+    }
+
     .cart-content-middle .product-info span {
-        width: 120px;
+        width: 75px;
         overflow-wrap: break-word;
+        font-size: 16px;
+    }
+
+    .quantity {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .quantity input {
-        width: 40px;
+        width: 25px;
+        height: 15px;
+        text-align: center;
+        border-radius: 4px;
     }
 
     .minus-button,
     .add-button {
+        display: flex; /* Đảm bảo nút trở thành flex container */
+        justify-content: center;
+        align-items: center;
         width: 25px;
-        height: 20px;
-        font-size: 9px;
+        height: 20px; /* Tăng chiều cao để cân đối */
+        font-size: 14px; /* Đảm bảo ký tự dễ đọc */
+        font-weight: bold;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #f2f2f2;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    .quantity input[type="number"] {
-        width: 25px;
+    .minus-button {
+        margin-left: 10px;
     }
 
-    .cart-content-middle .price {
-        font-size: 15px;
-        padding-left: 20px;
-        padding-right: 20px;
+    .add-button {
+        margin-right: 10px;
+    }
+
+    .cart-content-middle td img {
+        max-width: 90px;
+        margin-right: 10px;
+    }
+
+    .deleteButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .deleteButton svg {
+        width: 60%;
+    }
+
+    .total h2 {
+        font-size: 20px;
+    }
+
+    .checkout-btn {
+        width: 100%;
+        font-size: 18px;
+        padding: 12px;
+        background-color: #08397a;
+        border-radius: 8px;
+    }
+}
+
+/* ----------- Mobile (480px) ----------- */
+@media (max-width: 480px) {
+    .cart-content-header,
+    .cart-content,
+    .total {
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .cart-content-header thead th,
+    .cart-content-middle tbody td {
+        font-size: 11px;
+    }
+
+    .cart-content-middle .product-info span {
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .cart-content-middle td img {
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .quantity input,
+    .minus-button,
+    .add-button {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
     }
 
     .deleteButton {
@@ -1420,42 +1512,32 @@ a:link, a:visited {
     }
 
     .deleteButton svg {
-        width: 35%;
+        width: 50%;
     }
 
-    .total {
-        padding: 15px 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .cart-content-header,
-    .cart-content,
-    .total {
-        padding: 10px 0;
-    }
-
-    .cart-content-header thead th,
-    .cart-content-middle tbody td {
-        font-size: 10px;
-    }
-
-    .cart-content-middle .product-info span {
-        width: 70px;
-        overflow-wrap: break-word;
-    }
-
-    .cart-content-middle td img {
-        width: 50px;
+    .total h2 {
+        font-size: 18px;
     }
 
     .checkout-btn {
-        padding: 8px 15px;
+        padding: 10px;
+        font-size: 16px;
     }
+}
 
-    .cart-content-middle .price {
-        font-size: 15px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+/* ----------- Hover Effects ----------- */
+.cart-content-header:hover,
+.cart-content:hover,
+.total:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* ----------- Tooltip Enhancements ----------- */
+.tooltip {
+    font-size: 12px;
+    padding: 8px 12px;
+    background: #333;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
