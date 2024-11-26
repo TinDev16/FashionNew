@@ -1497,12 +1497,13 @@ a:link, a:visited {
     }
 
     .cart-content-header thead th.products {
-        padding-right: 0;
+        padding-left: 0;
+        padding-right: 10px;
     }
     
     .cart-content-header thead th.prices {
-        padding-left: 0;
-        padding-right: 5px;
+        padding: 5px 0;
+        padding-right: 10px;
     }
 
     .cart-content-header thead th.quantities {
@@ -1510,27 +1511,34 @@ a:link, a:visited {
     }
 
     .cart-content-header thead th.prices-sum {
-        padding-left: 15px;
+        padding-left: 25px;
     }
 
     .cart-content-header thead th.actions {
-        padding-left: 15px;
+        padding-left: 20px;
     }
     
     .cart-content-middle .product-info span {
-        width: 60px;
+        width: 55px;
         font-size: 12px;
         overflow-wrap: break-word;
+        margin-right: 5px;
     }
 
     .cart-content-middle .price {
-        font-size: 13px;
-        margin-left: 5px;
+        font-size: 12px;
     }
 
     .cart-content-middle td img {
-        width: 45px;
+        width: 50px;
         height: auto;
+        margin-right: 0;
+    }
+
+    .quantity {
+        margin-left: -20px;
+        margin-right: -10px;
+        width: 30%;
     }
 
     .quantity input,
@@ -1546,7 +1554,7 @@ a:link, a:visited {
     }
 
     .add-button {
-        margin-right: 10px;
+        margin-right: 5px;
     }
 
     .deleteButton {
@@ -1555,7 +1563,7 @@ a:link, a:visited {
     }
 
     .deleteButton svg {
-        width: 45%;
+        width: 35%;
     }
 
     .total h2 {
@@ -1567,8 +1575,8 @@ a:link, a:visited {
     }
 
     .checkout-btn {
-        width: 25%;
+        width: 30%;
         padding: 10px 20px;
-        font-size: 15px;
+        font-size: 14px;
     }
 }
