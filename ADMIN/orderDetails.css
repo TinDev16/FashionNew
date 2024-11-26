@@ -1037,12 +1037,12 @@ a:link, a:visited {
     text-decoration: none;
 }
 
-  /* Container tổng thể */
-  #status-select {
+ /* Container tổng thể */
+#status-select {
     width: 200px; /* Chiều rộng dropdown */
     padding: 10px; /* Khoảng cách bên trong */
     font-size: 16px; /* Kích thước chữ */
-    border: 2px solid #007bff; /* Đường viền màu xanh lam */
+    border: 2px solid #08397a; /* Đường viền màu xanh lam */
     border-radius: 8px; /* Bo góc */
     background-color: #f9f9f9; /* Màu nền */
     color: #333; /* Màu chữ */
@@ -1050,25 +1050,25 @@ a:link, a:visited {
     -webkit-appearance: none; /* Dành cho Safari */
     -moz-appearance: none; /* Dành cho Firefox */
   }
-
-  /* Thêm biểu tượng mũi tên */
+  
+  /* Giữ màu viền không thay đổi khi focus */
   #status-select:focus {
     outline: none; /* Xóa viền xanh mặc định khi focus */
-    border-color: #0056b3; /* Đổi màu đường viền khi focus */
+    border-color: #08397a; /* Duy trì màu đường viền */
   }
-
+  
   /* Tùy chỉnh tùy chọn (option) */
   #status-select option {
     padding: 8px;
     font-size: 16px;
   }
-
+  
   /* Đặt vùng chứa bao ngoài để thêm biểu tượng mũi tên đẹp */
   .dropdown-container {
     position: relative;
     display: inline-block;
   }
-
+  
   .dropdown-container::after {
     content: '▼'; /* Biểu tượng mũi tên */
     position: absolute;
@@ -1076,10 +1076,7 @@ a:link, a:visited {
     right: 10px;
     transform: translateY(-50%);
     font-size: 12px;
-    color: #007bff;
+    color: #08397a;
     pointer-events: none; /* Vô hiệu hóa nhấp chuột vào mũi tên */
   }
-
-
-
-
+  
