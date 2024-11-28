@@ -21,6 +21,81 @@
                 <!-- Nút mở menu -->
     <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
     
+    <script>
+        
+function toggleMenu() {
+    const sidebarMenu = document.getElementById("sidebarMenu");
+  
+    // Kiểm tra vị trí hiện tại của sidebarMenu
+    if (sidebarMenu.style.left === "0px") {
+      // Nếu đang hiển thị, ẩn đi bằng cách di chuyển nó ra ngoài màn hình
+      sidebarMenu.style.left = "-300px";
+    } else {
+      // Nếu đang ẩn, hiển thị bằng cách di chuyển nó vào trong màn hình
+      sidebarMenu.style.left = "0px";
+    }
+  }
+  
+  function toggleMenu() {
+    const sidebarMenu = document.getElementById("sidebarMenu");
+  
+    // Kiểm tra vị trí hiện tại của sidebarMenu
+    if (sidebarMenu.style.left === "0px") {
+      sidebarMenu.style.left = "-300px";
+    } else {
+      sidebarMenu.style.left = "0px";
+    }
+  }
+  
+  document
+    .getElementById("basic-search-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const query = document
+        .getElementById("basic-search-input")
+        .value.toLowerCase();
+      const products = document.querySelectorAll(".product");
+      products.forEach((product) => {
+        const productName = product.querySelector("h3").textContent.toLowerCase();
+        if (productName.includes(query)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  
+  document
+    .getElementById("advanced-search-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const query = document
+        .getElementById("advanced-search-input")
+        .value.toLowerCase();
+      const category = document.getElementById("category-filter").value;
+      const minPrice =
+        parseFloat(document.getElementById("min-price").value) || 0;
+      const maxPrice =
+        parseFloat(document.getElementById("max-price").value) || Infinity;
+      const products = document.querySelectorAll(".product");
+      products.forEach((product) => {
+        const productName = product.querySelector("h3").textContent.toLowerCase();
+        const productCategory = product.dataset.category;
+        const productPrice = parseFloat(product.dataset.price);
+        if (
+          productName.includes(query) &&
+          (category === "" || productCategory === category) &&
+          productPrice >= minPrice &&
+          productPrice <= maxPrice
+        ) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  
+        </script>
     <!-- Thanh menu ẩn -->
     <div id="sidebarMenu" class="sidebar-menu">
     <button class="close-button" onclick="toggleMenu()">×</button>
