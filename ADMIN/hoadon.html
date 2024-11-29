@@ -144,17 +144,34 @@
             <h2 class="home-title">HÓA ĐƠN</h2>
         </div>
 		
-		<div class="header-middle-center" style="padding: 10px; max-width: 600px; margin: 0 auto;">
-    <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)" style="display: flex; align-items: center;">
-        <span class="search-btn" style="cursor: pointer; margin-right: 5px;">
-            <a href="hoadon.html">
-    <i class="fa-light fa-magnifying-glass"></i>
-</a>
-        </span>
-        <input type="text" class="form-search-input" placeholder="Nhập mã hóa đơn hoặc ID khách hàng" id="search-input" style="flex: 1; padding: 5px; margin-right: 5px;" onkeypress="if (event.key === 'Enter') location.href='hoadon.html';">
-        </button>
-    </form>
-</div>
+<div class="header-middle-center" >  
+    <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">  
+        <span class="search-btn" style="cursor: pointer;" onclick="redirectToUserPage()">  
+            <i class="fa-light fa-magnifying-glass"></i>  
+        </span>  
+        <input type="text" class="form-search-input" placeholder="Nhập mã hóa đơn hoặc ID khách hàng" id="search-input"   
+               onkeypress="if (event.key === 'Enter') redirectToUserPage();">  
+        <button type="button" class="filter-btn" onclick="redirectToUserPage()">  
+            <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>  
+        </button>   
+    </form>  
+</div>  
+
+<script>  
+    function redirectToUserPage() {  
+        // Here you can also handle the input or any validation if needed  
+        const searchInput = document.getElementById('search-input').value;  
+        // Optionally, you could append the search value to the URL if you want to keep it  
+        const url = searchInput ? `user.html?query=${encodeURIComponent(searchInput)}` : 'user.html';  
+        location.href = url; // Redirect to user.html  
+    }  
+    
+    function handleSearchSubmit(event) {  
+        event.preventDefault(); // Prevent default form submission  
+        redirectToUserPage(); // Call the redirect function  
+        return false; // Return false to prevent further action  
+    }  
+</script>
         <!-- Main Content -->
         <main>
             <!-- Recent Orders Table -->
