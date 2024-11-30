@@ -360,6 +360,30 @@
         font-size: 14px;
     }
 }
+/* Responsive cho màn hình nhỏ hơn 350px */  
+@media (max-width: 350px) {  
+    .edit-product-form {  
+        padding: 10px; /* Giảm padding nếu cần */  
+    }  
+
+    .product-image-preview {  
+        max-width: 80px; /* Giảm kích thước hình ảnh xem trước */  
+    }  
+
+    .image-item {  
+        width: 40px; /* Kích thước hình ảnh nhỏ hơn */  
+    }  
+
+    button {  
+        font-size: 12px; /* Giảm kích thước chữ trên nút */  
+        height: 30px; /* Giảm chiều cao nút */  
+        padding: 0 10px; /* Điều chỉnh padding */  
+    }  
+
+    .form-right label {  
+        font-size: 12px; /* Giảm kích thước chữ trên label */  
+    }  
+}
 /*-------------------------------------------------------*/
 /* Responsive CSS */
 
@@ -438,6 +462,46 @@
     .cancel-btn {
         font-size: 12px; /* Giảm kích thước nút thêm sản phẩm */
     }
+}
+/* Màn hình nhỏ hơn 350px: tối ưu cho các thiết bị nhỏ */  
+@media (max-width: 350px) {  
+    .edit-product-form {  
+        padding: 5px; /* Giảm padding để tiết kiệm không gian */  
+    }  
+
+    .product-image-preview {  
+        max-width: 80px; /* Giảm kích thước ảnh xem trước */  
+        width: auto; /* Ảnh tự động điều chỉnh với max-width */  
+        height: auto; /* Chiều cao tự động */  
+    }  
+
+    .form-left,  
+    .form-right {  
+        width: 100%; /* Đảm bảo mỗi phần chiếm toàn bộ chiều rộng */  
+    }  
+
+    .form-right input[type="text"],  
+    .form-right input[type="number"],  
+    .form-right textarea {  
+        font-size: 12px; /* Giảm kích thước chữ cho input và textarea */  
+        padding: 5px; /* Thu nhỏ padding */  
+    }  
+
+    .form-right label {  
+        font-size: 12px; /* Giảm kích thước chữ cho label */  
+    }  
+
+    .edit-product-form button[type="submit"],  
+    .cancel-btn {  
+        font-size: 12px; /* Giảm kích thước nút */  
+        padding: 6px 10px; /* Điều chỉnh padding của nút */  
+        width: 100%; /* Nút chiếm toàn bộ chiều rộng */  
+    }  
+
+    .upload-btn {  
+        padding: 6px 10px; /* Giảm padding cho nút tải lên */  
+        font-size: 12px; /* Giảm kích thước chữ cho nút thêm ảnh */  
+    }  
 }
 /*--------------------------------*/
 /* Responsive CSS */
@@ -612,6 +676,59 @@
     }
 
 }
+/* Màn hình dưới 350px: tối ưu hóa cho thiết bị rất nhỏ */  
+@media (max-width: 350px) {  
+    .home-title {  
+        font-size: 16px; /* Giảm kích thước tiêu đề */  
+        text-align: center; /* Giữ căn giữa */  
+    }  
+
+    .user-form {  
+        padding: 5px; /* Giảm padding cho form */  
+    }  
+
+    .user-form input[type="text"],  
+    .user-form input[type="email"],  
+    .user-form input[type="tel"] {  
+        font-size: 10px; /* Giảm kích thước chữ trong input */  
+        padding: 4px; /* Giảm padding trong input */  
+    }  
+
+    .user-form button {  
+        font-size: 10px; /* Giảm kích thước nút */  
+        padding: 4px 8px; /* Giảm kích thước padding nút */  
+    }  
+
+    .table-user {  
+        font-size: 10px; /* Giảm kích thước chữ cho bảng */  
+    }  
+
+    .table-user th, .table-user td {  
+        padding: 4px; /* Giảm padding trong bảng */  
+    }  
+
+    .confirmation-dialog {  
+        width: 95%; /* Đảm bảo hộp thoại không quá rộng */  
+        padding: 10px; /* Giảm padding cho hộp thoại */  
+    }  
+
+    .add-product-button {  
+        font-size: 12px; /* Giảm kích thước chữ cho nút thêm sản phẩm */  
+        padding: 6px 12px; /* Điều chỉnh padding của nút */  
+    }  
+
+    .main-wrapper {  
+        padding: 5px; /* Giảm padding cho khung chính */  
+    }  
+
+    .header-middle-center {  
+        padding: 2px; /* Giảm padding cho khung tìm kiếm */  
+    }  
+
+    .product-content {  
+        font-size: 12px; /* Thay đổi kích thước chữ cho nội dung sản phẩm */  
+    }  
+}
 /*-----------------------------------------*/
 /* responsive.css */
 
@@ -663,6 +780,44 @@
   .sales, .visits, .searches {
     padding: 10px; /* Thu hẹp khung */
   }
+  /* Độ phân giải dưới 350px: tối ưu hóa cho thiết bị rất nhỏ */  
+@media (max-width: 350px) {  
+  .home-title {  
+    font-size: 14px; /* Giảm kích thước tiêu đề chính */  
+  }  
+
+  .info h1 {  
+    font-size: 18px; /* Giảm kích thước chữ tiêu đề */  
+  }  
+
+  button {  
+    font-size: 10px; /* Giảm kích thước nút */  
+    padding: 4px 6px; /* Giảm padding của nút */  
+  }  
+
+  input.form-search-input {  
+    font-size: 10px; /* Giảm kích thước chữ của input tìm kiếm */  
+    padding: 3px; /* Giảm padding trong input */  
+  }  
+
+  .recent-orders table {  
+    font-size: 10px; /* Giảm kích thước chữ trong bảng */  
+  }  
+
+  .recent-orders th,   
+  .recent-orders td {  
+    padding: 4px; /* Giảm padding trong các ô bảng */  
+  }  
+
+  .analyse {  
+    padding: 5px; /* Giảm padding cho khu vực phân tích */  
+    grid-template-columns: 1fr; /* Đảm bảo khu vực phân tích vẫn thành hàng */  
+  }  
+
+  .sales, .visits, .searches {  
+    padding: 8px; /* Giảm padding khung cho các khu vực */  
+  }  
+}
 /*-------------------------------*/
 /* Responsive cho các thiết bị nhỏ hơn 768px (mobile) */
 @media (max-width: 768px) {
@@ -772,3 +927,243 @@
     padding: 3px 6px; /* Thu nhỏ nút */
   }
 }
+/* Responsive cho các thiết bị nhỏ hơn 350px: tối ưu hóa cho màn hình rất nhỏ */  
+@media (max-width: 350px) {  
+  .home-title {  
+    font-size: 14px; /* Giảm kích thước tiêu đề xuống */  
+  }  
+
+  .recent-orders h2 {  
+    font-size: 14px; /* Giảm kích thước chữ tiêu đề bảng */  
+  }  
+
+  .recent-orders table,  
+  .recent-orders th,  
+  .recent-orders td {  
+    font-size: 9px; /* Giảm kích thước chữ trong bảng */  
+  }  
+
+  .form-search-input {  
+    font-size: 10px; /* Giảm kích thước chữ trong input tìm kiếm */  
+    padding: 3px; /* Giảm padding cho input */  
+  }  
+
+  button {  
+    font-size: 8px; /* Giảm kích thước nút */  
+    padding: 2px 4px; /* Giảm padding nút */  
+  }  
+
+  .analyse {  
+    padding: 5px; /* Giảm padding cho khu vực phân tích */  
+    grid-template-columns: 1fr; /* Đảm bảo khu vực phân tích vẫn ở dạng hàng */  
+  }  
+}
+
+/* Responsive Design for 360px specifically */
+@media (max-width: 360px) {
+  /* Thêm padding và margin hợp lý */
+  .main-wrapper {
+    padding-top: 20px;
+  }
+
+  .home-title {
+    font-size: 18px; /* Thu nhỏ tiêu đề */
+  }
+
+  .recent-orders table {
+    font-size: 11px; /* Kích thước nhỏ hơn nữa cho bảng */
+  }
+
+  button {
+    font-size: 10px; /* Kích thước nhỏ hơn cho nút */
+  }
+
+  .progresss svg {
+    width: 40px; /* Nhỏ hơn nữa cho SVG */
+    height: 40px;
+  }
+
+  .percentage {
+    font-size: 12px; /* Kích thước nhỏ cho phần trăm */
+  }
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Responsive Table */
+.recent-orders table {
+  display: block; /* Đặt bảng thành khối để cho phép cuộn */
+  width: 100%; /* Đảm bảo bảng chiếm đủ chiều rộng */
+  overflow-x: auto; /* Thêm cuộn ngang nếu bảng quá lớn */
+  white-space: nowrap; /* Không cho chữ xuống dòng trong ô */
+}
+
+.recent-orders table thead {
+  display: table; /* Hiển thị tiêu đề bảng bình thường */
+  width: 100%; /* Đảm bảo tiêu đề cũng cuộn cùng bảng */
+}
+
+.recent-orders table tbody {
+  display: table; /* Giữ nguyên kiểu của thân bảng */
+  width: 100%; /* Đảm bảo thân bảng cũng cuộn */
+}
+
+.recent-orders table td,
+.recent-orders table th {
+  text-align: left;
+  padding: 8px;
+  font-size: 12px; /* Giảm kích thước chữ trên màn hình nhỏ */
+}
+
+.recent-orders table th {
+  background-color: #f9f9f9; /* Giữ tiêu đề dễ nhìn */
+  position: sticky; /* Giữ cố định tiêu đề khi cuộn ngang */
+  top: 0;
+  z-index: 1; /* Đảm bảo tiêu đề luôn hiển thị trên các dòng */
+}
+
+/* Table Row Hover Effect */
+.recent-orders table tr:hover {
+  background-color: #f1f1f1; /* Hiệu ứng khi hover trên dòng */
+}
+
+/* Làm bảng cuộn ngang */
+  .recent-orders table {
+    display: block; /* Bảng hiển thị dưới dạng khối */
+    width: 100%; /* Bảng chiếm toàn bộ chiều rộng màn hình */
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    white-space: nowrap; /* Giữ nội dung trên một dòng */
+  }
+
+  /* Điều chỉnh kích thước chữ */
+  .recent-orders table td,
+  .recent-orders table th {
+    font-size: 9px; /* Giảm kích thước chữ cho ô */
+    padding: 5px; /* Giảm khoảng cách trong ô */
+  }
+
+  /* Tiêu đề bảng */
+  .recent-orders h2 {
+    font-size: 16px; /* Thu nhỏ tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
+  }
+
+  /* Nút bấm nhỏ hơn */
+  .recent-orders button {
+    font-size: 10px; /* Giảm kích thước chữ trên nút */
+    padding: 4px 6px; /* Giảm kích thước nút */
+  }
+
+  /* Dòng hover */
+  .recent-orders table tr:hover {
+    background-color: #f1f1f1; /* Hiệu ứng khi di chuột */
+  }
+}
+
+@media (max-width: 360px) {
+  /* Điều chỉnh padding tổng thể */
+  .main-wrapper {
+    padding-top: 40px;
+  }
+
+  /* Tiêu đề */
+  .home-title {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .home-title::after {
+    width: 50%; /* Giảm kích thước gạch dưới */
+  }
+
+  /* Thanh tìm kiếm */
+  .header-middle-center .form-search {
+    display: flex;
+    flex-direction: column; /* Đặt các phần tử tìm kiếm xếp dọc */
+    gap: 10px;
+  }
+
+  .form-search-input {
+    font-size: 12px; /* Thu nhỏ chữ */
+    padding: 8px; /* Giảm khoảng cách */
+  }
+
+  .filter-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  /* Bảng hóa đơn */
+  .recent-orders {
+    padding: 10px; /* Giảm khoảng cách padding */
+  }
+
+  .recent-orders h2 {
+    font-size: 18px;
+    text-align: center; /* Căn giữa tiêu đề */
+  }
+
+  .recent-orders table {
+    display: block; /* Chuyển bảng thành dạng khối */
+    width: 100%; /* Đảm bảo bảng chiếm toàn màn hình */
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    white-space: nowrap; /* Giữ nội dung không bị xuống dòng */
+  }
+
+  .recent-orders table th,
+  .recent-orders table td {
+    font-size: 12px; /* Thu nhỏ chữ */
+    padding: 5px; /* Giảm khoảng cách */
+  }
+
+  /* Nút xem hóa đơn */
+  .recent-orders button {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  /* Ẩn cột ít quan trọng (nếu cần) */
+  .recent-orders table td:nth-child(3),
+  .recent-orders table th:nth-child(3) {
+    display: none; /* Ẩn cột tên khách hàng */
+  }
+  
+  /* Đường dẫn chi tiết */
+  .recent-orders a {
+    font-size: 14px;
+  }
+
+  /* Các thành phần thống kê */
+  .analyse {
+    grid-template-columns: 1fr; /* Xếp chồng các thành phần */
+  }
+
+  .sales, .visits, .searches {
+    padding: 10px; /* Giảm khoảng cách */
+  }
+
+  .info h1 {
+    font-size: 18px;
+  }
+
+  .info h3 {
+    font-size: 14px;
+  }
+}
+.recent-orders table {
+  display: block; /* Chuyển bảng thành dạng khối */
+  width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng container */
+  overflow-x: auto; /* Thêm thanh cuộn ngang */
+  white-space: nowrap; /* Giữ nội dung không bị xuống dòng */
+}
+
+.recent-orders table th, 
+.recent-orders table td {
+  text-align: left; /* Căn trái cho nội dung */
+  font-size: 14px; /* Điều chỉnh kích thước chữ nếu cần */
+  padding: 10px; /* Khoảng cách bên trong ô */
+}​17:03/-strong/-heart:>:o:-((:-hĐã gửi Xem trước khi gửiThả Files vào đây để xem lại trước khi gửi
