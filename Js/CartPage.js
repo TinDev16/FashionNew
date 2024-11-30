@@ -107,6 +107,7 @@ function updateCartCount() {
 function toggleAllProducts() {
     let checkboxes = document.getElementsByName('product-checkbox');
     let isChecked = document.getElementById('select-all').checked;
+
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].checked = isChecked;
         if (isChecked) {
@@ -115,7 +116,9 @@ function toggleAllProducts() {
             removeFromCart(checkboxes[i].value);
         }
     }
+
     updateCartCount();
+    updateCartCountDisplay(); // Cập nhật số lượng trong cart-count
 }
 
 // Increase & Decrease & Delete & Checkout buttons
@@ -123,11 +126,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let decreaseButtons = document.querySelectorAll('.minus-button');
     let increaseButtons = document.querySelectorAll('.add-button');
     let checkboxes = document.querySelectorAll('input[type="checkbox"][name="product-checkbox"]');
-    let selectAllCheckbox = document.querySelector('input[type="checkbox"][id="select-all"]'); // Checkbox "Sản phẩm"
+    let selectAllCheckbox = document.querySelector('input[type="checkbox"][id="select-all"]');
     let checkoutButton = document.querySelector('.checkout-btn');
-
     let totalPriceElement = document.querySelector('.value');
     let totalProductsElement = document.querySelector('.total-products');
+    let cartCountElement = document.getElementById('cart-count'); // Thêm phần tử cart-count
 
     let totalPrice = 0;
     let totalProducts = 0;
@@ -152,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {
             updateTotalAmount();
+            updateCartCountDisplay(); // Cập nhật số lượng trong cart-count
         });
     });
 
@@ -160,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
         selectAllCheckbox.addEventListener('change', function () {
             toggleSelectAllProducts(this.checked);
             updateTotalAmount();
+            updateCartCountDisplay(); // Cập nhật số lượng trong cart-count
         });
     }
 
@@ -170,13 +175,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateTotalAmount() {
         totalPrice = 0;
         totalProducts = 0;
-        
+
         checkboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
                 let productRow = checkbox.closest('tr');
                 let quantityInput = productRow.querySelector('.product-quantity');
                 let quantity = parseInt(quantityInput.value);
-                
+
                 let priceText = productRow.querySelector('.price').textContent.replace(/[^0-9]/g, '');
                 let unitPrice = parseInt(priceText);
 
@@ -193,7 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
             totalProductsElement.textContent = totalProducts;
         }
     }
-    
+
+    function updateCartCountDisplay() {
+        let selectedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+        cartCountElement.textContent = `(${selectedCount})`; // Thêm dấu ngoặc đơn cho số lượng sản phẩm đã chọn
+    }
+
     function decreaseProductQuantity(productId) {
         let quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
         let quantity = parseInt(quantityInput.value);
@@ -256,7 +266,6 @@ document.addEventListener('DOMContentLoaded', function () {
         overlay.style.display = 'none';
     });
 });
-
 
 // Select-all checkbox
 document.getElementById('select-all').addEventListener('change', toggleAllProducts);
