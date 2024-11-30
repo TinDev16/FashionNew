@@ -2664,7 +2664,7 @@ input[type="number"] {
 }
 
 /* Hiển thị menu con khi hover vào mục "Sản phẩm" */
-.dropdown:hover .dropdown-content {
+ .dropdown-content {
   display: block;
 }
 

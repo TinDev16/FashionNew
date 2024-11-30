@@ -110,6 +110,67 @@ button:hover {
   background-color: #0056b3; /* Màu xanh đậm khi hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
 }
+/* Màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    #filterForm {
+        display: flex;
+        flex-direction: column; /* Các phần tử xếp theo chiều dọc */
+        align-items: center; /* Căn giữa nội dung */
+    }
+
+    #filterForm label,
+    #filterForm input,
+    #filterForm select,
+    #filterButton {
+        width: 90%; /* Chiếm gần toàn bộ chiều rộng màn hình */
+        max-width: 400px; /* Giới hạn chiều rộng tối đa */
+        margin-bottom: 10px; /* Thêm khoảng cách giữa các phần tử */
+    }
+
+    #filterButton {
+        text-align: center;
+    }
+}
+
+/* Màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+    #filterForm label {
+        text-align: left; /* Căn trái nhãn */
+    }
+
+    #filterForm label,
+    #filterForm input,
+    #filterForm select,
+    #filterButton {
+        width: 100%; /* Các phần tử chiếm toàn bộ chiều rộng màn hình */
+    }
+}
+/* Kiểm tra bảng khi thu nhỏ */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto; /* Bật cuộn ngang */
+        -webkit-overflow-scrolling: touch; /* Cuộn mượt mà trên iOS */
+        width: 100%; /* Đảm bảo chiều rộng của container là 100% */
+    }
+
+    table {
+        width: 100%; /* Đảm bảo bảng chiếm 100% chiều rộng */
+        table-layout: fixed; /* Cố định chiều rộng bảng */
+        border-collapse: collapse; /* Đảm bảo các biên của bảng không có khoảng trống */
+        display: block; /* Cần display block để có thể cuộn ngang */
+    }
+
+    th, td {
+        padding: 10px; /* Đảm bảo padding vừa phải */
+        text-align: center; /* Căn chỉnh nội dung trong các ô */
+        white-space: nowrap; /* Ngăn không cho văn bản xuống dòng trong các ô */
+    }
+
+    /* Đảm bảo các thẻ con không bị thừa và canh chỉnh bảng */
+    .table-container table {
+        max-width: 100%;
+    }
+}
 
 
     </style>
@@ -144,7 +205,7 @@ button:hover {
     
       
                 <div class="header-logo">
-                  <a href="#">
+                  <a href="index.html">
                       <img src="./Images/logo.png" alt="" class="header-logo-img">
                   </a>
               </div>
@@ -306,7 +367,9 @@ button:hover {
         </form>
         
         <div class="table-container" style="width: 80%; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
-            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+     <!-- Div chứa bảng với cuộn ngang -->
+     <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table style="min-width: 1000px; border-collapse: collapse; margin: 20px 0;">
                 <thead>
                     <tr>
                         <th style="padding: 10px; text-align: center; background-color:#08397a;; color: white;">ID Đơn hàng</th>
@@ -342,13 +405,16 @@ button:hover {
                   
                 </tbody>
              </table>
-             <div class="pagination-controls">
-                <button class="pagination" onclick="window.location.href='orderManagement-results.html';">1</button>
-                <button class="pagination" onclick="window.location.href='orderManagement-results.html';">2</button>
-                <button class="pagination" onclick="window.location.href='orderManagement-results.html';">3</button>
-                <button class="pagination" onclick="window.location.href='orderManagement-results.html';">Next >></button>
+  
         </div>
+
     </div>
+    <div class="pagination-controls">
+        <button class="pagination" onclick="window.location.href='orderManagement-results.html';">1</button>
+        <button class="pagination" onclick="window.location.href='orderManagement-results.html';">2</button>
+        <button class="pagination" onclick="window.location.href='orderManagement-results.html';">3</button>
+        <button class="pagination" onclick="window.location.href='orderManagement-results.html';">Next >></button>
+</div>
     <footer class="footer" id="footer">
 
 
@@ -359,8 +425,7 @@ button:hover {
                     <div class="widget-row-col-1">
                         <h3 class="widget-title">Về chúng tôi</h3>
                         <div class="widget-row-col-content">
-                            <p>Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>
-                        </div>
+                            <p style="color: black;">Fashion New là thương hiệu được thành lập vào năm 2024 với tiêu chí đặt chất lượng sản phẩm lên hàng đầu.</p>                        </div>
                         <div class="widget-social">
                             <div class="widget-social-item">
                                 <a href=""><i class="fab fa-facebook-f"></i></a>

@@ -181,15 +181,46 @@
         <div class="home-title-block" id="home-title">
             <h2 class="home-title">THỐNG KÊ SẢN PHẨM</h2>
         </div>		
+                  <div class="header-middle-center" style="align-item:center;">
+<div class="header-middle-center" >  
+    <form action="#" class="form-search" onsubmit="return handleSearchSubmit(event)">  
+        <span class="search-btn" style="cursor: pointer;" onclick="redirectToUserPage()">  
+            <i class="fa-light fa-magnifying-glass"></i>  
+        </span>  
+        <input type="text" class="form-search-input" placeholder="Tìm kiếm mặt hàng" id="search-input"   
+               onkeypress="if (event.key === 'Enter') redirectToUserPage();">  
+        <button type="button" class="filter-btn" onclick="redirectToUserPage()">  
+            <i class="fa-solid fa-magnifying-glass"></i><span>Tìm</span>  
+        </button>   
+    </form>  
+</div>  
+
+<script>  
+    function redirectToUserPage() {  
+        // Here you can also handle the input or any validation if needed  
+        const searchInput = document.getElementById('search-input').value;  
+        // Optionally, you could append the search value to the URL if you want to keep it  
+        const url = searchInput ? `user.html?query=${encodeURIComponent(searchInput)}` : 'locthongke.html';  
+        location.href = url; // Redirect to user.html  
+    }  
     
+    function handleSearchSubmit(event) {  
+        event.preventDefault(); // Prevent default form submission  
+        redirectToUserPage(); // Call the redirect function  
+        return false; // Return false to prevent further action  
+    }  
+</script>
+	
 <div id="filterForm">
   <p style="display: inline;">Từ ngày 
-    <input value="01-11-2024" style="width: 100px; text-align: center;">
+    <input value="01-11-2024" style="padding: 8px; margin-top:20px font-size: 14px; margin-right: 10px; text-align: center;">
   </p>
   <p style="display: inline;">Đến ngày 
-    <input value="30-11-2024" style="width: 100px; text-align: center;">
+    <input value="30-11-2024" style="padding: 8px; margin-top:20px font-size: 14px; margin-right: 10px; text-align: center;">
 	</p>
 	</div>
+	
+	
         <!-- Main Content -->
         <main>
             <!-- Analyses -->
@@ -259,31 +290,31 @@
                     <tbody>
                         <tr>
                             <td>Áo Thun Nam Trơn</td>
-                            <td>8</td>
+                            <td style="text-align:right; padding-right: 70px;">8</td>
                             <td>2.400.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
                             <td>Áo Thun Nam Họa Tiết In Thêu Đắp</td>
-                            <td>5</td>
+                            <td style="text-align:right; padding-right: 70px;">5</td>
                             <td>1.600.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
                             <td>Áo Thun Nam Phim Điện Ảnh Cám Hoạ</td>
-                            <td>8</td>
+                            <td style="text-align:right; padding-right: 70px;">8</td>
                             <td>2.600.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
                             <td>Áo Thun Nam Họa Tiết In Araneae</td>
-                            <td>10</td>
+                            <td style="text-align:right; padding-right: 70px;">9</td>
                             <td>12.800.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
                         <tr>
                             <td>Nón Lưỡi Trai Snapback</td>
-                            <td>5</td>
+                            <td style="text-align:right; padding-right: 70px;">5</td>
                             <td>4.000.000 VNĐ</td>
                             <td><button onclick="window.location.href='hoadon.html'">Xem Các Hóa Đơn</button></td>
                         </tr>
