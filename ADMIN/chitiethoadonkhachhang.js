@@ -88,8 +88,8 @@ function showOrderDetails(orderId) {
                 
            
                <div class="dropdn-container">
-<div id="status-select">  
-    <div class="dropdown-button" style="text-align:center;">Giao thành công</div>  
+<div id="status-select" style="display: flex; justify-content: center; align-items: center; height: 50px;">  
+    <div class="dropdown-button" style="text-align: center; margin-left: 25px;">Giao thành công</div>  
 </div>
                 </div>    
                 </div>      
