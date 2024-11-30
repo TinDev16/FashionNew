@@ -861,13 +861,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: left;
-    margin: 20px -20px;
+    margin: 20px -27px;
 }
   
 .minus-button,
 .add-button {
-    width: 30px;
-    height: 22px;
+    width: 40px;
+    height: 30px;
     font-size: 10px;
     font-weight: bold;
     background-color: #f2f2f2;
@@ -887,8 +887,8 @@ header {
 }
   
 .quantity input[type="number"] {
-    width: 30px;
-    height: 22px;
+    width: 40px;
+    height: 30px;
     font-size: 10px;
     text-align: center;
     border: 1px solid #ccc;
@@ -920,7 +920,7 @@ header {
 }
 
 .deleteButton:hover {
-    background-color: rgb(237, 56, 56);
+    background-color: #08397a;
     overflow: visible;
 }
 
@@ -1408,27 +1408,13 @@ a:link, a:visited {
         font-size: 16px;
     }
 
-    .quantity {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    .quantity input {
-        width: 25px;
-        height: 15px;
-        text-align: center;
-        border-radius: 4px;
-    }
-
     .minus-button,
     .add-button {
         display: flex; /* Đảm bảo nút trở thành flex container */
         justify-content: center;
         align-items: center;
-        width: 25px;
-        height: 20px; /* Tăng chiều cao để cân đối */
+        width: 30px;
+        height: 30px; /* Tăng chiều cao để cân đối */
         font-size: 14px; /* Đảm bảo ký tự dễ đọc */
         font-weight: bold;
         border: 1px solid #ccc;
@@ -1511,11 +1497,11 @@ a:link, a:visited {
     }
 
     .cart-content-header thead th.prices-sum {
-        padding-left: 25px;
+        padding-left: 15px;
     }
 
     .cart-content-header thead th.actions {
-        padding-left: 20px;
+        padding-left: 15px;
     }
     
     .cart-content-middle .product-info span {
@@ -1537,20 +1523,23 @@ a:link, a:visited {
 
     .quantity {
         margin-left: -20px;
-        margin-right: -10px;
-        width: 30%;
+        margin-right: -20px;
     }
 
-    .quantity input,
+    .quantity input[type="number"] {
+        width: 30px;
+        height: 25px;
+    }
+
     .minus-button,
     .add-button {
-        width: 15px;
-        height: 20px;
+        width: 10px;
+        height: 25px;
         font-size: 10px;
     }
 
     .minus-button {
-        margin-left: 15px;
+        margin-left: 5px;
     }
 
     .add-button {
