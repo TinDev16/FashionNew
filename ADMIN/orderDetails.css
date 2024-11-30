@@ -1040,7 +1040,7 @@ a:link, a:visited {
  /* Container tổng thể */
 #status-select {
     width: 200px; /* Chiều rộng dropdown */
-    padding: 10px; /* Khoảng cách bên trong */
+    padding: 10px 40px 10px 15px; /* Khoảng cách bên trong */
     font-size: 16px; /* Kích thước chữ */
     border: 2px solid #08397a; /* Đường viền màu xanh lam */
     border-radius: 8px; /* Bo góc */
@@ -1049,6 +1049,11 @@ a:link, a:visited {
     appearance: none; /* Ẩn biểu tượng mặc định */
     -webkit-appearance: none; /* Dành cho Safari */
     -moz-appearance: none; /* Dành cho Firefox */
+    text-align: center; /* Canh giữa chữ theo chiều ngang */
+    display: flex; /* Sử dụng Flexbox */
+    align-items: center; /* Canh giữa chữ theo chiều dọc */
+    justify-content: space-between; /* Chia đều phần chữ và mũi tên */
+    padding-right: 40px; /* Để khoảng trống cho mũi tên */
   }
   
   /* Giữ màu viền không thay đổi khi focus */
@@ -1073,10 +1078,11 @@ a:link, a:visited {
     content: '▼'; /* Biểu tượng mũi tên */
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 15px;
     transform: translateY(-50%);
     font-size: 12px;
     color: #08397a;
     pointer-events: none; /* Vô hiệu hóa nhấp chuột vào mũi tên */
   }
+  
   
