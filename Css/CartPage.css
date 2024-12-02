@@ -889,7 +889,7 @@ header {
 .quantity input[type="number"] {
     width: 40px;
     height: 30px;
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -977,18 +977,6 @@ header {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
-}
-
-.popover-close-button {
-    color: #000; /* Màu chữ của nút X */
-    font-size: 30px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    position: relative;
-    right: -85px;
-    top: -5px;
-    font-weight: lighter;
 }
 
 [popover] {
