@@ -10,18 +10,13 @@
 
 
 Hình ảnh giao diện
-![image](https://github.com/user-attachments/assets/18e3d18b-4610-499b-b7e3-014865466c51)
 ![screencapture-file-D-WEB-1-Do-an-index-html-2025-01-15-22_00_53](https://github.com/user-attachments/assets/dda8f3aa-b229-4ccd-a2c6-00025d986431)
 
-![image](https://github.com/user-attachments/assets/0261a0e8-7da9-4b72-8071-bd426ce217c9)
 
+![screencapture-file-D-WEB-1-Do-an-index-html-2025-01-15-22_00_53](https://github.com/user-attachments/assets/ccfb883d-60e2-447e-8333-4f53623b86c0)
 
-Trang thông tin sản phẩm
-![image](https://github.com/user-attachments/assets/c564f730-58fb-43d5-87c0-576bbe081990)
+![screencapture-file-D-WEB-1-Do-an-index-html-2025-01-15-22_00_53](https://github.com/user-attachments/assets/1e87b773-1194-4c41-a1d8-65751f8e6194)
 
-Trang giỏ hàng
-![image](https://github.com/user-attachments/assets/1c5bad0a-109a-4f2e-98e2-10c17b35aeed)
+![screencapture-file-D-WEB-1-Do-an-index-html-2025-01-15-22_00_53](https://github.com/user-attachments/assets/ca87c91c-9d39-4d1c-a1e8-9a9d0983b11c)
 
-Lịch sử mua hàng
-![image](https://github.com/user-attachments/assets/e0394f8f-22f4-4539-94bc-4393307e94b5)
-
+![screencapture-file-D-WEB-1-Do-an-BillPage-html-2025-01-15-22_36_36](https://github.com/user-attachments/assets/2e11c51f-44d9-414f-91e2-e22dc9353b0d)
